@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import shared fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+  }
+
+  [dir='rtl'] {
+    --font-body: 'IBM Plex Sans Arabic', sans-serif;
+    --font-heading: 'Cairo', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    @apply bg-stone text-ink-900 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .portal-sidebar {
+    @apply fixed inset-y-0 start-0 z-40 w-64 bg-navy shadow-navy-md;
+  }
+
+  .portal-main {
+    @apply ms-64 min-h-screen bg-stone;
+  }
+}
