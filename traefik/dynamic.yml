@@ -40,11 +40,11 @@ http:
         period:  1m
         burst:   5
 
-    # ── www → non-www redirect (used on web router) ───────────────────────────
+    # ── www → apex redirect ───────────────────────────────────────────────────
     www-to-apex:
       redirectRegex:
-        regex:       "^https://www\\.nazrahalalam\\.com/(.*)"
-        replacement: "https://nazrahalalam.com/${1}"
+        regex:       "^https://www\\.algarni\\.online/(.*)"
+        replacement: "https://algarni.online/${1}"
         permanent:   true
 
     # ── Traefik dashboard basic auth ──────────────────────────────────────────
@@ -59,8 +59,9 @@ http:
     cors-api:
       headers:
         accessControlAllowOriginList:
-          - "https://www.nazrahalalam.com"
-          - "https://app.nazrahalalam.com"
+          - "https://nazrah-main.algarni.online"
+          - "https://nazrah-client.algarni.online"
+          - "https://nazrah-app.algarni.online"
         accessControlAllowMethods:
           - GET
           - POST

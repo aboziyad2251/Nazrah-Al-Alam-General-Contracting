@@ -33,7 +33,7 @@ services:
     labels:
       - "traefik.enable=true"
       # Expose dashboard on its own subdomain (internal only via SSH tunnel)
-      - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.${DOMAIN:-nazrahalalam.com}`)"
+      - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.algarni.online`)"
       - "traefik.http.routers.traefik-dashboard.entrypoints=websecure"
       - "traefik.http.routers.traefik-dashboard.tls.certresolver=letsencrypt"
       - "traefik.http.routers.traefik-dashboard.service=api@internal"
@@ -63,11 +63,10 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=nazrahalalam_proxy"
       # Main router
-      - "traefik.http.routers.web.rule=Host(`${DOMAIN:-nazrahalalam.com}`) || Host(`www.${DOMAIN:-nazrahalalam.com}`)"
+      - "traefik.http.routers.web.rule=Host(`${WEB_HOST:-nazrah-main.algarni.online}`)"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.http.routers.web.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.web.tls.domains[0].main=${DOMAIN:-nazrahalalam.com}"
-      - "traefik.http.routers.web.tls.domains[0].sans=www.${DOMAIN:-nazrahalalam.com}"
+      - "traefik.http.routers.web.tls.domains[0].main=${WEB_HOST:-nazrah-main.algarni.online}"
       - "traefik.http.routers.web.middlewares=compress@file,security-headers@file,rate-limit@file"
       - "traefik.http.services.web.loadbalancer.server.port=3000"
       - "traefik.http.services.web.loadbalancer.healthcheck.path=/api/health"
@@ -92,7 +91,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=nazrahalalam_proxy"
-      - "traefik.http.routers.portal.rule=Host(`app.${DOMAIN:-nazrahalalam.com}`)"
+      - "traefik.http.routers.portal.rule=Host(`${PORTAL_HOST:-nazrah-client.algarni.online}`)"
       - "traefik.http.routers.portal.entrypoints=websecure"
       - "traefik.http.routers.portal.tls.certresolver=letsencrypt"
       - "traefik.http.routers.portal.middlewares=compress@file,security-headers@file,rate-limit@file"
@@ -188,7 +187,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=nazrahalalam_proxy"
-      - "traefik.http.routers.admin.rule=Host(`admin.${DOMAIN:-nazrahalalam.com}`)"
+      - "traefik.http.routers.admin.rule=Host(`${ADMIN_HOST:-nazrah-app.algarni.online}`)"
       - "traefik.http.routers.admin.entrypoints=websecure"
       - "traefik.http.routers.admin.tls.certresolver=letsencrypt"
       - "traefik.http.routers.admin.middlewares=compress@file,security-headers@file,rate-limit-auth@file"

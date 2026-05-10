@@ -131,6 +131,7 @@ jobs:
           build-args: |
             NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
             NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+            NEXT_PUBLIC_SITE_URL=https://nazrah-main.algarni.online
           cache-from: type=gha,scope=web
           cache-to:   type=gha,scope=web,mode=max
           platforms:  linux/amd64
