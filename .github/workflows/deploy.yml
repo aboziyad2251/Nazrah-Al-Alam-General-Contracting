@@ -1,18 +1,5 @@
 ## Nazrah Al Alam — CI / CD Pipeline
-##
-## Triggers: push to master
-## Jobs:    quality (non-blocking) | build → deploy
-##
-## Required GitHub Secrets (Settings → Secrets → Actions):
-##   GHCR_TOKEN                  — GitHub PAT: packages:write, contents:read
-##   SSH_PRIVATE_KEY             — Ed25519 private key for VPS deploy user
-##   SSH_HOST                    — VPS IP or hostname
-##   SSH_USER                    — VPS username (e.g. deploy)
-##   NEXT_PUBLIC_SUPABASE_URL
-##   NEXT_PUBLIC_SUPABASE_ANON_KEY
-##   VITE_SUPABASE_URL
-##   VITE_SUPABASE_ANON_KEY
-##   SLACK_WEBHOOK_URL           — optional
+## Single image build (nazrah-all) → deploy to VPS
 
 name: CI / Deploy
 
@@ -32,35 +19,24 @@ env:
 
 jobs:
 
-  # ── Quality: lint + typecheck (informational — does not block deploy) ─────────
+  # ── Quality (informational, non-blocking) ─────────────────────────────────────
   quality:
     name: Lint & typecheck
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       - uses: actions/checkout@v4
-
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9.0.0
-
+        with: { version: 9.0.0 }
       - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run typecheck || true
+      - run: pnpm run lint     || true
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Typecheck
-        run: pnpm run typecheck || true
-
-      - name: Lint
-        run: pnpm run lint || true
-
-  # ── Build & push Docker images ────────────────────────────────────────────────
+  # ── Build single image ────────────────────────────────────────────────────────
   build:
-    name: Build & push images
+    name: Build & push nazrah-all
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
@@ -69,10 +45,8 @@ jobs:
       packages: write
 
     outputs:
-      sha_short:   ${{ steps.sha.outputs.short }}
-      web_tag:     ${{ steps.meta-web.outputs.version }}
-      portal_tag:  ${{ steps.meta-portal.outputs.version }}
-      admin_tag:   ${{ steps.meta-admin.outputs.version }}
+      sha_short: ${{ steps.sha.outputs.short }}
+      app_tag:   ${{ steps.meta.outputs.version }}
 
     steps:
       - uses: actions/checkout@v4
@@ -81,8 +55,7 @@ jobs:
         id: sha
         run: echo "short=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v3
 
       - name: Log in to GHCR
         uses: docker/login-action@v3
@@ -91,81 +64,32 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
-      # ── Metadata ────────────────────────────────────────────────────────────
-      - name: Docker metadata (web)
-        id: meta-web
+      - name: Docker metadata
+        id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.IMAGE_PREFIX }}/nazrah-web
+          images: ${{ env.IMAGE_PREFIX }}/nazrah-all
           tags: |
             type=sha,prefix=sha-,format=short
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - name: Docker metadata (portal)
-        id: meta-portal
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.IMAGE_PREFIX }}/nazrah-portal
-          tags: |
-            type=sha,prefix=sha-,format=short
-            type=raw,value=latest,enable={{is_default_branch}}
-
-      - name: Docker metadata (admin)
-        id: meta-admin
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.IMAGE_PREFIX }}/nazrah-admin
-          tags: |
-            type=sha,prefix=sha-,format=short
-            type=raw,value=latest,enable={{is_default_branch}}
-
-      # ── Builds (run in parallel via separate steps, each cached) ────────────
-      - name: Build & push nazrah-web
+      - name: Build & push nazrah-all
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Dockerfile.web
+          file: ./Dockerfile.all
           push: true
-          tags: ${{ steps.meta-web.outputs.tags }}
-          labels: ${{ steps.meta-web.outputs.labels }}
+          tags:   ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
             NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
             NEXT_PUBLIC_SITE_URL=https://nazrah-main.algarni.online
-          cache-from: type=gha,scope=web
-          cache-to:   type=gha,scope=web,mode=max
-          platforms:  linux/amd64
-
-      - name: Build & push nazrah-portal
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./Dockerfile.portal
-          push: true
-          tags: ${{ steps.meta-portal.outputs.tags }}
-          labels: ${{ steps.meta-portal.outputs.labels }}
-          build-args: |
             VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }}
             VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }}
             VITE_APP_VERSION=${{ steps.sha.outputs.short }}
-          cache-from: type=gha,scope=portal
-          cache-to:   type=gha,scope=portal,mode=max
-          platforms:  linux/amd64
-
-      - name: Build & push nazrah-admin
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./Dockerfile.admin
-          push: true
-          tags: ${{ steps.meta-admin.outputs.tags }}
-          labels: ${{ steps.meta-admin.outputs.labels }}
-          build-args: |
-            VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }}
-            VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }}
-            VITE_APP_VERSION=${{ steps.sha.outputs.short }}
-          cache-from: type=gha,scope=admin
-          cache-to:   type=gha,scope=admin,mode=max
+          cache-from: type=gha
+          cache-to:   type=gha,mode=max
           platforms:  linux/amd64
 
   # ── Deploy to VPS ─────────────────────────────────────────────────────────────
@@ -177,8 +101,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up SSH agent
-        uses: webfactory/ssh-agent@v0.9.0
+      - uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -187,17 +110,18 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
 
-      - name: Sync compose files to VPS
+      - name: Sync compose + config files to VPS
         run: |
           rsync -avz --checksum \
             docker-compose.yml \
             traefik/ \
             nginx/ \
+            supervisord.conf \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/opt/nazrah/
 
-      - name: Pull & restart services
+      - name: Pull new image & restart
         env:
-          SHA:        ${{ needs.build.outputs.sha_short }}
+          SHA: ${{ needs.build.outputs.sha_short }}
           GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash -s << 'ENDSSH'
@@ -207,12 +131,10 @@ jobs:
             echo "$GHCR_TOKEN" | docker login ghcr.io \
               -u "${{ github.actor }}" --password-stdin
 
-            WEB_TAG="sha-$SHA" PORTAL_TAG="sha-$SHA" ADMIN_TAG="sha-$SHA" \
-              docker compose pull nazrah-web nazrah-portal nazrah-admin
+            APP_TAG="sha-$SHA" docker compose pull nazrah-all
 
-            WEB_TAG="sha-$SHA" PORTAL_TAG="sha-$SHA" ADMIN_TAG="sha-$SHA" \
-              docker compose up -d --remove-orphans --no-deps \
-              nazrah-web nazrah-portal nazrah-admin
+            APP_TAG="sha-$SHA" docker compose up -d \
+              --remove-orphans --no-deps nazrah-all
 
             sleep 15
             docker compose ps --format "table {{.Name}}\t{{.Status}}"
@@ -225,13 +147,7 @@ jobs:
         run: |
           curl -s -X POST "$SLACK_WEBHOOK" \
             -H 'Content-Type: application/json' \
-            -d '{
-              "text": "✅ *Nazrah Al Alam* deployed `sha-${{ needs.build.outputs.sha_short }}`",
-              "attachments": [{"color": "good", "fields": [
-                {"title": "Actor", "value": "${{ github.actor }}", "short": true},
-                {"title": "Commit", "value": "${{ github.sha }}", "short": true}
-              ]}]
-            }'
+            -d '{"text":"✅ *Nazrah Al Alam* `sha-${{ needs.build.outputs.sha_short }}` deployed","attachments":[{"color":"good","fields":[{"title":"Actor","value":"${{ github.actor }}","short":true}]}]}'
 
       - name: Notify Slack on failure
         if: failure() && env.SLACK_WEBHOOK != ''
@@ -240,4 +156,4 @@ jobs:
         run: |
           curl -s -X POST "$SLACK_WEBHOOK" \
             -H 'Content-Type: application/json' \
-            -d '{"text": "🚨 *Nazrah Al Alam* deploy FAILED — <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|view run>", "attachments": [{"color": "danger"}]}'
+            -d '{"text":"🚨 *Nazrah Al Alam* deploy FAILED — <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|view run>","attachments":[{"color":"danger"}]}'

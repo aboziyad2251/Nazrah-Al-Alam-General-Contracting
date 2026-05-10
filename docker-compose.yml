@@ -1,11 +1,10 @@
 ## Nazrah Al Alam — Production Docker Compose
-## Runs on Hostinger VPS (Ubuntu 22.04 LTS).
-## Pull .env from secrets manager or copy .env.example → .env and fill values.
-## First deployment: see DEPLOYMENT.md
+## Single app container (nginx + Next.js via supervisord) + Traefik + Postgres + Redis
+## VPS: 76.13.40.119 | Domain: algarni.online
 
 services:
 
-  # ── Traefik: reverse proxy + TLS ────────────────────────────────────────────
+  # ── Traefik: reverse proxy + TLS ─────────────────────────────────────────────
   traefik:
     image: traefik:v3.2
     container_name: traefik
@@ -15,12 +14,12 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "127.0.0.1:8080:8080"   # Dashboard — local only, access via SSH tunnel
+      - "127.0.0.1:8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik/traefik.yml:/traefik.yml:ro
       - ./traefik/dynamic.yml:/dynamic.yml:ro
-      - ./traefik/auth:/auth:ro  # htpasswd file for dashboard
+      - ./traefik/auth:/auth:ro
       - traefik-certs:/etc/traefik/acme
     networks:
       - proxy
@@ -32,21 +31,23 @@ services:
       start_period: 10s
     labels:
       - "traefik.enable=true"
-      # Expose dashboard on its own subdomain (internal only via SSH tunnel)
       - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.algarni.online`)"
       - "traefik.http.routers.traefik-dashboard.entrypoints=websecure"
       - "traefik.http.routers.traefik-dashboard.tls.certresolver=letsencrypt"
       - "traefik.http.routers.traefik-dashboard.service=api@internal"
       - "traefik.http.routers.traefik-dashboard.middlewares=dashboard-auth@file"
 
-  # ── Next.js public website ───────────────────────────────────────────────────
-  nazrah-web:
-    image: ghcr.io/${GHCR_REPO}/nazrah-web:${WEB_TAG:-latest}
-    container_name: nazrah-web
+  # ── All apps — single container (nginx + Node.js via supervisord) ─────────────
+  # nginx routes internally:
+  #   nazrah-main.algarni.online   → Node.js :3000 (Next.js)
+  #   nazrah-client.algarni.online → /var/www/portal  (static)
+  #   nazrah-app.algarni.online    → /var/www/admin   (static)
+  nazrah-all:
+    image: ghcr.io/${GHCR_REPO}/nazrah-all:${APP_TAG:-latest}
+    container_name: nazrah-all
     restart: unless-stopped
     environment:
       NODE_ENV: production
-      # Runtime-only vars (not baked into bundle — server-side only)
       SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
     networks:
       - proxy
@@ -54,7 +55,7 @@ services:
       traefik:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/api/health || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://localhost/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -62,43 +63,28 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=nazrahalalam_proxy"
-      # Main router
+      # Three hostnames → same container, nginx handles virtual hosting internally
       - "traefik.http.routers.web.rule=Host(`${WEB_HOST:-nazrah-main.algarni.online}`)"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.http.routers.web.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.web.tls.domains[0].main=${WEB_HOST:-nazrah-main.algarni.online}"
       - "traefik.http.routers.web.middlewares=compress@file,security-headers@file,rate-limit@file"
-      - "traefik.http.services.web.loadbalancer.server.port=3000"
-      - "traefik.http.services.web.loadbalancer.healthcheck.path=/api/health"
-      - "traefik.http.services.web.loadbalancer.healthcheck.interval=30s"
-
-  # ── Client portal (Vite → nginx) ─────────────────────────────────────────────
-  nazrah-portal:
-    image: ghcr.io/${GHCR_REPO}/nazrah-portal:${PORTAL_TAG:-latest}
-    container_name: nazrah-portal
-    restart: unless-stopped
-    networks:
-      - proxy
-    depends_on:
-      traefik:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=nazrahalalam_proxy"
+      - "traefik.http.routers.web.service=nazrah-all"
       - "traefik.http.routers.portal.rule=Host(`${PORTAL_HOST:-nazrah-client.algarni.online}`)"
       - "traefik.http.routers.portal.entrypoints=websecure"
       - "traefik.http.routers.portal.tls.certresolver=letsencrypt"
       - "traefik.http.routers.portal.middlewares=compress@file,security-headers@file,rate-limit@file"
-      - "traefik.http.services.portal.loadbalancer.server.port=8080"
-      - "traefik.http.services.portal.loadbalancer.healthcheck.path=/health"
+      - "traefik.http.routers.portal.service=nazrah-all"
+      - "traefik.http.routers.admin.rule=Host(`${ADMIN_HOST:-nazrah-app.algarni.online}`)"
+      - "traefik.http.routers.admin.entrypoints=websecure"
+      - "traefik.http.routers.admin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.admin.middlewares=compress@file,security-headers@file,rate-limit-auth@file"
+      - "traefik.http.routers.admin.service=nazrah-all"
+      # Single service definition — all routers point here
+      - "traefik.http.services.nazrah-all.loadbalancer.server.port=80"
+      - "traefik.http.services.nazrah-all.loadbalancer.healthcheck.path=/health"
+      - "traefik.http.services.nazrah-all.loadbalancer.healthcheck.interval=30s"
 
-  # ── PostgreSQL (staging / non-Supabase workloads) ────────────────────────────
+  # ── PostgreSQL ────────────────────────────────────────────────────────────────
   postgres:
     image: postgres:16-alpine
     container_name: nazrah-postgres
@@ -113,7 +99,7 @@ services:
     networks:
       - backend
     ports:
-      - "127.0.0.1:5432:5432"   # Bind to loopback only
+      - "127.0.0.1:5432:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nazrah} -d ${POSTGRES_DB:-nazrah}"]
       interval: 10s
@@ -121,7 +107,7 @@ services:
       retries: 5
       start_period: 20s
 
-  # ── Redis (sessions, rate-limit cache, queue) ────────────────────────────────
+  # ── Redis ─────────────────────────────────────────────────────────────────────
   redis:
     image: redis:7-alpine
     container_name: nazrah-redis
@@ -138,7 +124,7 @@ services:
     networks:
       - backend
     ports:
-      - "127.0.0.1:6379:6379"   # Bind to loopback only
+      - "127.0.0.1:6379:6379"
     healthcheck:
       test: ["CMD-SHELL", "redis-cli -a $$REDIS_PASSWORD ping | grep PONG"]
       interval: 10s
@@ -146,70 +132,32 @@ services:
       retries: 3
       start_period: 10s
 
-  # ── Watchtower: auto-pull updated images ─────────────────────────────────────
-  # Watches only the named app containers; infrastructure containers are excluded.
+  # ── Watchtower: auto-pull on new image push ───────────────────────────────────
   watchtower:
     image: containrrr/watchtower:1.7.1
     container_name: watchtower
     restart: unless-stopped
     environment:
-      WATCHTOWER_CLEANUP:                          "true"
-      WATCHTOWER_INCLUDE_STOPPED:                  "false"
-      WATCHTOWER_REVIVE_STOPPED:                   "false"
-      WATCHTOWER_POLL_INTERVAL:                    300
-      WATCHTOWER_ROLLING_RESTART:                  "true"
-      WATCHTOWER_NOTIFICATIONS:                    slack
-      WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL:      ${SLACK_WEBHOOK_URL:-}
-      WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER:    "watchtower-nazrah"
-      WATCHTOWER_NOTIFICATION_SLACK_CHANNEL:       "#deployments"
+      WATCHTOWER_CLEANUP:                       "true"
+      WATCHTOWER_POLL_INTERVAL:                 300
+      WATCHTOWER_ROLLING_RESTART:               "true"
+      WATCHTOWER_NOTIFICATIONS:                 slack
+      WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL:   ${SLACK_WEBHOOK_URL:-}
+      WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER: "watchtower-nazrah"
+      WATCHTOWER_NOTIFICATION_SLACK_CHANNEL:    "#deployments"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      # Reuse the Docker credential store so Watchtower can pull from GHCR
       - /root/.docker/config.json:/config.json:ro
-    command: nazrah-web nazrah-portal nazrah-admin --interval 300
+    command: nazrah-all --interval 300
 
-  # ── Admin panel ───────────────────────────────────────────────────────────────
-  nazrah-admin:
-    image: ghcr.io/${GHCR_REPO}/nazrah-admin:${ADMIN_TAG:-latest}
-    container_name: nazrah-admin
-    restart: unless-stopped
-    networks:
-      - proxy
-    depends_on:
-      traefik:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=nazrahalalam_proxy"
-      - "traefik.http.routers.admin.rule=Host(`${ADMIN_HOST:-nazrah-app.algarni.online}`)"
-      - "traefik.http.routers.admin.entrypoints=websecure"
-      - "traefik.http.routers.admin.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.admin.middlewares=compress@file,security-headers@file,rate-limit-auth@file"
-      - "traefik.http.services.admin.loadbalancer.server.port=8080"
-      - "traefik.http.services.admin.loadbalancer.healthcheck.path=/health"
-
-  # ── Future: self-hosted API ────────────────────────────────────────────────────
-  # api:
-  #   image: ghcr.io/${GHCR_REPO}/nazrah-api:${API_TAG:-latest}
-  #   ...
-  #   labels:
-  #     - "traefik.http.routers.api.rule=Host(`api.nazrahalalam.com`)"
-  #     - "traefik.http.routers.api.middlewares=compress@file,cors-api@file,rate-limit@file"
-
-# ── Networks ─────────────────────────────────────────────────────────────────
+# ── Networks ──────────────────────────────────────────────────────────────────
 networks:
   proxy:
     driver: bridge
   backend:
     driver: bridge
 
-# ── Volumes ──────────────────────────────────────────────────────────────────
+# ── Volumes ───────────────────────────────────────────────────────────────────
 volumes:
   traefik-certs:
     driver: local

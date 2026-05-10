@@ -1,0 +1,88 @@
+# ─── Stage 1: base ────────────────────────────────────────────────────────────
+FROM node:22-alpine AS base
+ENV PNPM_HOME="/pnpm" PATH="/pnpm:$PATH"
+RUN corepack enable pnpm && corepack prepare pnpm@9.0.0 --activate
+
+# ─── Stage 2: install workspace deps ──────────────────────────────────────────
+FROM base AS deps
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY turbo.json* ./
+COPY apps/web/package.json    ./apps/web/
+COPY apps/portal/package.json ./apps/portal/
+COPY apps/admin/package.json  ./apps/admin/
+COPY packages/                ./packages/
+RUN mkdir -p packages/i18n packages/types && \
+    echo '{"name":"@nazrah/i18n","version":"0.0.1"}' > packages/i18n/package.json && \
+    echo '{"name":"@nazrah/types","version":"0.0.1"}' > packages/types/package.json
+
+RUN pnpm install --frozen-lockfile
+
+# ─── Stage 3: build Next.js website ──────────────────────────────────────────
+FROM base AS build-web
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ARG NEXT_PUBLIC_SUPABASE_URL
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+ARG NEXT_PUBLIC_SITE_URL=https://nazrah-main.algarni.online
+ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL \
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY \
+    NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+
+RUN pnpm --filter @nazrah/web build
+
+# ─── Stage 4: build Vite SPAs (portal + admin) ───────────────────────────────
+FROM base AS build-spa
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+ARG VITE_APP_VERSION=latest
+ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL \
+    VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY \
+    VITE_APP_VERSION=$VITE_APP_VERSION
+
+RUN pnpm --filter @nazrah/portal build && \
+    pnpm --filter @nazrah/admin  build
+
+# ─── Stage 5: runtime — nginx + Node.js (supervisord) ────────────────────────
+FROM node:22-alpine AS runner
+
+# nginx + supervisor for process management
+RUN apk add --no-cache nginx supervisor && \
+    mkdir -p /var/www/portal \
+             /var/www/admin \
+             /var/log/supervisor \
+             /run/nginx && \
+    rm -f /etc/nginx/http.d/default.conf
+
+WORKDIR /app
+
+# ── Next.js standalone ───────────────────────────────────────────────────────
+COPY --from=build-web /app/apps/web/.next/standalone ./
+COPY --from=build-web /app/apps/web/.next/static     ./apps/web/.next/static
+COPY --from=build-web /app/apps/web/public           ./apps/web/public
+
+# ── Vite SPA bundles ─────────────────────────────────────────────────────────
+COPY --from=build-spa /app/apps/portal/dist /var/www/portal
+COPY --from=build-spa /app/apps/admin/dist  /var/www/admin
+
+# ── Config files ─────────────────────────────────────────────────────────────
+COPY nginx/all-apps.conf      /etc/nginx/http.d/all-apps.conf
+COPY supervisord.conf         /etc/supervisor.d/app.ini
+
+ENV NODE_ENV=production \
+    PORT=3000 \
+    HOSTNAME=127.0.0.1
+
+EXPOSE 80
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD wget -qO- http://localhost/health || exit 1
+
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
