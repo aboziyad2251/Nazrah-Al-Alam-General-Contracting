@@ -33,7 +33,7 @@ services:
     labels:
       - "traefik.enable=true"
       # Expose dashboard on its own subdomain (internal only via SSH tunnel)
-      - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.nazrahalalam.com`)"
+      - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.${DOMAIN:-nazrahalalam.com}`)"
       - "traefik.http.routers.traefik-dashboard.entrypoints=websecure"
       - "traefik.http.routers.traefik-dashboard.tls.certresolver=letsencrypt"
       - "traefik.http.routers.traefik-dashboard.service=api@internal"
@@ -63,11 +63,11 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=nazrahalalam_proxy"
       # Main router
-      - "traefik.http.routers.web.rule=Host(`nazrahalalam.com`) || Host(`www.nazrahalalam.com`)"
+      - "traefik.http.routers.web.rule=Host(`${DOMAIN:-nazrahalalam.com}`) || Host(`www.${DOMAIN:-nazrahalalam.com}`)"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.http.routers.web.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.web.tls.domains[0].main=nazrahalalam.com"
-      - "traefik.http.routers.web.tls.domains[0].sans=www.nazrahalalam.com"
+      - "traefik.http.routers.web.tls.domains[0].main=${DOMAIN:-nazrahalalam.com}"
+      - "traefik.http.routers.web.tls.domains[0].sans=www.${DOMAIN:-nazrahalalam.com}"
       - "traefik.http.routers.web.middlewares=compress@file,security-headers@file,rate-limit@file"
       - "traefik.http.services.web.loadbalancer.server.port=3000"
       - "traefik.http.services.web.loadbalancer.healthcheck.path=/api/health"
@@ -92,7 +92,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=nazrahalalam_proxy"
-      - "traefik.http.routers.portal.rule=Host(`app.nazrahalalam.com`)"
+      - "traefik.http.routers.portal.rule=Host(`app.${DOMAIN:-nazrahalalam.com}`)"
       - "traefik.http.routers.portal.entrypoints=websecure"
       - "traefik.http.routers.portal.tls.certresolver=letsencrypt"
       - "traefik.http.routers.portal.middlewares=compress@file,security-headers@file,rate-limit@file"
@@ -167,28 +167,33 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       # Reuse the Docker credential store so Watchtower can pull from GHCR
       - /root/.docker/config.json:/config.json:ro
-    command: nazrah-web nazrah-portal --interval 300
+    command: nazrah-web nazrah-portal nazrah-admin --interval 300
 
-  # ── Optional: Admin panel ─────────────────────────────────────────────────────
-  # Uncomment when apps/admin is production-ready
-  # nazrah-admin:
-  #   image: ghcr.io/${GHCR_REPO}/nazrah-admin:${ADMIN_TAG:-latest}
-  #   container_name: nazrah-admin
-  #   restart: unless-stopped
-  #   networks:
-  #     - proxy
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
-  #     interval: 30s
-  #     timeout: 5s
-  #     retries: 3
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.admin.rule=Host(`admin.nazrahalalam.com`)"
-  #     - "traefik.http.routers.admin.entrypoints=websecure"
-  #     - "traefik.http.routers.admin.tls.certresolver=letsencrypt"
-  #     - "traefik.http.routers.admin.middlewares=compress@file,security-headers@file,rate-limit-auth@file"
-  #     - "traefik.http.services.admin.loadbalancer.server.port=8080"
+  # ── Admin panel ───────────────────────────────────────────────────────────────
+  nazrah-admin:
+    image: ghcr.io/${GHCR_REPO}/nazrah-admin:${ADMIN_TAG:-latest}
+    container_name: nazrah-admin
+    restart: unless-stopped
+    networks:
+      - proxy
+    depends_on:
+      traefik:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=nazrahalalam_proxy"
+      - "traefik.http.routers.admin.rule=Host(`admin.${DOMAIN:-nazrahalalam.com}`)"
+      - "traefik.http.routers.admin.entrypoints=websecure"
+      - "traefik.http.routers.admin.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.admin.middlewares=compress@file,security-headers@file,rate-limit-auth@file"
+      - "traefik.http.services.admin.loadbalancer.server.port=8080"
+      - "traefik.http.services.admin.loadbalancer.healthcheck.path=/health"
 
   # ── Future: self-hosted API ────────────────────────────────────────────────────
   # api:
