@@ -1,0 +1,187 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "equipment": "Equipment",
+    "services": "Services",
+    "projects": "Projects",
+    "brands": "Partners",
+    "quote": "Get a Quote",
+    "contact": "Contact"
+  },
+  "common": {
+    "requestQuote": "Request a Quote",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "copyright": "© 2024 Nazrah Al Alam General Contracting. All rights reserved.",
+    "tagline": "Building Futures · Delivering Excellence · Building Trust",
+    "location": "Al Aqsa Business Park, Jeddah, Saudi Arabia",
+    "phone": "+966 59 981 0888",
+    "email": "Nazaralalam@gmail.com",
+    "whatsapp": "Chat on WhatsApp"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Est. 1999 · Jeddah, Saudi Arabia",
+      "tagline": "Building Futures",
+      "tagline2": "Delivering Excellence",
+      "tagline3": "Building Trust",
+      "subtitle": "A leading general contracting firm delivering world-class civil, mechanical, electrical, and infrastructure projects across the Kingdom.",
+      "cta": "Explore Our Work",
+      "ctaSecondary": "Get a Quote"
+    },
+    "stats": {
+      "experience": "Years of Experience",
+      "projects": "Projects Delivered",
+      "equipment": "Equipment Units",
+      "clients": "Satisfied Clients"
+    },
+    "services": {
+      "eyebrow": "What We Do",
+      "title": "Our Services",
+      "subtitle": "Comprehensive contracting solutions for every project scale"
+    },
+    "equipment": {
+      "eyebrow": "Our Fleet",
+      "title": "Featured Equipment",
+      "subtitle": "State-of-the-art machinery ready for your most demanding projects"
+    },
+    "brands": {
+      "eyebrow": "Our Partners",
+      "title": "Trusted Brands",
+      "subtitle": "We operate and supply equipment from the world's leading manufacturers"
+    },
+    "cta": {
+      "title": "Ready to Start Your Next Project?",
+      "subtitle": "Contact our team for a free consultation and customized quote.",
+      "button": "Get a Free Quote",
+      "buttonSecondary": "Call Us Now"
+    }
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "title": "Built on Decades of Excellence",
+    "subtitle": "Nazrah Al Alam General Contracting has delivered landmark projects across Saudi Arabia since 1999.",
+    "founder": {
+      "eyebrow": "Founder's Story",
+      "title": "Muhammad Hussain Muhammad Baroom",
+      "role": "Founder & Chairman",
+      "bio": "Mr. Muhammad Hussain Muhammad Baroom established Nazrah Al Alam General Contracting with a singular vision: to build Saudi Arabia's future with integrity, precision, and world-class quality. With decades of hands-on engineering experience, he built a company that today operates one of the Kingdom's most advanced construction fleets and has delivered hundreds of projects—from private villas to commercial towers and critical infrastructure. His leadership instilled a culture where every project is treated as a personal commitment to the client and the nation."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "To be the most trusted general contracting partner in the Kingdom, setting new standards in quality, safety, and sustainability."
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "To deliver exceptional construction projects with uncompromising quality, on time and within budget, while fostering long-term client partnerships."
+    },
+    "values": {
+      "title": "Values",
+      "items": ["Integrity", "Excellence", "Safety", "Innovation", "Partnership", "Sustainability"]
+    },
+    "why": {
+      "eyebrow": "Why Choose Us",
+      "title": "The Nazrah Al Alam Difference",
+      "items": [
+        {
+          "title": "25+ Years Experience",
+          "desc": "Decades of proven performance across Saudi Arabia's most demanding projects."
+        },
+        {
+          "title": "Modern Heavy Fleet",
+          "desc": "Owned fleet of 40+ units including bulldozers, loaders, excavators, and generators."
+        },
+        {
+          "title": "Expert Team",
+          "desc": "Licensed engineers, certified operators, and skilled tradesmen on every site."
+        },
+        {
+          "title": "On-Time Delivery",
+          "desc": "Rigorous project management ensures milestones are met without compromise."
+        },
+        {
+          "title": "Safety First",
+          "desc": "Zero-incident culture enforced with international HSE standards and daily toolbox talks."
+        },
+        {
+          "title": "24/7 Support",
+          "desc": "Round-the-clock project coordination and emergency response for our clients."
+        }
+      ]
+    }
+  },
+  "equipment": {
+    "eyebrow": "Our Fleet",
+    "title": "Equipment Hub",
+    "subtitle": "Browse our 7 categories of heavy equipment available for projects across the Kingdom",
+    "requestQuote": "Request Quote",
+    "specs": "Specifications",
+    "allModels": "All Models",
+    "backToHub": "Back to Equipment Hub",
+    "contactForAvail": "Contact us to check availability and rental rates for this unit."
+  },
+  "services": {
+    "eyebrow": "What We Offer",
+    "title": "Our Services",
+    "subtitle": "Seven core disciplines — all delivered with the same commitment to quality and safety",
+    "caseStudy": "Case Study"
+  },
+  "projects": {
+    "eyebrow": "Our Portfolio",
+    "title": "Featured Projects",
+    "subtitle": "A track record of excellence across Jeddah and the wider Kingdom",
+    "tabs": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "maintenance": "Maintenance"
+    },
+    "owner": "Owner",
+    "location": "Location",
+    "area": "Area"
+  },
+  "brands": {
+    "eyebrow": "Our Partners",
+    "title": "15 World-Class Brands",
+    "subtitle": "We source, operate, and maintain equipment exclusively from globally certified manufacturers"
+  },
+  "quote": {
+    "eyebrow": "Start Your Project",
+    "title": "Request a Quote",
+    "subtitle": "Fill in the details below and our team will respond within 24 hours.",
+    "fields": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "projectType": "Project Type",
+      "location": "Project Location",
+      "equipment": "Equipment / Services Needed",
+      "duration": "Project Duration",
+      "message": "Additional Details",
+      "submit": "Submit Request"
+    },
+    "projectTypes": [
+      "Civil Works",
+      "Equipment Rental",
+      "Maintenance",
+      "Fit-Out",
+      "Infrastructure",
+      "Other"
+    ],
+    "success": "Thank you! We'll be in touch within 24 hours.",
+    "error": "Something went wrong. Please try again or call us directly."
+  },
+  "contact": {
+    "eyebrow": "Get In Touch",
+    "title": "Contact Us",
+    "subtitle": "Our team is available Saturday–Thursday, 8 AM – 6 PM (AST)",
+    "address": "Al Aqsa Business Park, Jeddah, Saudi Arabia",
+    "phone": "+966 59 981 0888",
+    "email1": "Nazaralalam@gmail.com",
+    "email2": "Chaudharyjaber@gmail.com",
+    "whatsapp": "Chat on WhatsApp",
+    "mapTitle": "Our Location"
+  }
+}

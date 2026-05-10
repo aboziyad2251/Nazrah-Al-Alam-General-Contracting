@@ -1,7 +1,6 @@
 import { getTranslations } from '@nazrah/i18n';
 import type { Locale } from '@nazrah/types';
 import { SectionHeader, Card } from '@nazrah/ui';
-import React from 'react';
 
 interface DashboardPageProps {
   locale: Locale;

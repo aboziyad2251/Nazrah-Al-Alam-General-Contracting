@@ -1,43 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import shared fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700;800&display=swap');
-
-@layer base {
-  :root {
-    --font-body: 'Inter', system-ui, sans-serif;
-    --font-heading: 'Poppins', sans-serif;
-  }
-
-  [dir='rtl'] {
-    --font-body: 'IBM Plex Sans Arabic', sans-serif;
-    --font-heading: 'Cairo', sans-serif;
-  }
-
-  body {
-    font-family: var(--font-body);
-    @apply bg-stone text-ink-900 antialiased;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-heading);
-    @apply font-bold;
-  }
+:root {
+  --font-sans: 'Inter', sans-serif;
 }
 
-@layer components {
-  .portal-sidebar {
-    @apply fixed inset-y-0 start-0 z-40 w-64 bg-navy shadow-navy-md;
-  }
+[dir='rtl'] {
+  --font-sans: 'Cairo', sans-serif;
+}
 
-  .portal-main {
-    @apply ms-64 min-h-screen bg-stone;
-  }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #d9dce0;
+  color: #0f1117;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d9dce0;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5a6573;
 }

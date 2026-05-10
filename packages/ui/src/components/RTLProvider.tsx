@@ -1,6 +1,9 @@
-import { getDirection } from '@nazrah/i18n';
-import type { Locale, Direction } from '@nazrah/types';
+'use client';
+
 import React, { createContext, useContext } from 'react';
+
+import type { Locale, Direction } from '@nazrah/types';
+import { getDirection } from '@nazrah/i18n';
 
 // ─── Context ──────────────────────────────────────────────────────────────────
 interface RTLContextValue {

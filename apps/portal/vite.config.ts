@@ -1,20 +1,13 @@
-import path from 'path';
-
-import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@nazrah/ui': path.resolve(__dirname, '../../packages/ui/src/index.ts'),
-      '@nazrah/i18n': path.resolve(__dirname, '../../packages/i18n/src/index.ts'),
-      '@nazrah/types': path.resolve(__dirname, '../../packages/types/src/index.ts'),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  server: {
-    port: 3001,
-    open: true,
-  },
+  server: { port: 3001 },
 });

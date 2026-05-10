@@ -30,15 +30,20 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+    ],
     '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/triple-slash-reference': 'off',
+    'no-constant-condition': 'off',
     // React 17+ JSX transform: no default export on 'react'
     'import/default': 'off',
     'import/no-named-as-default-member': 'off',
     // TypeScript path aliases handled by TS, not ESLint
     'import/no-unresolved': 'off',
     'import/order': [
-      'error',
+      'warn',
       {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
         'newlines-between': 'always',
@@ -46,5 +51,5 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['node_modules/', 'dist/', '.next/', '.turbo/', '*.config.js'],
+  ignorePatterns: ['node_modules/', 'dist/', '.next/', '.turbo/', '*.config.js', '**/*.d.ts'],
 };

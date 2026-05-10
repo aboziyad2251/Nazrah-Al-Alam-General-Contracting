@@ -1,6 +1,9 @@
-import { toggleLocale } from '@nazrah/i18n';
-import type { Locale } from '@nazrah/types';
+'use client';
+
 import React from 'react';
+
+import type { Locale } from '@nazrah/types';
+import { toggleLocale } from '@nazrah/i18n';
 
 export interface LangSwitcherProps {
   currentLocale: Locale;

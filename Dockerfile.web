@@ -1,0 +1,67 @@
+# ─── Stage 1: base ────────────────────────────────────────────────────────────
+FROM node:22-alpine AS base
+ENV PNPM_HOME="/pnpm" PATH="/pnpm:$PATH"
+RUN corepack enable pnpm && corepack prepare pnpm@9.0.0 --activate
+
+# ─── Stage 2: install workspace deps (cached layer) ───────────────────────────
+FROM base AS deps
+WORKDIR /app
+
+# Copy manifests first — Docker rebuilds from here only when deps change
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY turbo.json* ./
+# Workspace package manifests (all must be present for pnpm install to work)
+COPY apps/web/package.json             ./apps/web/
+COPY packages/ui/package.json          ./packages/ui/
+# Add sibling packages if they grow their own package.json
+RUN mkdir -p packages/i18n packages/types && \
+    echo '{"name":"@nazrah/i18n","version":"0.0.1"}' > packages/i18n/package.json && \
+    echo '{"name":"@nazrah/types","version":"0.0.1"}' > packages/types/package.json
+
+RUN pnpm install --frozen-lockfile
+
+# ─── Stage 3: build ───────────────────────────────────────────────────────────
+FROM base AS builder
+WORKDIR /app
+
+COPY --from=deps /app/node_modules    ./node_modules
+COPY . .
+
+# Build-time public env vars (baked into JS bundle — anon keys are safe here)
+ARG NEXT_PUBLIC_SUPABASE_URL
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+ARG NEXT_PUBLIC_SITE_URL=https://www.nazrahalalam.com
+ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL \
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY \
+    NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
+    NEXT_TELEMETRY_DISABLED=1
+
+RUN pnpm --filter @nazrah/web build
+
+# ─── Stage 4: minimal runtime ─────────────────────────────────────────────────
+FROM node:22-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=3000 \
+    HOSTNAME="0.0.0.0"
+
+# Non-root user for security
+RUN addgroup --system --gid 1001 nodejs \
+ && adduser  --system --uid 1001 nextjs
+
+# Standalone output: the full server + traced node_modules in one directory.
+# outputFileTracingRoot = monorepo root, so server.js lives at apps/web/server.js
+# inside the standalone folder.
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static     ./apps/web/.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/public           ./apps/web/public
+
+USER nextjs
+EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD wget -qO- http://localhost:3000/api/health || exit 1
+
+CMD ["node", "apps/web/server.js"]

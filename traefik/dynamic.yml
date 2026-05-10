@@ -1,0 +1,76 @@
+## Traefik v3 — dynamic (file provider) configuration
+## Defines reusable middlewares applied via router labels in docker-compose.yml.
+## This file is hot-reloaded by Traefik without restart.
+
+http:
+  middlewares:
+
+    # ── Security headers ──────────────────────────────────────────────────────
+    security-headers:
+      headers:
+        browserXssFilter:       true
+        contentTypeNosniff:     true
+        forceSTSHeader:         true
+        stsSeconds:             31536000
+        stsIncludeSubdomains:   true
+        stsPreload:             true
+        frameDeny:              true
+        referrerPolicy:         "strict-origin-when-cross-origin"
+        permissionsPolicy:      "camera=(), microphone=(), geolocation=()"
+        customResponseHeaders:
+          X-Powered-By:         ""
+          Server:               ""
+
+    # ── Gzip compression ──────────────────────────────────────────────────────
+    compress:
+      compress:
+        minResponseBodyBytes: 1024
+
+    # ── Rate limiting (global per-IP) ─────────────────────────────────────────
+    rate-limit:
+      rateLimit:
+        average: 200
+        period:  1m
+        burst:   50
+
+    # ── Stricter rate limit for auth routes ───────────────────────────────────
+    rate-limit-auth:
+      rateLimit:
+        average: 20
+        period:  1m
+        burst:   5
+
+    # ── www → non-www redirect (used on web router) ───────────────────────────
+    www-to-apex:
+      redirectRegex:
+        regex:       "^https://www\\.nazrahalalam\\.com/(.*)"
+        replacement: "https://nazrahalalam.com/${1}"
+        permanent:   true
+
+    # ── Traefik dashboard basic auth ──────────────────────────────────────────
+    # Generate with: echo $(htpasswd -nb admin yourpassword) | sed -e s/\\$/\\$\\$/g
+    # Then set TRAEFIK_DASHBOARD_AUTH in .env
+    dashboard-auth:
+      basicAuth:
+        usersFile: "/auth/.htpasswd"
+        realm:     "Nazrah Admin"
+
+    # ── CORS for api.nazrahalalam.com (future) ────────────────────────────────
+    cors-api:
+      headers:
+        accessControlAllowOriginList:
+          - "https://www.nazrahalalam.com"
+          - "https://app.nazrahalalam.com"
+        accessControlAllowMethods:
+          - GET
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+          - OPTIONS
+        accessControlAllowHeaders:
+          - "Authorization"
+          - "Content-Type"
+          - "X-Requested-With"
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 3600

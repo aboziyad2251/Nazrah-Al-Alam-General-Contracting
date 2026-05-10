@@ -1,0 +1,94 @@
+## Traefik v3 — static configuration
+## Sensitive values (ACME email, dashboard password) are set via environment
+## variables passed to the Traefik container in docker-compose.yml.
+
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+# ── Structured logging ────────────────────────────────────────────────────────
+log:
+  level: INFO
+  format: json
+
+accessLog:
+  format: json
+  bufferingSize: 100
+  fields:
+    defaultMode: keep
+    names:
+      ClientUsername: drop
+    headers:
+      defaultMode: drop
+      names:
+        User-Agent:      keep
+        Referer:         keep
+        X-Forwarded-For: keep
+        X-Real-Ip:       keep
+
+# ── API / Dashboard ───────────────────────────────────────────────────────────
+# Dashboard is exposed on a dedicated entrypoint (port 8080), firewalled to
+# localhost on the VPS. Access via SSH tunnel: ssh -L 8080:localhost:8080 user@vps
+api:
+  dashboard: true
+  insecure: true    # Safe — port 8080 is bound to 127.0.0.1 in docker-compose
+
+ping:
+  entryPoint: traefik
+
+# ── Entry points ──────────────────────────────────────────────────────────────
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to:        websecure
+          scheme:    https
+          permanent: true
+
+  websecure:
+    address: ":443"
+    http:
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - security-headers@file
+        - compress@file
+    forwardedHeaders:
+      # Trust forwarded headers from Cloudflare / VPS load balancer if used
+      trustedIPs:
+        - "127.0.0.1/32"
+        - "10.0.0.0/8"
+        - "172.16.0.0/12"
+        - "192.168.0.0/16"
+
+  traefik:
+    address: ":8080"
+
+# ── TLS / ACME ────────────────────────────────────────────────────────────────
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      # ACME_EMAIL must be set in the Traefik container environment
+      email: "${ACME_EMAIL}"
+      storage: /etc/traefik/acme/acme.json
+      # HTTP-01 challenge — requires port 80 reachable from internet
+      httpChallenge:
+        entryPoint: web
+
+# ── Providers ─────────────────────────────────────────────────────────────────
+providers:
+  docker:
+    exposedByDefault: false
+    network: nazrahalalam_proxy
+    watch: true
+  file:
+    filename: /dynamic.yml
+    watch: true
+
+# ── Metrics (optional — uncomment if using Prometheus) ────────────────────────
+# metrics:
+#   prometheus:
+#     addEntryPointsLabels: true
+#     addServicesLabels: true

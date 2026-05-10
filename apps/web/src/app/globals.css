@@ -2,35 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Base resets ─────────────────────────────────────────────────────────── */
+/* ── Font Variables ────────────────────────────────────────────────────────── */
+:root {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-poppins), system-ui, sans-serif;
+}
+
+[dir='rtl'] {
+  --font-sans: var(--font-ibm-plex-arabic), var(--font-cairo), system-ui, sans-serif;
+  --font-heading: var(--font-cairo), var(--font-ibm-plex-arabic), system-ui, sans-serif;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
 @layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* LTR: Inter body, Poppins headings */
-  :root {
-    --font-body: var(--font-inter, 'Inter', system-ui, sans-serif);
-    --font-heading: var(--font-poppins, 'Poppins', sans-serif);
-  }
-
-  /* RTL: IBM Plex Sans Arabic body, Cairo headings */
-  [dir='rtl'] {
-    --font-body: var(--font-ibm-plex-arabic, 'IBM Plex Sans Arabic', sans-serif);
-    --font-heading: var(--font-cairo, 'Cairo', sans-serif);
+  * {
+    @apply box-border;
   }
 
   body {
-    font-family: var(--font-body);
-    @apply bg-white text-ink-900;
+    font-family: var(--font-sans);
+    @apply bg-cloud text-ink-900 antialiased;
   }
 
   h1,
@@ -40,25 +31,37 @@
   h5,
   h6 {
     font-family: var(--font-heading);
-    @apply font-bold leading-tight;
   }
 }
 
-/* ─── Component utilities ─────────────────────────────────────────────────── */
+/* ── Components ───────────────────────────────────────────────────────────── */
 @layer components {
   .container-section {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
-    @apply py-20 lg:py-28;
+    @apply py-20 md:py-28;
   }
 
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-gold to-gold-soft bg-clip-text text-transparent;
+  .font-poppins {
+    font-family: var(--font-heading);
   }
 
-  .divider-gold {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-gold/40 to-transparent;
+  /* Scroll padding so fixed nav doesn't overlap anchors */
+  [id] {
+    scroll-margin-top: 80px;
   }
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #d9dce0;
+}
+::-webkit-scrollbar-thumb {
+  background: #0e1f3a;
+  border-radius: 3px;
 }

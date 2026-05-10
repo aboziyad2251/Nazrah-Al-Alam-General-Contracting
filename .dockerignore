@@ -1,0 +1,60 @@
+# Git / VCS
+.git
+.gitignore
+.gitattributes
+
+# Node / pnpm
+node_modules
+**/node_modules
+**/.pnpm-store
+
+# Build outputs (rebuilt inside Docker)
+.next
+**/.next
+dist
+**/dist
+build
+**/build
+
+# Environment files — NEVER include in images
+.env
+.env.*
+!.env.example
+
+# Test / dev files
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+**/__tests__
+**/__mocks__
+**/.vitest*
+coverage
+**/coverage
+
+# Supabase (not needed in app images)
+supabase/
+
+# Documentation
+*.md
+DEPLOYMENT.md
+docs/
+
+# IDE / OS
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+*.log
+
+# Docker files themselves
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# CI / scripts
+.github/
+scripts/
+
+# Monitoring config
+monitoring/

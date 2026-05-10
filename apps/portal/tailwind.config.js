@@ -1,13 +1,19 @@
-const baseConfig = require('../../tailwind.config.base.js');
-
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  ...baseConfig,
-  content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}', '../../packages/ui/src/**/*.{ts,tsx}'],
+export default {
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
-    ...baseConfig.theme,
     extend: {
-      ...baseConfig.theme.extend,
+      colors: {
+        navy: { DEFAULT: '#0E1F3A', deep: '#0A1628' },
+        gold: { DEFAULT: '#E8B339', soft: '#F2C75B' },
+        cloud: '#D9DCE0',
+        stone: '#E8EAED',
+        ink: { 900: '#0F1117', 500: '#5A6573' },
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)', 'Inter', 'Cairo', 'sans-serif'],
+      },
     },
   },
+  plugins: [],
 };
