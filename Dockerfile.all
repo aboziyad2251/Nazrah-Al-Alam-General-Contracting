@@ -22,7 +22,7 @@ RUN pnpm install --no-frozen-lockfile
 # ─── Stage 3: build Next.js website ──────────────────────────────────────────
 FROM base AS build-web
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app .
 COPY . .
 
 ARG NEXT_PUBLIC_SUPABASE_URL
@@ -37,7 +37,7 @@ RUN pnpm --filter @nazrah/web build
 # ─── Stage 4: build Vite SPAs (portal + admin) ───────────────────────────────
 FROM base AS build-spa
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app .
 COPY . .
 
 ARG VITE_SUPABASE_URL
