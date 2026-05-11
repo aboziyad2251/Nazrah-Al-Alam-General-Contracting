@@ -17,7 +17,7 @@ RUN mkdir -p packages/i18n packages/types && \
     echo '{"name":"@nazrah/i18n","version":"0.0.1"}' > packages/i18n/package.json && \
     echo '{"name":"@nazrah/types","version":"0.0.1"}' > packages/types/package.json
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 # ─── Stage 3: build Next.js website ──────────────────────────────────────────
 FROM base AS build-web
