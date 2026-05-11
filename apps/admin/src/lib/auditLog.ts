@@ -3,7 +3,7 @@ import { supabase } from './supabase';
 export async function logAudit(
   action: string,
   entity: string,
-  entityId: string | number,
+  entityId: string | number | null | undefined,
   diff?: Record<string, unknown>
 ) {
   const {
@@ -15,7 +15,7 @@ export async function logAudit(
     actor_id: user.id,
     action,
     entity,
-    entity_id: String(entityId),
+    entity_id: entityId != null ? String(entityId) : null,
     diff: diff ?? null,
   });
 }
