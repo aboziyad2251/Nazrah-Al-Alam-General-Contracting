@@ -3,7 +3,7 @@ FROM node:22-alpine AS base
 ENV PNPM_HOME="/pnpm" PATH="/pnpm:$PATH"
 RUN corepack enable pnpm && corepack prepare pnpm@9.0.0 --activate
 
-# ─── Stage 2: install workspace deps ──────────────────────────────────────────
+# ─── Stage 2: install workspace deps (hoisted so binaries land in root .bin) ──
 FROM base AS deps
 WORKDIR /app
 
@@ -17,12 +17,14 @@ RUN mkdir -p packages/i18n packages/types && \
     echo '{"name":"@nazrah/i18n","version":"0.0.1"}' > packages/i18n/package.json && \
     echo '{"name":"@nazrah/types","version":"0.0.1"}' > packages/types/package.json
 
-RUN pnpm install --no-frozen-lockfile
+# shamefully-hoist puts all binaries (next, vite…) in root node_modules/.bin
+RUN echo "shamefully-hoist=true" > .npmrc && \
+    pnpm install --no-frozen-lockfile
 
 # ─── Stage 3: build Next.js website ──────────────────────────────────────────
 FROM base AS build-web
 WORKDIR /app
-COPY --from=deps /app .
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ARG NEXT_PUBLIC_SUPABASE_URL
@@ -37,7 +39,7 @@ RUN pnpm --filter @nazrah/web build
 # ─── Stage 4: build Vite SPAs (portal + admin) ───────────────────────────────
 FROM base AS build-spa
 WORKDIR /app
-COPY --from=deps /app .
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ARG VITE_SUPABASE_URL
