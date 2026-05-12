@@ -5,7 +5,7 @@ export interface Service {
   nameAr: string;
   descriptionEn: string;
   descriptionAr: string;
-  icon: string;
+  iconImage: string;
 }
 
 export const SERVICES: Service[] = [
@@ -18,7 +18,7 @@ export const SERVICES: Service[] = [
       'Complete civil engineering and structural construction including foundations, concrete works, and framing for residential and commercial projects.',
     descriptionAr:
       'أعمال الهندسة المدنية والإنشائية الشاملة بما في ذلك الأساسات وأعمال الخرسانة والهياكل.',
-    icon: '🏛️',
+    iconImage: '/services/civil-structural.webp',
   },
   {
     id: 's2',
@@ -29,7 +29,7 @@ export const SERVICES: Service[] = [
       'HVAC systems, plumbing, firefighting, and mechanical installations for all building types with certified technicians.',
     descriptionAr:
       'أنظمة التكييف والسباكة ومكافحة الحريق والتركيبات الميكانيكية لجميع أنواع المباني.',
-    icon: '⚙️',
+    iconImage: '/services/mechanical.webp',
   },
   {
     id: 's3',
@@ -40,7 +40,7 @@ export const SERVICES: Service[] = [
       'Full electrical installation, power distribution, lighting design, smart building systems, and solar integration.',
     descriptionAr:
       'التركيبات الكهربائية الكاملة وتوزيع الطاقة وتصميم الإضاءة وأنظمة المباني الذكية.',
-    icon: '⚡',
+    iconImage: '/services/electrical.webp',
   },
   {
     id: 's4',
@@ -50,7 +50,7 @@ export const SERVICES: Service[] = [
     descriptionEn:
       'Road construction, stormwater drainage, underground utilities, retaining walls, and site infrastructure at scale.',
     descriptionAr: 'إنشاء الطرق وصرف مياه الأمطار والمرافق الجوفية وجدران الدعم والبنية التحتية.',
-    icon: '🛣️',
+    iconImage: '/services/infrastructure.webp',
   },
   {
     id: 's5',
@@ -61,7 +61,7 @@ export const SERVICES: Service[] = [
       'Preventive and corrective maintenance programs for commercial and residential buildings, 24/7 emergency response.',
     descriptionAr:
       'برامج الصيانة الوقائية والتصحيحية للمباني التجارية والسكنية مع استجابة طوارئ على مدار الساعة.',
-    icon: '🔧',
+    iconImage: '/services/maintenance.webp',
   },
   {
     id: 's6',
@@ -72,7 +72,7 @@ export const SERVICES: Service[] = [
       'Premium interior fit-out, GRC decorative elements, flooring, cladding, and complete renovation services.',
     descriptionAr:
       'تشطيبات داخلية فاخرة وعناصر زخرفية GRC والأرضيات والكسوة وخدمات التجديد الشاملة.',
-    icon: '🏠',
+    iconImage: '/services/fitout.webp',
   },
   {
     id: 's7',
@@ -80,8 +80,42 @@ export const SERVICES: Service[] = [
     nameEn: 'Equipment Rental & Fleet',
     nameAr: 'تأجير المعدات والأسطول',
     descriptionEn:
-      'Hire our modern fleet of bulldozers, loaders, excavators, generators, and tower lights for your project.',
-    descriptionAr: 'استأجر أسطولنا الحديث من الجرافات واللوادر والحفارات والمولدات وأبراج الإضاءة.',
-    icon: '🚜',
+      'Hire our modern fleet of bulldozers, loaders, excavators, forklifts, generators, and tower lights for your project.',
+    descriptionAr:
+      'استأجر أسطولنا الحديث من الجرافات واللوادر والحفارات والرافعات الشوكية والمولدات وأبراج الإضاءة.',
+    iconImage: '/services/equipment-rental.webp',
+  },
+  {
+    id: 's8',
+    slug: 'cctv-security',
+    nameEn: 'CCTV & Security Systems',
+    nameAr: 'أنظمة المراقبة والأمن',
+    descriptionEn:
+      'Professional CCTV camera installation, security monitoring systems, and access control solutions for commercial and residential properties.',
+    descriptionAr:
+      'تركيب كاميرات المراقبة الاحترافية وأنظمة الأمن ومراقبة الدخول للمنشآت التجارية والسكنية.',
+    iconImage: '/services/cctv.webp',
+  },
+  {
+    id: 's9',
+    slug: 'networking',
+    nameEn: 'Networking & IT Infrastructure',
+    nameAr: 'الشبكات والبنية التحتية لتقنية المعلومات',
+    descriptionEn:
+      'Structured cabling, network installation, server room setup, and full IT infrastructure for offices and commercial buildings.',
+    descriptionAr:
+      'الكابلات المنظمة وتركيب الشبكات وإعداد غرف الخوادم والبنية التحتية الكاملة لتقنية المعلومات.',
+    iconImage: '/services/networking.webp',
+  },
+  {
+    id: 's10',
+    slug: 'manpower',
+    nameEn: 'Man Power Supply',
+    nameAr: 'توفير العمالة',
+    descriptionEn:
+      'Skilled and semi-skilled workforce supply including civil laborers, technicians, operators, and site supervisors for short and long-term projects.',
+    descriptionAr:
+      'توفير عمالة ماهرة وشبه ماهرة تشمل عمال المدني والفنيين والمشغلين والمشرفين للمشاريع القصيرة والطويلة الأمد.',
+    iconImage: '/services/manpower.webp',
   },
 ];

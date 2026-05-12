@@ -18,8 +18,13 @@ export async function ServicesGrid({ locale }: { locale: string }) {
           {SERVICES.map((svc, i) => (
             <AnimatedSection key={svc.id} delay={i * 0.07}>
               <div className="border-navy/8 group flex h-full flex-col rounded-2xl border-2 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-navy-md">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-2xl">
-                  {svc.icon}
+                <div className="mb-4 h-14 w-14 overflow-hidden rounded-xl shadow-sm">
+                  <img
+                    src={svc.iconImage}
+                    alt={isAr ? svc.nameAr : svc.nameEn}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <h3 className="mb-2 font-poppins text-base font-bold text-navy">
                   {isAr ? svc.nameAr : svc.nameEn}

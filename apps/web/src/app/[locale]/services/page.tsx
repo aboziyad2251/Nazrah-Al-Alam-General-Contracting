@@ -42,8 +42,12 @@ export default async function ServicesPage({ params }: Props) {
             <AnimatedSection key={svc.id} delay={i * 0.06} id={svc.slug}>
               <div className="border-navy/8 grid gap-8 rounded-3xl border-2 bg-white p-8 shadow-sm transition-colors hover:border-gold/30 lg:grid-cols-2">
                 <div>
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-3xl">
-                    {svc.icon}
+                  <div className="mb-5 h-14 w-14 overflow-hidden rounded-2xl shadow-sm">
+                    <img
+                      src={svc.iconImage}
+                      alt={isAr ? svc.nameAr : svc.nameEn}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                   <h2 className="mb-3 font-poppins text-2xl font-bold text-navy">
                     {isAr ? svc.nameAr : svc.nameEn}
@@ -60,7 +64,13 @@ export default async function ServicesPage({ params }: Props) {
                 </div>
                 <div className="flex items-center justify-center">
                   <div className="w-full rounded-2xl border border-gold/20 bg-navy/5 p-8 text-center">
-                    <p className="mb-4 text-5xl">{svc.icon}</p>
+                    <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-2xl shadow-md">
+                      <img
+                        src={svc.iconImage}
+                        alt={isAr ? svc.nameAr : svc.nameEn}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                     <p className="font-poppins font-bold text-navy">
                       {isAr ? svc.nameAr : svc.nameEn}
                     </p>
