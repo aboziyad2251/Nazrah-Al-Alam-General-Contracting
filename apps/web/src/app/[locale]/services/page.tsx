@@ -43,12 +43,12 @@ export default async function ServicesPage({ params }: Props) {
             <AnimatedSection key={svc.id} delay={i * 0.06} id={svc.slug}>
               <div className="border-navy/8 grid gap-8 rounded-3xl border-2 bg-white p-8 shadow-sm transition-colors hover:border-gold/30 lg:grid-cols-2">
                 <div>
-                  <div className="relative mb-5 h-14 w-14 overflow-hidden rounded-2xl shadow-sm">
+                  <div className="mb-5 h-14 w-14 overflow-hidden rounded-2xl shadow-sm">
                     <Image
                       src={svc.iconImage}
                       alt={isAr ? svc.nameAr : svc.nameEn}
-                      fill
-                      sizes="56px"
+                      width={56}
+                      height={56}
                       className="object-cover"
                     />
                   </div>
@@ -67,12 +67,12 @@ export default async function ServicesPage({ params }: Props) {
                 </div>
                 <div className="flex items-center justify-center">
                   <div className="w-full rounded-2xl border border-gold/20 bg-navy/5 p-8 text-center">
-                    <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-2xl shadow-md">
+                    <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-2xl shadow-md">
                       <Image
                         src={svc.iconImage}
                         alt={isAr ? svc.nameAr : svc.nameEn}
-                        fill
-                        sizes="96px"
+                        width={96}
+                        height={96}
                         className="object-cover"
                       />
                     </div>
