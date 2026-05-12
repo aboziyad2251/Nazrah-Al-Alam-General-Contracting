@@ -58,7 +58,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-poppins text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl"
+            className="whitespace-pre-line font-poppins text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl"
           >
             {t('tagline')} <span className="text-gold">{t('tagline2')}</span> {t('tagline3')}
           </motion.h1>
