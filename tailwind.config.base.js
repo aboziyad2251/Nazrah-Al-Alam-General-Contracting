@@ -21,7 +21,7 @@ module.exports = {
         },
         whatsapp: {
           DEFAULT: '#25D366',
-          hover: '#1ebe5d',
+          hover: '#1FB855',
         },
       },
       fontFamily: {

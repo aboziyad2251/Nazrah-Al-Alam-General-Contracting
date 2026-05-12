@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 interface HeroSectionProps {
@@ -10,7 +10,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ locale }: HeroSectionProps) {
   const t = useTranslations('home.hero');
-  const tStats = useTranslations('home.stats');
+  const ts = useTranslations('home.stats');
 
   return (
     <section
@@ -19,11 +19,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
     >
       {/* Dot grid */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: 'radial-gradient(theme(colors.gold.DEFAULT) 1px, transparent 0)',
-          backgroundSize: '40px 40px',
-        }}
+        className="absolute inset-0 bg-[radial-gradient(theme(colors.gold.DEFAULT)_1px,transparent_0)] bg-[length:40px_40px] opacity-[0.06]"
         aria-hidden="true"
       />
       {/* Gold gradient blob */}
@@ -117,20 +113,20 @@ export function HeroSection({ locale }: HeroSectionProps) {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="grid grid-cols-2 gap-4"
         >
-          {[
-            { value: '25+', labelKey: 'experience' },
-            { value: '400+', labelKey: 'projects' },
-            { value: '40+', labelKey: 'equipment' },
-            { value: '200+', labelKey: 'clients' },
-          ].map(({ value, labelKey }) => (
+          {(
+            [
+              { value: '25+', labelKey: 'experience' },
+              { value: '400+', labelKey: 'projects' },
+              { value: '40+', labelKey: 'equipment' },
+              { value: '200+', labelKey: 'clients' },
+            ] as const
+          ).map(({ value, labelKey }) => (
             <div
               key={labelKey}
               className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm"
             >
               <p className="font-poppins text-4xl font-extrabold text-gold">{value}</p>
-              <p className="mt-1.5 font-poppins text-sm text-cloud/70">
-                {tStats(labelKey as never)}
-              </p>
+              <p className="mt-1.5 font-poppins text-sm text-cloud/70">{ts(labelKey)}</p>
             </div>
           ))}
         </motion.div>

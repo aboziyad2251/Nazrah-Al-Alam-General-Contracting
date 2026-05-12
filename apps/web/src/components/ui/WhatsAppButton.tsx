@@ -10,7 +10,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t('whatsapp')}
-      className="fixed bottom-6 end-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-400/50"
+      className="fixed bottom-6 end-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp shadow-lg transition-all hover:scale-110 hover:bg-whatsapp-hover focus:outline-none focus:ring-4 focus:ring-green-400/50"
     >
       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-whatsapp opacity-30" />
       <svg viewBox="0 0 24 24" fill="white" className="relative h-7 w-7">
