@@ -74,13 +74,13 @@ export function QuoteForm({ locale }: { locale: string }) {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label
-            htmlFor="quote-name"
+            htmlFor="name"
             className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
           >
             {tf('name')} *
           </label>
           <input
-            id="quote-name"
+            id="name"
             required
             name="name"
             value={form.name}
@@ -90,13 +90,13 @@ export function QuoteForm({ locale }: { locale: string }) {
         </div>
         <div>
           <label
-            htmlFor="quote-email"
+            htmlFor="email"
             className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
           >
             {tf('email')} *
           </label>
           <input
-            id="quote-email"
+            id="email"
             required
             type="email"
             name="email"
@@ -107,13 +107,13 @@ export function QuoteForm({ locale }: { locale: string }) {
         </div>
         <div>
           <label
-            htmlFor="quote-phone"
+            htmlFor="phone"
             className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
           >
             {tf('phone')}
           </label>
           <input
-            id="quote-phone"
+            id="phone"
             name="phone"
             value={form.phone}
             onChange={handleChange}
@@ -122,13 +122,13 @@ export function QuoteForm({ locale }: { locale: string }) {
         </div>
         <div>
           <label
-            htmlFor="quote-company"
+            htmlFor="company"
             className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
           >
             {tf('company')}
           </label>
           <input
-            id="quote-company"
+            id="company"
             name="company"
             value={form.company}
             onChange={handleChange}
@@ -137,13 +137,13 @@ export function QuoteForm({ locale }: { locale: string }) {
         </div>
         <div>
           <label
-            htmlFor="quote-projectType"
+            htmlFor="projectType"
             className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
           >
             {tf('projectType')}
           </label>
           <select
-            id="quote-projectType"
+            id="projectType"
             name="projectType"
             value={form.projectType}
             onChange={handleChange}
@@ -159,13 +159,13 @@ export function QuoteForm({ locale }: { locale: string }) {
         </div>
         <div>
           <label
-            htmlFor="quote-location"
+            htmlFor="location"
             className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
           >
             {tf('location')}
           </label>
           <input
-            id="quote-location"
+            id="location"
             name="location"
             value={form.location}
             onChange={handleChange}
@@ -174,13 +174,13 @@ export function QuoteForm({ locale }: { locale: string }) {
         </div>
         <div>
           <label
-            htmlFor="quote-equipment"
+            htmlFor="equipment"
             className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
           >
             {tf('equipment')}
           </label>
           <input
-            id="quote-equipment"
+            id="equipment"
             name="equipment"
             value={form.equipment}
             onChange={handleChange}
@@ -189,13 +189,13 @@ export function QuoteForm({ locale }: { locale: string }) {
         </div>
         <div>
           <label
-            htmlFor="quote-duration"
+            htmlFor="duration"
             className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
           >
             {tf('duration')}
           </label>
           <input
-            id="quote-duration"
+            id="duration"
             name="duration"
             value={form.duration}
             onChange={handleChange}
@@ -205,13 +205,13 @@ export function QuoteForm({ locale }: { locale: string }) {
       </div>
       <div>
         <label
-          htmlFor="quote-message"
+          htmlFor="message"
           className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
         >
           {tf('message')}
         </label>
         <textarea
-          id="quote-message"
+          id="message"
           name="message"
           rows={4}
           value={form.message}

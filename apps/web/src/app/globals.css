@@ -52,11 +52,6 @@
   [id] {
     scroll-margin-top: 80px;
   }
-
-  /* Global focus-visible ring */
-  :focus-visible {
-    @apply outline-none ring-2 ring-gold ring-offset-2;
-  }
 }
 
 /* ── Scrollbar ─────────────────────────────────────────────────────────────── */
@@ -69,4 +64,16 @@
 ::-webkit-scrollbar-thumb {
   background: #0e1f3a;
   border-radius: 3px;
+}
+
+/* ── Focus-visible ─────────────────────────────────────────────────────────── */
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  [role='button']:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid #e8b339;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }
