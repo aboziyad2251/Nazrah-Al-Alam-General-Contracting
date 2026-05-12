@@ -46,22 +46,24 @@ export function QuoteForm({ locale }: { locale: string }) {
 
   if (state === 'success') {
     return (
-      <div role="alert" className="rounded-2xl border-2 border-gold/30 bg-white p-10 text-center">
+      <div
+        role="alert"
+        aria-live="polite"
+        className="flex items-center gap-3 rounded-lg border border-gold/30 bg-gold/10 px-4 py-3 text-gold"
+      >
         <svg
-          className="mx-auto mb-4 h-12 w-12 text-gold"
-          fill="none"
           viewBox="0 0 24 24"
+          fill="none"
           stroke="currentColor"
-          strokeWidth={2}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5 shrink-0"
           aria-hidden="true"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
+          <polyline points="20 6 9 17 4 12" />
         </svg>
-        <h3 className="font-poppins text-xl font-bold text-navy">{t('success')}</h3>
+        <span>{t('success')}</span>
       </div>
     );
   }

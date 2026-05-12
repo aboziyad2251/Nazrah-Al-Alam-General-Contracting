@@ -24,7 +24,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
       />
       {/* Gold gradient blob */}
       <div
-        className="pointer-events-none absolute -top-32 end-0 h-[700px] w-[700px] rounded-full bg-gold/10 blur-3xl will-change-transform"
+        className="pointer-events-none absolute -top-32 end-0 h-[480px] w-[480px] rounded-full bg-gold/10 blur-2xl will-change-transform [transform:translateZ(0)]"
         aria-hidden="true"
       />
       {/* Chevron watermark */}

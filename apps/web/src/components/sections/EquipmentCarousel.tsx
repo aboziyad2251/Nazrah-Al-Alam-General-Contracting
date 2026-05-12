@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,6 +10,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 export function EquipmentCarousel({ locale }: { locale: string }) {
   const t = useTranslations('home.equipment');
   const te = useTranslations('equipment');
+  const tc = useTranslations('common');
   const isAr = locale === 'ar';
   const [active, setActive] = useState(0);
   const categories = EQUIPMENT_CATEGORIES;
@@ -25,7 +25,9 @@ export function EquipmentCarousel({ locale }: { locale: string }) {
           {categories.map((cat, i) => (
             <button
               key={cat.slug}
+              type="button"
               onClick={() => setActive(i)}
+              aria-pressed={i === active ? true : false}
               className={[
                 'rounded-full px-4 py-2 font-poppins text-sm font-semibold transition-all',
                 i === active
@@ -102,7 +104,7 @@ export function EquipmentCarousel({ locale }: { locale: string }) {
             href={`/${locale}/equipment`}
             className="inline-flex items-center gap-2 rounded-xl border-2 border-navy px-6 py-3 font-poppins text-sm font-bold text-navy transition-all hover:bg-navy hover:text-white"
           >
-            {useTranslations('common')('viewAll')}
+            {tc('viewAll')}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="rtl:rotate-180">
               <path
                 d="M3 8h10M9 4l4 4-4 4"

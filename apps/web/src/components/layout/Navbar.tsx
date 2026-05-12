@@ -12,7 +12,6 @@ interface NavbarProps {
 
 export function Navbar({ locale }: NavbarProps) {
   const t = useTranslations('nav');
-  const tc = useTranslations('common');
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
