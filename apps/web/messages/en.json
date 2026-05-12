@@ -57,6 +57,53 @@
       "subtitle": "Contact our team for a free consultation and customized quote.",
       "button": "Get a Free Quote",
       "buttonSecondary": "Call Us Now"
+    },
+    "process": {
+      "eyebrow": "How We Work",
+      "title": "From Consultation to Completion",
+      "subtitle": "A proven three-step process that delivers results every time",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Consult",
+          "desc": "We assess your project needs, site conditions, and timeline in detail — at no obligation."
+        },
+        {
+          "number": "02",
+          "title": "Plan & Quote",
+          "desc": "Our engineers prepare a precise scope of work, timeline, and a transparent fixed-price quote."
+        },
+        {
+          "number": "03",
+          "title": "Execute & Deliver",
+          "desc": "Our certified crews mobilize on-site and deliver to specification — on time, every time."
+        }
+      ]
+    },
+    "testimonials": {
+      "eyebrow": "Client Testimonials",
+      "title": "Trusted by Leading Companies",
+      "subtitle": "What our clients say about working with us",
+      "items": [
+        {
+          "name": "Khalid Al-Zahrani",
+          "role": "Project Director",
+          "company": "Saudi Aramco Contractor",
+          "quote": "Nazrah Al Alam delivered our infrastructure project two weeks ahead of schedule. Their equipment fleet and on-site management are world-class."
+        },
+        {
+          "name": "Eng. Faisal Al-Ghamdi",
+          "role": "Operations Manager",
+          "company": "Jeddah Development Authority",
+          "quote": "Exceptional quality and professionalism. They handled a complex civil works contract with precision and zero safety incidents."
+        },
+        {
+          "name": "Mohammed Al-Harbi",
+          "role": "CEO",
+          "company": "Al-Harbi Real Estate",
+          "quote": "We have worked with Nazrah Al Alam on three projects. Their commitment to quality and modern equipment make them our go-to contractor."
+        }
+      ]
     }
   },
   "about": {

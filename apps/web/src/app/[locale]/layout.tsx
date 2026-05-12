@@ -7,6 +7,7 @@ import { routing } from '@/i18n/routing';
 import { inter, poppins, ibmPlexArabic, cairo } from '@/lib/fonts';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
@@ -72,6 +73,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <Navbar locale={locale} />
           <main>{children}</main>
           <Footer locale={locale} />
+          <WhatsAppButton />
         </NextIntlClientProvider>
       </body>
     </html>

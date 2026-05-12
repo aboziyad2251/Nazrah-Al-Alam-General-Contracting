@@ -3,7 +3,10 @@ import { getTranslations } from 'next-intl/server';
 
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
+import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
+import { ProcessSection } from '@/components/sections/ProcessSection';
 import { EquipmentCarousel } from '@/components/sections/EquipmentCarousel';
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { BrandsStrip } from '@/components/sections/BrandsStrip';
 import { CTABanner } from '@/components/sections/CTABanner';
 
@@ -33,7 +36,10 @@ export default async function HomePage({ params }: Props) {
     <>
       <HeroSection locale={locale} />
       <ServicesGrid locale={locale} />
+      <WhyChooseUs locale={locale} />
+      <ProcessSection locale={locale} />
       <EquipmentCarousel locale={locale} />
+      <TestimonialsSection locale={locale} />
       <BrandsStrip locale={locale} />
       <CTABanner locale={locale} />
     </>
