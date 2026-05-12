@@ -1,9 +1,10 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { SERVICES } from '@/data/services';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { CTABanner } from '@/components/sections/CTABanner';
-import Link from 'next/link';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -42,11 +43,13 @@ export default async function ServicesPage({ params }: Props) {
             <AnimatedSection key={svc.id} delay={i * 0.06} id={svc.slug}>
               <div className="border-navy/8 grid gap-8 rounded-3xl border-2 bg-white p-8 shadow-sm transition-colors hover:border-gold/30 lg:grid-cols-2">
                 <div>
-                  <div className="mb-5 h-14 w-14 overflow-hidden rounded-2xl shadow-sm">
-                    <img
+                  <div className="relative mb-5 h-14 w-14 overflow-hidden rounded-2xl shadow-sm">
+                    <Image
                       src={svc.iconImage}
                       alt={isAr ? svc.nameAr : svc.nameEn}
-                      className="h-full w-full object-cover"
+                      fill
+                      sizes="56px"
+                      className="object-cover"
                     />
                   </div>
                   <h2 className="mb-3 font-poppins text-2xl font-bold text-navy">
@@ -64,11 +67,13 @@ export default async function ServicesPage({ params }: Props) {
                 </div>
                 <div className="flex items-center justify-center">
                   <div className="w-full rounded-2xl border border-gold/20 bg-navy/5 p-8 text-center">
-                    <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-2xl shadow-md">
-                      <img
+                    <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-2xl shadow-md">
+                      <Image
                         src={svc.iconImage}
                         alt={isAr ? svc.nameAr : svc.nameEn}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="96px"
+                        className="object-cover"
                       />
                     </div>
                     <p className="font-poppins font-bold text-navy">

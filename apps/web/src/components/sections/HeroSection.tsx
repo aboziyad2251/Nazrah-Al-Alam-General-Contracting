@@ -10,6 +10,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ locale }: HeroSectionProps) {
   const t = useTranslations('home.hero');
+  const tStats = useTranslations('home.stats');
 
   return (
     <section
@@ -20,14 +21,14 @@ export function HeroSection({ locale }: HeroSectionProps) {
       <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
-          backgroundImage: 'radial-gradient(#E8B339 1px, transparent 0)',
+          backgroundImage: 'radial-gradient(theme(colors.gold.DEFAULT) 1px, transparent 0)',
           backgroundSize: '40px 40px',
         }}
         aria-hidden="true"
       />
       {/* Gold gradient blob */}
       <div
-        className="pointer-events-none absolute -top-32 end-0 h-[700px] w-[700px] rounded-full bg-gold/10 blur-3xl"
+        className="pointer-events-none absolute -top-32 end-0 h-[700px] w-[700px] rounded-full bg-gold/10 blur-3xl will-change-transform"
         aria-hidden="true"
       />
       {/* Chevron watermark */}
@@ -61,13 +62,9 @@ export function HeroSection({ locale }: HeroSectionProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-poppins text-5xl font-extrabold leading-tight text-white md:text-6xl lg:text-7xl"
+            className="font-poppins text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl"
           >
-            {t('tagline')}
-            <br />
-            <span className="text-gold">{t('tagline2')}</span>
-            <br />
-            {t('tagline3')}
+            {t('tagline')} <span className="text-gold">{t('tagline2')}</span> {t('tagline3')}
           </motion.h1>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -132,7 +129,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
             >
               <p className="font-poppins text-4xl font-extrabold text-gold">{value}</p>
               <p className="mt-1.5 font-poppins text-sm text-cloud/70">
-                {useTranslations('home.stats')(labelKey as never)}
+                {tStats(labelKey as never)}
               </p>
             </div>
           ))}

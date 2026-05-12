@@ -68,6 +68,7 @@ export function Navbar({ locale }: NavbarProps) {
             href={altHref}
             className="rounded-full border border-white/25 px-3 py-1 font-poppins text-xs font-semibold text-white transition-colors hover:border-gold hover:text-gold"
             hrefLang={otherLocale}
+            aria-label={locale === 'en' ? 'Switch to Arabic' : 'Switch to English'}
           >
             {locale === 'en' ? 'عربي' : 'EN'}
           </Link>
@@ -85,6 +86,8 @@ export function Navbar({ locale }: NavbarProps) {
             onClick={() => setOpen(!open)}
             className="p-2 text-white lg:hidden"
             aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
               {open ? (
@@ -132,7 +135,10 @@ export function Navbar({ locale }: NavbarProps) {
 
       {/* Mobile menu */}
       {open && (
-        <div className="space-y-2 border-t border-white/10 bg-navy px-4 py-4 lg:hidden">
+        <div
+          id="mobile-menu"
+          className="space-y-2 border-t border-white/10 bg-navy px-4 py-4 lg:hidden"
+        >
           {links.map(({ key, href }) => (
             <Link
               key={key}

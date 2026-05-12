@@ -70,8 +70,14 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       </head>
       <body className="bg-cloud text-ink-900 antialiased">
         <NextIntlClientProvider messages={messages}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-gold focus:px-4 focus:py-2 focus:font-poppins focus:text-sm focus:font-bold focus:text-navy"
+          >
+            {locale === 'ar' ? 'انتقل إلى المحتوى' : 'Skip to content'}
+          </a>
           <Navbar locale={locale} />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer locale={locale} />
           <WhatsAppButton />
         </NextIntlClientProvider>
