@@ -230,5 +230,8 @@
     "email2": "Chaudharyjaber@gmail.com",
     "whatsapp": "Chat on WhatsApp",
     "mapTitle": "Our Location"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content"
   }
 }

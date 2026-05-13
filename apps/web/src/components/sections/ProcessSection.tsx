@@ -20,7 +20,7 @@ export async function ProcessSection({ locale: _locale }: { locale: string }) {
 
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
             {steps.map((step, i) => (
-              <AnimatedSection key={i} delay={i * 0.15}>
+              <AnimatedSection key={i} delay={[0, 0.08, 0.16][i]}>
                 <div className="relative flex flex-col items-center text-center">
                   {/* number bubble */}
                   <div className="relative z-10 mb-5 flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold/60 bg-white shadow-md">

@@ -19,6 +19,10 @@ module.exports = {
           900: '#0F1117',
           500: '#5A6573',
         },
+        whatsapp: {
+          DEFAULT: '#25D366',
+          hover: '#1FB855',
+        },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],

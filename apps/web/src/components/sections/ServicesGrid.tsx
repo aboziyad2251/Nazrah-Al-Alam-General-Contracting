@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { SERVICES } from '@/data/services';
@@ -15,15 +16,21 @@ export async function ServicesGrid({ locale }: { locale: string }) {
         <SectionHeader eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {SERVICES.map((svc, i) => (
-            <AnimatedSection key={svc.id} delay={i * 0.07}>
-              <div className="border-navy/8 group flex h-full flex-col rounded-2xl border-2 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-navy-md">
+          {SERVICES.map((svc, i) => {
+            const delays = [0, 0.08, 0.16];
+            const card = (
+              <div
+                key={svc.id}
+                className="border-navy/8 group flex h-full flex-col rounded-2xl border-2 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-navy-md"
+              >
                 <div className="mb-4 h-14 w-14 overflow-hidden rounded-xl shadow-sm">
-                  <img
+                  <Image
                     src={svc.iconImage}
                     alt={isAr ? svc.nameAr : svc.nameEn}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
+                    width={56}
+                    height={56}
+                    className="object-cover"
+                    priority={i === 0}
                   />
                 </div>
                 <h3 className="mb-2 font-poppins text-base font-bold text-navy">
@@ -54,8 +61,15 @@ export async function ServicesGrid({ locale }: { locale: string }) {
                   </svg>
                 </Link>
               </div>
-            </AnimatedSection>
-          ))}
+            );
+            return i < 3 ? (
+              <AnimatedSection key={svc.id} delay={delays[i]}>
+                {card}
+              </AnimatedSection>
+            ) : (
+              card
+            );
+          })}
         </div>
       </div>
     </section>

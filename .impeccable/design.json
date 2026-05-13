@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-12T00:00:00Z",
+  "title": "Design System: Nazrah Al Alam General Contracting",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Deep Night Steel",
+        "canonical": "#0E1F3A",
+        "tonalRamp": [
+          "#050C17",
+          "#0A1628",
+          "#0E1F3A",
+          "#1A3260",
+          "#264785",
+          "#3A65AD",
+          "#6B94CC",
+          "#A3BDE0",
+          "#D1DEEF",
+          "#EBF0F7"
+        ]
+      },
+      "navy-deep": {
+        "role": "primary-dark",
+        "displayName": "Deep Night Steel — Dark",
+        "canonical": "#0A1628",
+        "tonalRamp": [
+          "#040A10",
+          "#0A1628",
+          "#12243E",
+          "#1E3A60",
+          "#2E5285",
+          "#4A79AD",
+          "#7AA2CC",
+          "#ADC5E0",
+          "#D4E1EF",
+          "#EAF0F7"
+        ]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Desert Sun Gold",
+        "canonical": "#E8B339",
+        "tonalRamp": [
+          "#5C4200",
+          "#8A6300",
+          "#B88500",
+          "#D9A020",
+          "#E8B339",
+          "#F0C460",
+          "#F5D280",
+          "#F9E1A8",
+          "#FCEFD2",
+          "#FEF7EB"
+        ]
+      },
+      "gold-soft": {
+        "role": "secondary-light",
+        "displayName": "Desert Sun Gold — Soft",
+        "canonical": "#F2C75B",
+        "tonalRamp": [
+          "#6B4D00",
+          "#9E7200",
+          "#CF9800",
+          "#E8B339",
+          "#F2C75B",
+          "#F5D07A",
+          "#F8DC9E",
+          "#FAE8BF",
+          "#FCF2DA",
+          "#FEF8EC"
+        ]
+      },
+      "cloud": {
+        "role": "neutral-bg",
+        "displayName": "Cloud",
+        "canonical": "#D9DCE0",
+        "tonalRamp": [
+          "#4A4F57",
+          "#6B7280",
+          "#9CA3AF",
+          "#B8BEC6",
+          "#D9DCE0",
+          "#E4E7EB",
+          "#ECEFF2",
+          "#F3F5F7",
+          "#F9FAFB",
+          "#FFFFFF"
+        ]
+      },
+      "stone": {
+        "role": "neutral-surface",
+        "displayName": "Stone",
+        "canonical": "#E8EAED",
+        "tonalRamp": [
+          "#5A5F66",
+          "#808690",
+          "#A8ADB5",
+          "#C8CDD4",
+          "#E8EAED",
+          "#EDEEF1",
+          "#F2F3F5",
+          "#F7F8F9",
+          "#FBFBFC",
+          "#FFFFFF"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral-text",
+        "displayName": "Ink — Dark",
+        "canonical": "#0F1117",
+        "tonalRamp": [
+          "#000000",
+          "#060709",
+          "#0F1117",
+          "#1E2130",
+          "#2E3348",
+          "#4A5068",
+          "#7A8098",
+          "#A8B0C0",
+          "#D4D8E0",
+          "#EDF0F5"
+        ]
+      },
+      "ink-mid": {
+        "role": "neutral-text-secondary",
+        "displayName": "Ink — Mid",
+        "canonical": "#5A6573",
+        "tonalRamp": [
+          "#1A1F26",
+          "#2E3640",
+          "#3E4D5C",
+          "#4A5A6A",
+          "#5A6573",
+          "#7A8896",
+          "#9DA8B5",
+          "#C0C9D2",
+          "#DEE3E8",
+          "#F0F3F5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only. One per viewport." },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2 titles. Always followed by the gold underline bar."
+      },
+      "title": { "displayName": "Title", "purpose": "Card headings, service names, named items." },
+      "body": { "displayName": "Body", "purpose": "All descriptive copy. Max 72ch line length." },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows, badges, metadata. Always gold, always uppercase, always tracking 0.22em."
+      }
+    },
+    "shadows": [
+      {
+        "name": "gold-ambient-subtle",
+        "value": "0 2px 12px 0 rgba(232,179,57,0.15)",
+        "purpose": "Warm ambient glow under accent elements and WhatsApp FAB."
+      },
+      {
+        "name": "gold-ambient-strong",
+        "value": "0 4px 24px 0 rgba(232,179,57,0.25)",
+        "purpose": "Stronger gold glow for primary CTA hover states."
+      },
+      {
+        "name": "navy-structural",
+        "value": "0 4px 24px 0 rgba(14,31,58,0.20)",
+        "purpose": "Card hover lift. Cool, structural depth."
+      },
+      {
+        "name": "base",
+        "value": "0 1px 3px 0 rgba(0,0,0,0.07)",
+        "purpose": "Invisible baseline for white cards on Cloud canvas."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for color/border state transitions (150ms–300ms)."
+      },
+      {
+        "name": "ease-entrance",
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "purpose": "Section entrance animations (opacity + translateY). 400–500ms."
+      },
+      {
+        "name": "slide-up",
+        "value": "opacity 0 → 1, translateY 20px → 0, 500ms ease-entrance",
+        "purpose": "AnimatedSection scroll entrance. Applied to every major section block."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default action. Navy fill, white Poppins Bold text. Used in hero CTAs and section actions.",
+      "html": "<button class=\"ds-btn-primary\">Get a Quote</button>",
+      "css": ".ds-btn-primary { background: #0E1F3A; color: #FFFFFF; padding: 16px 32px; border-radius: 12px; font-family: 'Poppins', system-ui, sans-serif; font-size: 1rem; font-weight: 700; border: none; cursor: pointer; transition: background 0.15s ease; } .ds-btn-primary:hover { background: #0A1628; } .ds-btn-primary:focus-visible { outline: 3px solid #E8B339; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action alongside Primary. Navy border + text, fills navy on hover. Used in hero secondary CTAs.",
+      "html": "<button class=\"ds-btn-ghost\">Learn More</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: #0E1F3A; padding: 14px 32px; border-radius: 12px; font-family: 'Poppins', system-ui, sans-serif; font-size: 1rem; font-weight: 700; border: 2px solid #0E1F3A; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; } .ds-btn-ghost:hover { background: #0E1F3A; color: #FFFFFF; } .ds-btn-ghost:focus-visible { outline: 3px solid #E8B339; outline-offset: 3px; }"
+    },
+    {
+      "name": "Gold CTA Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Used exclusively inside gold CTA banner sections. Gold fill, navy text. Signals the most important conversion action.",
+      "html": "<button class=\"ds-btn-gold\">Request a Quote</button>",
+      "css": ".ds-btn-gold { background: #E8B339; color: #0E1F3A; padding: 12px 24px; border-radius: 12px; font-family: 'Poppins', system-ui, sans-serif; font-size: 0.875rem; font-weight: 700; border: none; cursor: pointer; transition: background 0.15s ease; } .ds-btn-gold:hover { background: #F2C75B; } .ds-btn-gold:focus-visible { outline: 3px solid #0E1F3A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": "card-service",
+      "description": "The primary content tile. White background, navy border at rest, gold border + navy shadow on hover. Image icon top-left, bold title, description, learn-more link.",
+      "html": "<div class=\"ds-card-service\"><div class=\"ds-card-icon\"><img src=\"/services/equipment-rental.webp\" alt=\"Equipment Rental\" /></div><h3 class=\"ds-card-title\">Equipment Rental &amp; Fleet</h3><p class=\"ds-card-desc\">Hire our modern fleet of bulldozers, loaders, and excavators for your project.</p><a href=\"#\" class=\"ds-card-link\">Learn More <svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\"><path d=\"M2 7h10M8 3l4 4-4 4\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></div>",
+      "css": ".ds-card-service { background: #FFFFFF; border-radius: 16px; border: 2px solid rgba(14,31,58,0.08); padding: 24px; display: flex; flex-direction: column; gap: 0; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; } .ds-card-service:hover { transform: translateY(-4px); border-color: rgba(232,179,57,0.5); box-shadow: 0 4px 24px 0 rgba(14,31,58,0.20); } .ds-card-icon { width: 56px; height: 56px; border-radius: 12px; overflow: hidden; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); } .ds-card-icon img { width: 100%; height: 100%; object-fit: cover; } .ds-card-title { font-family: 'Poppins', system-ui, sans-serif; font-size: 1rem; font-weight: 700; color: #0E1F3A; margin: 0 0 8px 0; } .ds-card-desc { font-family: 'Inter', system-ui, sans-serif; font-size: 0.875rem; line-height: 1.625; color: #5A6573; flex: 1; margin: 0 0 16px 0; } .ds-card-link { font-family: 'Poppins', system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; color: #E8B339; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; transition: gap 0.15s ease; } .ds-card-link:hover { gap: 8px; }"
+    },
+    {
+      "name": "Section Header",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "System signature component. Eyebrow (gold, uppercase, tracking) + gold chevron → Headline (Poppins Bold) + gold underline bar → subtitle. Fixed order, never reorder.",
+      "html": "<div class=\"ds-section-header\"><div class=\"ds-eyebrow-row\"><span class=\"ds-eyebrow\">What We Do</span><svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\"><path d=\"M7 4L13 10L7 16\" stroke=\"#E8B339\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></div><h2 class=\"ds-headline\">Our Services<span class=\"ds-headline-bar\"></span></h2><p class=\"ds-subtitle\">Comprehensive contracting solutions for every project scale</p></div>",
+      "css": ".ds-section-header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; } .ds-eyebrow-row { display: flex; align-items: center; gap: 8px; } .ds-eyebrow { font-family: 'Poppins', system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; color: #E8B339; text-transform: uppercase; letter-spacing: 0.22em; } .ds-headline { font-family: 'Poppins', system-ui, sans-serif; font-size: clamp(1.875rem, 4vw, 3rem); font-weight: 700; color: #0E1F3A; line-height: 1.2; letter-spacing: -0.01em; margin: 0; } .ds-headline-bar { display: block; margin-top: 8px; height: 4px; width: 56px; background: #E8B339; border-radius: 9999px; } .ds-subtitle { font-family: 'Inter', system-ui, sans-serif; font-size: 1rem; line-height: 1.625; color: #5A6573; max-width: 42rem; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Builder's Mark",
+    "overview": "This is a system that signs its work. Every surface carries the weight of 25 years of completed projects — the deep navy of engineered steel, the gold of earned excellence. It does not borrow credibility from trend; it projects authority through discipline. The typographic hierarchy is strict. The color rules are strict. The layouts breathe. When a B2B decision-maker lands on this site, they should feel they have found the most capable contractor in the room before they read a single word.\n\nThe system is bilingual by design, not by afterthought. Arabic (RTL, Cairo) and English (LTR, Inter/Poppins) receive equal typographic care. Switching language must never feel like a degraded mode.\n\nWhat this system explicitly rejects: the cluttered local-directory look, the cold corporate bank aesthetic, and the flashy entertainment site.",
+    "keyCharacteristics": [
+      "Authority through density: sections are full-width, navy dark, gold-accented",
+      "Restraint in the gold: the accent earns its visibility by appearing sparingly",
+      "Proof-first layout: every claim anchored by a number, photo, or credential",
+      "Flat at rest, lifted on hover: interaction reveals warmth (gold borders, navy shadows)",
+      "Bilingual parity: RTL Arabic is a native mode, not a port"
+    ],
+    "rules": [
+      {
+        "name": "The Gold Scarcity Rule",
+        "body": "Desert Sun Gold appears on ≤15% of any screen. Its authority comes from rarity. Use it for one purpose per section: the eyebrow, the underline bar, the CTA background, or the hover treatment — never two at once.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Dark Rule",
+        "body": "Never layer two deep navy surfaces without a visible seam. Deep Night Steel sections must be separated by a Cloud or White section, or by a gold CTA band.",
+        "section": "colors"
+      },
+      {
+        "name": "The Eyebrow Signature Rule",
+        "body": "Every section header begins with a gold Label eyebrow (0.22em tracking, uppercase) + gold chevron SVG. This sequence is the system handshake. Never omit it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Headline Bar Rule",
+        "body": "Every Headline (h2) is followed immediately by a 1px × 56px gold bar. This bar is a system signature; it is not decorative. Do not replace it with a gradient, a border, or a wider bar.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "All surfaces are flat at rest. Shadows appear only when the user acts (hover, focus) or when a white card needs a minimum separation hint on a Cloud background.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Deep Night Steel (#0E1F3A) as the default dark surface for hero sections, Why Choose Us, and the footer.",
+      "Do follow the eyebrow + headline + gold underline bar sequence on every major section header.",
+      "Do keep gold to ≤15% of any screen surface.",
+      "Do use real photography (equipment, projects, workers) over stock images.",
+      "Do anchor every capability claim to a number or credential.",
+      "Do keep the WhatsApp FAB visible on all screen sizes at all scroll positions.",
+      "Do give Arabic (RTL) mode the same typographic weight as English.",
+      "Do use transition-colors duration-300 on interactive elements."
+    ],
+    "donts": [
+      "Don't use a cluttered local-directory layout — no wall-of-text service lists, no rainbow accent colors, no low-res stock photography.",
+      "Don't use a cold bank aesthetic — no sterile white-on-grey palettes without navy or gold presence.",
+      "Don't use flashy nightclub or entertainment-site treatments — no dark-mode neon, no gratuitous scroll animations.",
+      "Don't place gold text on a gold background or gold borders alongside gold fill in the same component.",
+      "Don't use more than two typefaces (Poppins + Inter, plus Cairo/IBM Plex Arabic for RTL).",
+      "Don't use a box-shadow on elements at rest. Flat-By-Default Rule.",
+      "Don't reduce heading contrast below WCAG AA on either navy or cloud backgrounds.",
+      "Don't reorder the section header elements (eyebrow → headline → underline bar → subtitle)."
+    ]
+  }
+}

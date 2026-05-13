@@ -223,5 +223,8 @@
     "email2": "Chaudharyjaber@gmail.com",
     "whatsapp": "تحدث عبر واتساب",
     "mapTitle": "موقعنا"
+  },
+  "a11y": {
+    "skipToContent": "انتقل إلى المحتوى"
   }
 }

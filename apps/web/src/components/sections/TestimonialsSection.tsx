@@ -30,7 +30,7 @@ export async function TestimonialsSection({ locale: _locale }: { locale: string 
 
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
           {items.map((item, i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
+            <AnimatedSection key={i} delay={[0, 0.08, 0.16][i]}>
               <figure className="border-navy/8 flex h-full flex-col rounded-2xl border-2 bg-cloud p-7 shadow-sm transition-shadow hover:shadow-navy-md">
                 <StarRating />
                 <blockquote className="text-ink-600 flex-1 text-sm leading-relaxed">

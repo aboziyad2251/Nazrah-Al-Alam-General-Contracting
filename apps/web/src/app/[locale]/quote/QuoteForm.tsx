@@ -46,9 +46,24 @@ export function QuoteForm({ locale }: { locale: string }) {
 
   if (state === 'success') {
     return (
-      <div className="rounded-2xl border-2 border-gold/30 bg-white p-10 text-center">
-        <div className="mb-4 text-5xl">✅</div>
-        <h3 className="font-poppins text-xl font-bold text-navy">{t('success')}</h3>
+      <div
+        role="alert"
+        aria-live="polite"
+        className="flex items-center gap-3 rounded-lg border border-gold/30 bg-gold/10 px-4 py-3 text-gold"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5 shrink-0"
+          aria-hidden="true"
+        >
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        <span>{t('success')}</span>
       </div>
     );
   }
@@ -60,10 +75,14 @@ export function QuoteForm({ locale }: { locale: string }) {
     >
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+          <label
+            htmlFor="name"
+            className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+          >
             {tf('name')} *
           </label>
           <input
+            id="name"
             required
             name="name"
             value={form.name}
@@ -72,10 +91,14 @@ export function QuoteForm({ locale }: { locale: string }) {
           />
         </div>
         <div>
-          <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+          <label
+            htmlFor="email"
+            className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+          >
             {tf('email')} *
           </label>
           <input
+            id="email"
             required
             type="email"
             name="email"
@@ -85,22 +108,44 @@ export function QuoteForm({ locale }: { locale: string }) {
           />
         </div>
         <div>
-          <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+          <label
+            htmlFor="phone"
+            className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+          >
             {tf('phone')}
           </label>
-          <input name="phone" value={form.phone} onChange={handleChange} className={inputCls} />
+          <input
+            id="phone"
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
+            className={inputCls}
+          />
         </div>
         <div>
-          <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+          <label
+            htmlFor="company"
+            className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+          >
             {tf('company')}
           </label>
-          <input name="company" value={form.company} onChange={handleChange} className={inputCls} />
+          <input
+            id="company"
+            name="company"
+            value={form.company}
+            onChange={handleChange}
+            className={inputCls}
+          />
         </div>
         <div>
-          <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+          <label
+            htmlFor="projectType"
+            className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+          >
             {tf('projectType')}
           </label>
           <select
+            id="projectType"
             name="projectType"
             value={form.projectType}
             onChange={handleChange}
@@ -115,10 +160,14 @@ export function QuoteForm({ locale }: { locale: string }) {
           </select>
         </div>
         <div>
-          <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+          <label
+            htmlFor="location"
+            className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+          >
             {tf('location')}
           </label>
           <input
+            id="location"
             name="location"
             value={form.location}
             onChange={handleChange}
@@ -126,10 +175,14 @@ export function QuoteForm({ locale }: { locale: string }) {
           />
         </div>
         <div>
-          <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+          <label
+            htmlFor="equipment"
+            className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+          >
             {tf('equipment')}
           </label>
           <input
+            id="equipment"
             name="equipment"
             value={form.equipment}
             onChange={handleChange}
@@ -137,10 +190,14 @@ export function QuoteForm({ locale }: { locale: string }) {
           />
         </div>
         <div>
-          <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+          <label
+            htmlFor="duration"
+            className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+          >
             {tf('duration')}
           </label>
           <input
+            id="duration"
             name="duration"
             value={form.duration}
             onChange={handleChange}
@@ -149,10 +206,14 @@ export function QuoteForm({ locale }: { locale: string }) {
         </div>
       </div>
       <div>
-        <label className="mb-1.5 block font-poppins text-xs font-semibold text-navy">
+        <label
+          htmlFor="message"
+          className="mb-1.5 block font-poppins text-xs font-semibold text-navy"
+        >
           {tf('message')}
         </label>
         <textarea
+          id="message"
           name="message"
           rows={4}
           value={form.message}
