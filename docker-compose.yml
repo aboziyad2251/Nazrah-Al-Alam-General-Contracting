@@ -124,7 +124,7 @@ services:
     ports:
       - "127.0.0.1:6379:6379"
     healthcheck:
-      test: ["CMD-SHELL", "redis-cli -a $$REDIS_PASSWORD ping | grep PONG"]
+      test: ["CMD-SHELL", "redis-cli -a \"$$REDIS_PASSWORD\" ping | grep PONG"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -143,16 +143,19 @@ services:
       WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL:   ${SLACK_WEBHOOK_URL:-}
       WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER: "watchtower-nazrah"
       WATCHTOWER_NOTIFICATION_SLACK_CHANNEL:    "#deployments"
+      REPO_USER: ${GHCR_REPO}
+      REPO_PASS: ${GHCR_TOKEN}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /root/.docker/config.json:/config.json:ro
     command: nazrah-all --interval 300
 
 # ── Networks ──────────────────────────────────────────────────────────────────
 networks:
   proxy:
+    name: nazrahalalam_proxy
     driver: bridge
   backend:
+    name: nazrahalalam_backend
     driver: bridge
 
 # ── Volumes ───────────────────────────────────────────────────────────────────
