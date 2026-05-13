@@ -105,12 +105,11 @@ jobs:
       - name: Copy compose + config files to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
-          host:       ${{ secrets.SSH_HOST }}
-          username:   ${{ secrets.SSH_USER }}
-          key:        ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          source:     "docker-compose.yml,traefik/,nginx/,supervisord.conf"
-          target:     "/opt/nazrah"
+          host:     ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key:      ${{ secrets.SSH_PRIVATE_KEY }}
+          source:   "docker-compose.yml,traefik/,nginx/,supervisord.conf"
+          target:   "/opt/nazrah"
 
       - name: Pull new image & restart
         uses: appleboy/ssh-action@v1.0.3
@@ -119,10 +118,9 @@ jobs:
           GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
           ACTOR:      ${{ github.actor }}
         with:
-          host:       ${{ secrets.SSH_HOST }}
-          username:   ${{ secrets.SSH_USER }}
-          key:        ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          host:     ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key:      ${{ secrets.SSH_PRIVATE_KEY }}
           envs:       SHA,GHCR_TOKEN,ACTOR
           script: |
             set -euo pipefail
