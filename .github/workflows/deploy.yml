@@ -129,6 +129,7 @@ jobs:
             cd /opt/nazrah
             echo "$GHCR_TOKEN" | docker login ghcr.io -u "$ACTOR" --password-stdin
             APP_TAG="sha-$SHA" docker compose pull nazrah-all
+            docker rm -f nazrah-all 2>/dev/null || true
             APP_TAG="sha-$SHA" docker compose up -d --remove-orphans --no-deps nazrah-all
             sleep 15
             docker compose ps --format "table {{.Name}}\t{{.Status}}"
