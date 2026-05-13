@@ -101,44 +101,36 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: webfactory/ssh-agent@v0.9.0
+      - name: Copy compose + config files to VPS
+        uses: appleboy/scp-action@v0.1.7
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Add VPS to known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
-
-      - name: Sync compose + config files to VPS
-        run: |
-          rsync -avz --checksum \
-            docker-compose.yml \
-            traefik/ \
-            nginx/ \
-            supervisord.conf \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/opt/nazrah/
+          host:       ${{ secrets.SSH_HOST }}
+          username:   ${{ secrets.SSH_USER }}
+          key:        ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          source:     "docker-compose.yml,traefik/,nginx/,supervisord.conf"
+          target:     "/opt/nazrah"
 
       - name: Pull new image & restart
+        uses: appleboy/ssh-action@v1.0.3
         env:
-          SHA: ${{ needs.build.outputs.sha_short }}
+          SHA:        ${{ needs.build.outputs.sha_short }}
           GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash -s << 'ENDSSH'
+          ACTOR:      ${{ github.actor }}
+        with:
+          host:       ${{ secrets.SSH_HOST }}
+          username:   ${{ secrets.SSH_USER }}
+          key:        ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          envs:       SHA,GHCR_TOKEN,ACTOR
+          script: |
             set -euo pipefail
             cd /opt/nazrah
-
-            echo "$GHCR_TOKEN" | docker login ghcr.io \
-              -u "${{ github.actor }}" --password-stdin
-
+            echo "$GHCR_TOKEN" | docker login ghcr.io -u "$ACTOR" --password-stdin
             APP_TAG="sha-$SHA" docker compose pull nazrah-all
-
-            APP_TAG="sha-$SHA" docker compose up -d \
-              --remove-orphans --no-deps nazrah-all
-
+            APP_TAG="sha-$SHA" docker compose up -d --remove-orphans --no-deps nazrah-all
             sleep 15
             docker compose ps --format "table {{.Name}}\t{{.Status}}"
-          ENDSSH
 
       - name: Notify Slack on success
         if: success() && env.SLACK_WEBHOOK != ''
