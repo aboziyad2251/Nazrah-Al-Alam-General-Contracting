@@ -12,3 +12,5 @@ dist/
 out/
 coverage/
 .husky/_/
+traefik/acme.json
+traefik/auth/dashboard.htpasswd

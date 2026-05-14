@@ -13,7 +13,12 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
     "typecheck": "turbo run typecheck",
-    "prepare": "husky"
+    "prepare": "husky",
+    "vps:setup": "bash scripts/setup-vps.sh",
+    "vps:deploy": "bash scripts/deploy-vps.sh",
+    "vps:logs": "ssh -t ${VPS_USER:-root}@76.13.40.119 'cd /opt/nazrah && docker compose logs -f --tail=100'",
+    "vps:ps": "ssh ${VPS_USER:-root}@76.13.40.119 'cd /opt/nazrah && docker compose ps'",
+    "vps:restart": "ssh ${VPS_USER:-root}@76.13.40.119 'cd /opt/nazrah && docker compose restart nazrah-all'"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.0.0",

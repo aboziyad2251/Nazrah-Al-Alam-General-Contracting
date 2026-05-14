@@ -1,0 +1,215 @@
+commit 14786784ea93fc60b777a995e5893f4a92712882
+Author: Mohammed Abotargah <tarj123@gmail.com>
+Date:   Wed May 13 02:42:38 2026 +0300
+
+    fix(audit): impeccable pass-1 — a11y, perf, theming, polish
+    
+    Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+
+diff --git a/apps/web/src/app/[locale]/quote/QuoteForm.tsx b/apps/web/src/app/[locale]/quote/QuoteForm.tsx
+index c2f5872..9688bae 100644
+--- a/apps/web/src/app/[locale]/quote/QuoteForm.tsx
++++ b/apps/web/src/app/[locale]/quote/QuoteForm.tsx
+@@ -46,22 +46,24 @@ export function QuoteForm({ locale }: { locale: string }) {
+ 
+   if (state === 'success') {
+     return (
+-      <div role="alert" className="rounded-2xl border-2 border-gold/30 bg-white p-10 text-center">
++      <div
++        role="alert"
++        aria-live="polite"
++        className="flex items-center gap-3 rounded-lg border border-gold/30 bg-gold/10 px-4 py-3 text-gold"
++      >
+         <svg
+-          className="mx-auto mb-4 h-12 w-12 text-gold"
+-          fill="none"
+           viewBox="0 0 24 24"
++          fill="none"
+           stroke="currentColor"
+-          strokeWidth={2}
++          strokeWidth="2"
++          strokeLinecap="round"
++          strokeLinejoin="round"
++          className="h-5 w-5 shrink-0"
+           aria-hidden="true"
+         >
+-          <path
+-            strokeLinecap="round"
+-            strokeLinejoin="round"
+-            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+-          />
++          <polyline points="20 6 9 17 4 12" />
+         </svg>
+-        <h3 className="font-poppins text-xl font-bold text-navy">{t('success')}</h3>
++        <span>{t('success')}</span>
+       </div>
+     );
+   }
+diff --git a/apps/web/src/components/layout/Navbar.tsx b/apps/web/src/components/layout/Navbar.tsx
+index 7be3558..70a2467 100644
+--- a/apps/web/src/components/layout/Navbar.tsx
++++ b/apps/web/src/components/layout/Navbar.tsx
+@@ -12,7 +12,6 @@ interface NavbarProps {
+ 
+ export function Navbar({ locale }: NavbarProps) {
+   const t = useTranslations('nav');
+-  const tc = useTranslations('common');
+   const pathname = usePathname();
+   const [scrolled, setScrolled] = useState(false);
+   const [open, setOpen] = useState(false);
+diff --git a/apps/web/src/components/sections/EquipmentCarousel.tsx b/apps/web/src/components/sections/EquipmentCarousel.tsx
+index 9759fb4..7c4282c 100644
+--- a/apps/web/src/components/sections/EquipmentCarousel.tsx
++++ b/apps/web/src/components/sections/EquipmentCarousel.tsx
+@@ -1,7 +1,6 @@
+ 'use client';
+ 
+ import { useState } from 'react';
+-import Image from 'next/image';
+ import Link from 'next/link';
+ import { useTranslations } from 'next-intl';
+ import { motion, AnimatePresence } from 'framer-motion';
+@@ -11,6 +10,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
+ export function EquipmentCarousel({ locale }: { locale: string }) {
+   const t = useTranslations('home.equipment');
+   const te = useTranslations('equipment');
++  const tc = useTranslations('common');
+   const isAr = locale === 'ar';
+   const [active, setActive] = useState(0);
+   const categories = EQUIPMENT_CATEGORIES;
+@@ -25,7 +25,9 @@ export function EquipmentCarousel({ locale }: { locale: string }) {
+           {categories.map((cat, i) => (
+             <button
+               key={cat.slug}
++              type="button"
+               onClick={() => setActive(i)}
++              aria-pressed={i === active ? true : false}
+               className={[
+                 'rounded-full px-4 py-2 font-poppins text-sm font-semibold transition-all',
+                 i === active
+@@ -102,7 +104,7 @@ export function EquipmentCarousel({ locale }: { locale: string }) {
+             href={`/${locale}/equipment`}
+             className="inline-flex items-center gap-2 rounded-xl border-2 border-navy px-6 py-3 font-poppins text-sm font-bold text-navy transition-all hover:bg-navy hover:text-white"
+           >
+-            {useTranslations('common')('viewAll')}
++            {tc('viewAll')}
+             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="rtl:rotate-180">
+               <path
+                 d="M3 8h10M9 4l4 4-4 4"
+diff --git a/apps/web/src/components/sections/HeroSection.tsx b/apps/web/src/components/sections/HeroSection.tsx
+index ce8f7ad..b3aa4e6 100644
+--- a/apps/web/src/components/sections/HeroSection.tsx
++++ b/apps/web/src/components/sections/HeroSection.tsx
+@@ -24,7 +24,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
+       />
+       {/* Gold gradient blob */}
+       <div
+-        className="pointer-events-none absolute -top-32 end-0 h-[700px] w-[700px] rounded-full bg-gold/10 blur-3xl will-change-transform"
++        className="pointer-events-none absolute -top-32 end-0 h-[480px] w-[480px] rounded-full bg-gold/10 blur-2xl will-change-transform [transform:translateZ(0)]"
+         aria-hidden="true"
+       />
+       {/* Chevron watermark */}
+diff --git a/apps/web/src/components/sections/ProcessSection.tsx b/apps/web/src/components/sections/ProcessSection.tsx
+index b347399..4d3c1cd 100644
+--- a/apps/web/src/components/sections/ProcessSection.tsx
++++ b/apps/web/src/components/sections/ProcessSection.tsx
+@@ -20,7 +20,7 @@ export async function ProcessSection({ locale: _locale }: { locale: string }) {
+ 
+           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
+             {steps.map((step, i) => (
+-              <AnimatedSection key={i} delay={i * 0.15}>
++              <AnimatedSection key={i} delay={[0, 0.08, 0.16][i]}>
+                 <div className="relative flex flex-col items-center text-center">
+                   {/* number bubble */}
+                   <div className="relative z-10 mb-5 flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold/60 bg-white shadow-md">
+diff --git a/apps/web/src/components/sections/ServicesGrid.tsx b/apps/web/src/components/sections/ServicesGrid.tsx
+index a94a3af..35ea305 100644
+--- a/apps/web/src/components/sections/ServicesGrid.tsx
++++ b/apps/web/src/components/sections/ServicesGrid.tsx
+@@ -16,9 +16,13 @@ export async function ServicesGrid({ locale }: { locale: string }) {
+         <SectionHeader eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
+ 
+         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+-          {SERVICES.map((svc, i) => (
+-            <AnimatedSection key={svc.id} delay={i * 0.07}>
+-              <div className="border-navy/8 group flex h-full flex-col rounded-2xl border-2 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-navy-md">
++          {SERVICES.map((svc, i) => {
++            const delays = [0, 0.08, 0.16];
++            const card = (
++              <div
++                key={svc.id}
++                className="border-navy/8 group flex h-full flex-col rounded-2xl border-2 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-navy-md"
++              >
+                 <div className="mb-4 h-14 w-14 overflow-hidden rounded-xl shadow-sm">
+                   <Image
+                     src={svc.iconImage}
+@@ -57,8 +61,15 @@ export async function ServicesGrid({ locale }: { locale: string }) {
+                   </svg>
+                 </Link>
+               </div>
+-            </AnimatedSection>
+-          ))}
++            );
++            return i < 3 ? (
++              <AnimatedSection key={svc.id} delay={delays[i]}>
++                {card}
++              </AnimatedSection>
++            ) : (
++              card
++            );
++          })}
+         </div>
+       </div>
+     </section>
+diff --git a/apps/web/src/components/sections/TestimonialsSection.tsx b/apps/web/src/components/sections/TestimonialsSection.tsx
+index 119eaf9..ea9df17 100644
+--- a/apps/web/src/components/sections/TestimonialsSection.tsx
++++ b/apps/web/src/components/sections/TestimonialsSection.tsx
+@@ -30,7 +30,7 @@ export async function TestimonialsSection({ locale: _locale }: { locale: string
+ 
+         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+           {items.map((item, i) => (
+-            <AnimatedSection key={i} delay={i * 0.1}>
++            <AnimatedSection key={i} delay={[0, 0.08, 0.16][i]}>
+               <figure className="border-navy/8 flex h-full flex-col rounded-2xl border-2 bg-cloud p-7 shadow-sm transition-shadow hover:shadow-navy-md">
+                 <StarRating />
+                 <blockquote className="text-ink-600 flex-1 text-sm leading-relaxed">
+diff --git a/apps/web/src/components/sections/WhyChooseUs.tsx b/apps/web/src/components/sections/WhyChooseUs.tsx
+index 1bd8cde..20eceac 100644
+--- a/apps/web/src/components/sections/WhyChooseUs.tsx
++++ b/apps/web/src/components/sections/WhyChooseUs.tsx
+@@ -13,9 +13,13 @@ export async function WhyChooseUs({ locale: _locale }: { locale: string }) {
+       <div className="container-section">
+         <SectionHeader eyebrow={t('eyebrow')} title={t('title')} subtitle="" light />
+         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+-          {items.map((item, i) => (
+-            <AnimatedSection key={i} delay={i * 0.08}>
+-              <div className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-gold/40 hover:bg-white/10">
++          {items.map((item, i) => {
++            const delays = [0, 0.08, 0.16];
++            const card = (
++              <div
++                key={i}
++                className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-gold/40 hover:bg-white/10"
++              >
+                 <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold/20 text-2xl">
+                   {ICONS[i]}
+                 </span>
+@@ -24,8 +28,15 @@ export async function WhyChooseUs({ locale: _locale }: { locale: string }) {
+                   <p className="text-sm leading-relaxed text-white/65">{item.desc}</p>
+                 </div>
+               </div>
+-            </AnimatedSection>
+-          ))}
++            );
++            return i < 3 ? (
++              <AnimatedSection key={i} delay={delays[i]}>
++                {card}
++              </AnimatedSection>
++            ) : (
++              card
++            );
++          })}
+         </div>
+       </div>
+     </section>
