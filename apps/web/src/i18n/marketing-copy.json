@@ -1,0 +1,440 @@
+﻿{
+  "en": {
+    "hero": {
+      "variants": [
+        {
+          "headline": "When the Ground Breaks, We Build What Lasts.",
+          "subheadline": "General contracting for Jeddah\u0027s most demanding infrastructure, commercial, and residential projects â€” backed by 25 years of heavy iron and documented delivery."
+        },
+        {
+          "headline": "Concrete, Steel, and Commitment.",
+          "subheadline": "From excavation to handover, Nazrah Al Alam executes complete contracting services across the Kingdom â€” one milestone at a time, no surprises on delivery day."
+        },
+        {
+          "headline": "The Kingdom Builds. We Build the Kingdom.",
+          "subheadline": "Civil, mechanical, electrical, and infrastructure projects executed to specification, on schedule, in Jeddah and beyond â€” since 1999."
+        }
+      ]
+    },
+    "about": {
+      "founder_narrative": "Mr. Muhammad Hussain Muhammad Baroom didn\u0027t start with an office. He started on-site â€” reading soil reports, walking foundations, learning construction from the ground up in Jeddah during the Kingdom\u0027s formative infrastructure decade. By the time he established Nazrah Al Alam General Contracting, he had already spent years proving that a contractor\u0027s reputation is built on two things: what he delivers, and what he doesn\u0027t promise when he can\u0027t. Twenty-five years later, the company he founded operates one of Jeddah\u0027s most diversified contractor fleets â€” Komatsu bulldozers, CAT excavators, JCB backhoe loaders, CAT and Perkins generators from 25 to 600 kilowatts â€” and has delivered projects ranging from 20-villa residential developments in Al Johara Al Mohammadiah to commercial centers on Tahliyah Street. The philosophy hasn\u0027t changed: take fewer projects than the market offers, execute each one better than the client expects. No corners. No delays that aren\u0027t disclosed. No surprises on delivery day. Nazrah Al Alam is now a field-tested contracting firm with institutional discipline, a proven workforce, and a track record spanning residential, commercial, mosque, petrol station, and GRC decorative faÃ§ade work across Jeddah\u0027s most demanding neighborhoods."
+    },
+    "vision_mission_values": {
+      "vision": "To be the contractor that Jeddah\u0027s developers call first â€” not because we are the largest, but because we are the most dependable.",
+      "mission": "To execute every project with the precision our clients paid for, the safety our workers deserve, and the timeline we committed to â€” every single time, without exception.",
+      "values": [
+        {
+          "title": "Exactness",
+          "description": "In measurement, in execution, in billing. No rounding errors on-site or off."
+        },
+        {
+          "title": "Accountability",
+          "description": "Every site manager answers for every pour, every weld, every inspection â€” documented and traceable."
+        },
+        {
+          "title": "Safety",
+          "description": "Zero-incident sites are non-negotiable. We stop work before we cut corners."
+        },
+        {
+          "title": "Transparency",
+          "description": "Clients receive weekly progress reports, honest cost updates, and realistic timelines â€” not the ones they want to hear."
+        },
+        {
+          "title": "Continuity",
+          "description": "We build long-term â€” relationships that extend past handover, and structures that outlast their first owners."
+        }
+      ]
+    },
+    "services": [
+      {
+        "slug": "civil-structural",
+        "title": "Civil \u0026 Structural Works",
+        "description": "Reinforced concrete frames, load-bearing walls, raft foundations, retaining structures â€” we execute the skeleton that every other trade depends on. Our structural teams work from stamped engineering drawings and do not proceed without approved inspection. From ground-breaking to topping-out, the structural phase defines schedule, and we protect it."
+      },
+      {
+        "slug": "mechanical",
+        "title": "Mechanical Engineering",
+        "description": "Plumbing, firefighting networks, HVAC systems, and mechanical utility installations â€” engineered for Saudi code compliance and long-service reliability. Our mechanical teams coordinate with structural and electrical simultaneously, preventing the expensive rework that kills timelines on multi-trade projects. We test, commission, and hand over with full as-built documentation."
+      },
+      {
+        "slug": "electrical",
+        "title": "Electrical Systems",
+        "description": "From low-voltage distribution boards to medium-voltage switchgear, lighting design, and BMS wiring â€” our licensed electrical teams carry the work from conduit to commissioning. We do not subcontract the critical path. Solar-ready designs available on request for Vision 2030-aligned projects across Jeddah and the wider Kingdom."
+      },
+      {
+        "slug": "infrastructure",
+        "title": "Infrastructure Development",
+        "description": "Road sub-base and surfacing, storm drainage, sewerage networks, underground utility corridors, and site leveling at scale â€” executed with our owned fleet of bulldozers, loaders, and excavators. We mobilize fast, manage earthworks precisely, and close sites clean. Infrastructure is not glamorous work. We do it right anyway."
+      },
+      {
+        "slug": "maintenance",
+        "title": "Building Maintenance",
+        "description": "Preventive maintenance contracts, corrective repairs, and emergency response for commercial and residential buildings across Jeddah. Structural crack surveys, waterproofing remediation, MEP system overhauls â€” scheduled and reactive. Our maintenance crews are on standby. Response within four hours, guaranteed in every contract we sign."
+      },
+      {
+        "slug": "fitout",
+        "title": "Interior Fit-Out \u0026 Renovation",
+        "description": "Commercial office fit-out, retail interior, high-end residential finishing, GRC decorative faÃ§ade elements, porcelain and marble installation, suspended ceilings, and joinery â€” coordinated under one contract. We have completed GRC decorative work on commercial areas in Al Amir Fawaz district. Samples and workshop visits available before contract signature."
+      },
+      {
+        "slug": "equipment-rental",
+        "title": "Equipment Rental \u0026 Fleet",
+        "description": "Hire by the day, week, or month â€” with operator, without operator, or on a full-service wet-lease basis. Four bulldozer models, six wheel loader variants, CAT 320 excavator, JCB 3CX backhoe, telehandler boom truck, 10-meter mobile light towers, and CAT/Perkins generators from 25 to 600 kilowatts. No brokerage. You deal directly with the owner."
+      }
+    ],
+    "equipment_categories": [
+      {
+        "slug": "bulldozers",
+        "description": "Four models â€” Komatsu D475, CAT D9N, CAT D8K, Komatsu D155 â€” covering mass earthmoving, land clearance, and compaction from 37 to 108 metric tons of operating weight. Available with ROPS-certified operators experienced in Jeddah\u0027s mixed soil and coastal substrate conditions."
+      },
+      {
+        "slug": "wheel-loaders",
+        "description": "Six models from CAT and XCMG â€” from the compact CAT 910 to the high-capacity CAT 966E and XCMG 958 â€” covering bucket capacities from 1.2 to 3.1 cubic meters. For aggregate handling, site clean-up, and bulk material loading across residential and commercial projects."
+      },
+      {
+        "slug": "excavators",
+        "description": "The CAT 320 hydraulic excavator at 20 metric tons â€” the most-deployed mid-range excavator in Jeddah â€” handles foundation trenching, utility installation, and debris removal on tight urban sites. Bucket, ripper, and hydraulic hammer attachments available on request."
+      },
+      {
+        "slug": "backhoe-loaders",
+        "description": "The JCB 3CX â€” 74 kW, 8.46 metric tons, nearly six meters of dig depth â€” is the utility knife of construction sites. Trenching, backfilling, loading, and tight-space grading in a single machine. Widely used on our residential and infrastructure projects across Jeddah\u0027s established neighborhoods."
+      },
+      {
+        "slug": "telehandlers",
+        "description": "Our telehandler boom truck reaches 14 meters with a 3.5-metric-ton rated capacity â€” purpose-built for material placement on upper floors without mobile crane costs. Standard on commercial fit-out and faÃ§ade work projects where access is restricted and schedule is tight."
+      },
+      {
+        "slug": "tower-lights",
+        "description": "Ten-meter mobile lighting towers with four 1,000-watt metal halide lamps each â€” covering up to 5,000 square meters per tower. For night-shift concrete pours, security lighting during mobilization, and continuous MEP work after daylight hours on multi-phase projects."
+      },
+      {
+        "slug": "power-generators",
+        "description": "CAT and Perkins diesel generators from 25 to 600 kilowatts â€” soundproofed and open configurations. For temporary site power, planned outage backup for commercial operations, and continuous-duty power on projects outside the grid. Load banks available for commissioning tests before client handover."
+      }
+    ],
+    "why_choose_us": [
+      {
+        "title": "We Own Our Fleet",
+        "description": "No subcontracted equipment surprises. Every bulldozer, loader, excavator, generator, and light tower is owned and maintained by Nazrah Al Alam. You know what is coming to site before it arrives."
+      },
+      {
+        "title": "25 Years in Jeddah\u0027s Market",
+        "description": "We have seen the soil conditions, the municipal permit cycles, the supplier chains, and the inspection regimes. That institutional memory cuts weeks off project timelines."
+      },
+      {
+        "title": "Simultaneous Multi-Trade Execution",
+        "description": "Civil, mechanical, and electrical teams coordinate under one project manager â€” not three separate subcontractors negotiating schedule priority among themselves."
+      },
+      {
+        "title": "Documented Site Management",
+        "description": "Daily site reports. Weekly photographic progress records. Milestone-tied invoicing. Nothing about your project stays opaque."
+      },
+      {
+        "title": "No Ghost Supervision",
+        "description": "The engineer who signs your contract reviews your site personally. Not a junior site runner with a phone and authority he has not been given."
+      },
+      {
+        "title": "Post-Handover Accountability",
+        "description": "We issue a defect liability period in every contract. If something fails within the warranty window, we fix it at our cost â€” not yours."
+      }
+    ],
+    "projects_intro": "Nazrah Al Alam\u0027s portfolio spans residential areas from Al Sagr to Al Johara Al Mohammadiah, commercial offices on Kutbi Street, a petrol station in Al Nahda for a holding group, a mosque in Al Rawdah, a commercial center on Tahliyah Street, and GRC decorative work in Al Amir Fawaz district. Different typologies, same standard of execution.",
+    "brands_intro": "We do not recommend a brand we have not operated. Our equipment brands â€” Caterpillar, Komatsu, JCB, XCMG, Cummins, Perkins, and twelve others â€” were selected through years of field performance in Jeddah\u0027s conditions: summer heat, coastal humidity, and urban site constraints. When we specify a machine for your project, the recommendation comes from hours logged in the field, not a distributor\u0027s brochure.",
+    "quote_cta": [
+      {
+        "title": "Tell us about your project.",
+        "subtitle": "We will call back within two hours with a preliminary assessment â€” no commitment required.",
+        "button": "Submit Project Details"
+      },
+      {
+        "title": "Most quotes take 48 hours. Ours take less.",
+        "subtitle": "Fill in the form once. Our estimating team builds a line-item breakdown from your inputs â€” no follow-up calls asking the same questions twice.",
+        "button": "Get Your Quote"
+      },
+      {
+        "title": "Ready when you are.",
+        "subtitle": "Equipment rental, full contracting, or a maintenance contract â€” describe the scope and we will put numbers to it by end of day.",
+        "button": "Request a Quote"
+      }
+    ],
+    "contact_intro": "Our main office is in Al Aqsa Business Park, Jeddah. Phone and WhatsApp are answered Saturday through Thursday, 8 AM to 6 PM Arabian Standard Time. For after-hours emergencies on active maintenance contracts, use the emergency line on your contract cover page. We do not route calls through a call center.",
+    "footer_tagline": "Building Jeddah since 1999.",
+    "page_404": {
+      "headline": "This page went somewhere we didn\u0027t build.",
+      "subheadline": "The link you followed doesn\u0027t exist â€” but our projects do. Head back to the homepage or jump straight to what you need.",
+      "cta": "Back to Home"
+    },
+    "email_confirmation": {
+      "subject": "Your quote request reached us â€” Nazrah Al Alam",
+      "body": "Thank you for submitting your project details. Our estimating team has received your request and will prepare a preliminary assessment within 24 hours. If your project is time-sensitive, call us directly at +966 59 981 0888 and reference this submission. We do not send automated follow-ups. A real person will contact you."
+    },
+    "whatsapp_greeting": "Hello, this is Nazrah Al Alam General Contracting â€” Jeddah. You have reached us directly. How can we help with your project today? Please share the project type, location, and your timeline and we will respond with the right team.",
+    "seo": {
+      "home": {
+        "title": "Nazrah Al Alam General Contracting | Jeddah Since 1999",
+        "description": "Civil, mechanical, electrical, and infrastructure contracting in Jeddah. Owned heavy fleet including CAT, Komatsu, JCB. 25 years of delivered projects across the Kingdom."
+      },
+      "about": {
+        "title": "About Nazrah Al Alam | Founded by Muhammad Hussain Baroom",
+        "description": "The story, philosophy, and track record of Nazrah Al Alam General Contracting â€” a Jeddah-based contractor with 25 years of documented delivery on residential, commercial, and infrastructure projects."
+      },
+      "equipment": {
+        "title": "Heavy Equipment Fleet | Nazrah Al Alam General Contracting",
+        "description": "Browse our owned fleet: bulldozers, wheel loaders, excavators, backhoe loaders, telehandlers, tower lights, and generators from 25 to 600 kW. Available for hire or deployed on our projects."
+      },
+      "equipment_bulldozers": {
+        "title": "Bulldozers for Hire Jeddah | Komatsu D475, CAT D9N, D8K, D155",
+        "description": "Four bulldozer models from 37 to 108 metric tons for earthmoving and site clearance in Jeddah. ROPS-certified operators included. Direct from owner â€” no brokerage."
+      },
+      "equipment_wheel_loaders": {
+        "title": "Wheel Loaders Jeddah | CAT 966E 950E 928G 926E 910 XCMG 958",
+        "description": "Six wheel loader models with bucket capacities from 1.2 to 3.1 mÂ³. Available by the day, week, or month for construction and aggregate handling projects in Jeddah."
+      },
+      "equipment_excavators": {
+        "title": "CAT 320 Excavator for Hire | Jeddah Construction Sites",
+        "description": "20-metric-ton CAT 320 hydraulic excavator available for trenching, utility work, and urban site excavation in Jeddah. Bucket, ripper, and hammer attachments on request."
+      },
+      "equipment_backhoe_loaders": {
+        "title": "JCB 3CX Backhoe Loader Jeddah | Nazrah Al Alam",
+        "description": "JCB 3CX backhoe loader â€” 74 kW, nearly 6m dig depth â€” for trenching, backfilling, and tight-space grading on residential and infrastructure projects in Jeddah."
+      },
+      "equipment_telehandlers": {
+        "title": "Telehandler Boom Truck 14m | Jeddah Equipment Hire",
+        "description": "14-meter reach, 3.5-ton capacity telehandler boom truck for upper-floor material handling on fit-out and faÃ§ade projects in Jeddah. No mobile crane costs."
+      },
+      "equipment_tower_lights": {
+        "title": "10m Mobile Tower Lights Jeddah | Night Construction Lighting",
+        "description": "10-meter mobile lighting towers with 4 Ã— 1,000W metal halide lamps covering 5,000 mÂ² each. For night-shift pours, site security, and after-hours MEP work in Jeddah."
+      },
+      "equipment_power_generators": {
+        "title": "CAT \u0026 Perkins Generators 25â€“600 kW | Jeddah Equipment Rental",
+        "description": "Diesel generators from 25 to 600 kilowatts â€” CAT and Perkins â€” for site power, backup, and off-grid projects in Jeddah. Soundproofed and open configurations available."
+      },
+      "services": {
+        "title": "Contracting Services Jeddah | Civil, Mechanical, Electrical, Infrastructure",
+        "description": "Seven core contracting services: civil and structural, mechanical, electrical, infrastructure, building maintenance, interior fit-out, and equipment rental. One contractor, full scope."
+      },
+      "projects": {
+        "title": "Project Portfolio | Nazrah Al Alam General Contracting Jeddah",
+        "description": "Residential developments, commercial offices, mosques, petrol stations, GRC faÃ§ade work, and commercial centers across Jeddah\u0027s most established neighborhoods."
+      },
+      "brands": {
+        "title": "Equipment Brands \u0026 Partners | Nazrah Al Alam Jeddah",
+        "description": "We operate Caterpillar, Komatsu, JCB, XCMG, Cummins, Perkins, Volvo CE, Liebherr, and 7 other global brands â€” selected through years of field performance in Jeddah\u0027s conditions."
+      },
+      "quote": {
+        "title": "Request a Quote | Nazrah Al Alam General Contracting",
+        "description": "Submit your project details for a preliminary assessment within 24 hours. Civil works, equipment rental, maintenance contracts, or full-scope contracting in Jeddah."
+      },
+      "contact": {
+        "title": "Contact Nazrah Al Alam | Jeddah Al Aqsa Business Park",
+        "description": "Reach Nazrah Al Alam General Contracting by phone, WhatsApp, or email. Office at Al Aqsa Business Park, Jeddah. Open Saturdayâ€“Thursday, 8 AMâ€“6 PM AST."
+      }
+    }
+  },
+  "ar": {
+    "hero": {
+      "variants": [
+        {
+          "headline": "Ø­ÙŠÙ† ØªÙØ­Ø±ÙŽÙ‘Ùƒ Ø§Ù„ØªØ±Ø¨Ø©ØŒ Ù†Ø¨Ù†ÙŠ Ù…Ø§ ÙŠØ¯ÙˆÙ….",
+          "subheadline": "Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø¹Ø§Ù…Ø© Ù„Ø£ÙƒØ«Ø± Ù…Ø´Ø§Ø±ÙŠØ¹ Ø¬Ø¯Ø© ØªØ·Ù„Ø¨Ø§Ù‹ ÙÙŠ Ø§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ© ÙˆØ§Ù„ØªØ¬Ø§Ø±Ø© ÙˆØ§Ù„Ø³ÙƒÙ† â€” Ø¨Ø¯Ø¹Ù… Ù…Ù† Ø®Ù…Ø³Ø© ÙˆØ¹Ø´Ø±ÙŠÙ† Ø¹Ø§Ù…Ø§Ù‹ Ù…Ù† Ø§Ù„Ø­Ø¯ÙŠØ¯ Ø§Ù„Ø«Ù‚ÙŠÙ„ ÙˆØ§Ù„ØªØ³Ù„ÙŠÙ… Ø§Ù„Ù…ÙˆØ«ÙŽÙ‘Ù‚."
+        },
+        {
+          "headline": "Ø®Ø±Ø³Ø§Ù†Ø© ÙˆÙÙˆÙ„Ø§Ø° ÙˆØ§Ù„ØªØ²Ø§Ù… Ù„Ø§ ÙŠØªØ²Ø¹Ø²Ø¹.",
+          "subheadline": "Ù…Ù† Ø§Ù„Ø­ÙØ± Ø­ØªÙ‰ Ø§Ù„ØªØ³Ù„ÙŠÙ…ØŒ ØªÙÙ†Ø¬Ø² Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ø®Ø¯Ù…Ø§Øª Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ù…ØªÙƒØ§Ù…Ù„Ø© ÙÙŠ Ø£Ù†Ø­Ø§Ø¡ Ø§Ù„Ù…Ù…Ù„ÙƒØ© â€” Ø¥Ù†Ø¬Ø§Ø²Ø§Ù‹ Ø¨Ø¹Ø¯ Ø¥Ù†Ø¬Ø§Ø²ØŒ Ø¯ÙˆÙ† Ù…ÙØ§Ø¬Ø¢Øª ÙŠÙˆÙ… Ø§Ù„ØªØ³Ù„ÙŠÙ…."
+        },
+        {
+          "headline": "Ø§Ù„Ù…Ù…Ù„ÙƒØ© ØªØ¨Ù†ÙŠ. ÙˆÙ†Ø­Ù† Ù†Ø¨Ù†ÙŠ Ø§Ù„Ù…Ù…Ù„ÙƒØ©.",
+          "subheadline": "Ù…Ø´Ø§Ø±ÙŠØ¹ Ù…Ø¯Ù†ÙŠØ© ÙˆÙ…ÙŠÙƒØ§Ù†ÙŠÙƒÙŠØ© ÙˆÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© ÙˆØ¨Ù†ÙŠØ© ØªØ­ØªÙŠØ© ØªÙÙ†ÙÙŽÙ‘Ø° ÙˆÙÙ‚ Ø§Ù„Ù…ÙˆØ§ØµÙØ§Øª ÙˆÙÙŠ Ù…ÙˆØ¹Ø¯Ù‡Ø§ ÙÙŠ Ø¬Ø¯Ø© ÙˆÙ…Ø§ Ø­ÙˆÙ„Ù‡Ø§ â€” Ù…Ù†Ø° Ø¹Ø§Ù… Ù¡Ù©Ù©Ù©."
+        }
+      ]
+    },
+    "about": {
+      "founder_narrative": "Ù„Ù… ÙŠØ¨Ø¯Ø£ Ø§Ù„Ø³ÙŠØ¯ Ù…Ø­Ù…Ø¯ Ø­Ø³ÙŠÙ† Ù…Ø­Ù…Ø¯ Ø¨Ø§Ø±ÙˆÙ… Ù…Ù† Ù…ÙƒØªØ¨. Ø¨Ø¯Ø£ ÙÙŠ Ø§Ù„Ù…ÙˆÙ‚Ø¹ â€” ÙŠÙ‚Ø±Ø£ ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„ØªØ±Ø¨Ø©ØŒ ÙˆÙŠØªÙÙ‚Ø¯ Ø§Ù„Ø£Ø³Ø§Ø³Ø§ØªØŒ ÙˆÙŠØªØ¹Ù„Ù… Ø§Ù„Ø¨Ù†Ø§Ø¡ Ù…Ù† Ø§Ù„Ø£Ø±Ø¶ ØµØ¹ÙˆØ¯Ø§Ù‹ ÙÙŠ Ø¬Ø¯Ø© Ø®Ù„Ø§Ù„ Ø§Ù„Ø¹Ù‚Ø¯ Ø§Ù„ØªØ£Ø³ÙŠØ³ÙŠ Ù„Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ© ÙÙŠ Ø§Ù„Ù…Ù…Ù„ÙƒØ©. Ø­ÙŠÙ† Ø£Ø³Ù‘Ø³ Ø´Ø±ÙƒØ© Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø©ØŒ ÙƒØ§Ù† Ù‚Ø¯ Ø£Ù…Ø¶Ù‰ Ø³Ù†ÙˆØ§Øª ÙŠÙØ«Ø¨Øª Ø£Ù† Ø³Ù…Ø¹Ø© Ø§Ù„Ù…Ù‚Ø§ÙˆÙ„ ØªÙØ¨Ù†Ù‰ Ø¹Ù„Ù‰ Ø´ÙŠØ¦ÙŠÙ† ÙØ­Ø³Ø¨: Ù…Ø§ ÙŠÙØ³Ù„ÙÙ‘Ù…Ù‡ ÙØ¹Ù„Ø§Ù‹ØŒ ÙˆÙ…Ø§ Ù„Ø§ ÙŠÙŽØ¹ÙØ¯ Ø¨Ù‡ Ø­ÙŠÙ† ÙŠØ¹Ø¬Ø² Ø¹Ù† Ø§Ù„ÙˆÙØ§Ø¡. Ø¨Ø¹Ø¯ Ø®Ù…Ø³Ø© ÙˆØ¹Ø´Ø±ÙŠÙ† Ø¹Ø§Ù…Ø§Ù‹ØŒ ØªØ´ØºÙ‘Ù„ Ø§Ù„Ø´Ø±ÙƒØ© Ø£Ø­Ø¯ Ø£ÙƒØ«Ø± Ø£Ø³Ø§Ø·ÙŠÙ„ Ø§Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª ØªÙ†ÙˆØ¹Ø§Ù‹ ÙÙŠ Ø¬Ø¯Ø© â€” Ø¬Ø±Ø§ÙØ§Øª ÙƒÙˆÙ…Ø§ØªØ³ÙˆØŒ ÙˆØ­ÙØ§Ø±Ø§Øª ÙƒØ§ØªØ±Ø¨ÙŠÙ„Ø±ØŒ ÙˆÙ„ÙˆØ§Ø¯Ø± Ø®Ù„ÙÙŠØ© JCBØŒ ÙˆÙ…ÙˆÙ„Ø¯Ø§Øª ÙƒØ§ØªØ±Ø¨ÙŠÙ„Ø± ÙˆØ¨ÙŠØ±ÙƒÙ†Ø² Ù…Ù† Ù¢Ù¥ Ø¥Ù„Ù‰ Ù¦Ù Ù  ÙƒÙŠÙ„ÙˆÙˆØ§Ø· â€” ÙˆÙ‚Ø¯ Ø£Ù†Ø¬Ø²Øª Ù…Ø´Ø§Ø±ÙŠØ¹ ØªØªØ±Ø§ÙˆØ­ Ø¨ÙŠÙ† Ù…Ø¬Ù…Ø¹Ø§Øª Ø³ÙƒÙ†ÙŠØ© Ù…Ù† Ø¹Ø´Ø±ÙŠÙ† ÙÙŠÙ„Ø§ ÙÙŠ Ø§Ù„Ø¬ÙˆÙ‡Ø±Ø© Ø§Ù„Ù…Ø­Ù…Ø¯ÙŠØ©ØŒ ÙˆÙ…Ø±Ø§ÙƒØ² ØªØ¬Ø§Ø±ÙŠØ© Ø¹Ù„Ù‰ Ø´Ø§Ø±Ø¹ Ø§Ù„ØªØ­Ù„ÙŠØ©. Ø§Ù„ÙÙ„Ø³ÙØ© Ù„Ù… ØªØªØºÙŠÙ‘Ø±: ØªÙ‚Ø¨ÙŽÙ‘Ù„ Ù…Ù† Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ Ø£Ù‚Ù„ Ù…Ù…Ø§ ÙŠØ¹Ø±Ø¶Ù‡ Ø§Ù„Ø³ÙˆÙ‚ØŒ ÙˆÙ†ÙÙÙ‘Ø° ÙƒÙ„ Ù…Ø´Ø±ÙˆØ¹ Ø¨Ù…Ø³ØªÙˆÙ‰ ÙŠÙÙˆÙ‚ Ù…Ø§ ÙŠØªÙˆÙ‚Ø¹Ù‡ Ø§Ù„Ø¹Ù…ÙŠÙ„. Ù„Ø§ ØªÙ‚ØµÙŠØ± ÙÙŠ Ø§Ù„ØªÙØ§ØµÙŠÙ„. Ù„Ø§ ØªØ£Ø®ÙŠØ± Ø¯ÙˆÙ† Ø¥Ø¨Ù„Ø§Øº Ù…Ø³Ø¨Ù‚. Ù„Ø§ Ù…ÙØ§Ø¬Ø¢Øª ÙŠÙˆÙ… Ø§Ù„ØªØ³Ù„ÙŠÙ…. Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ø§Ù„ÙŠÙˆÙ… Ø´Ø±ÙƒØ© Ø±Ø§Ø³Ø®Ø© Ø¨Ø§Ù†Ø¶Ø¨Ø§Ø· Ù…Ø¤Ø³Ø³ÙŠ ÙˆÙƒÙˆØ§Ø¯Ø± Ù…Ø¬Ø±ÙŽÙ‘Ø¨Ø© ÙÙŠ Ø§Ù„Ù…ÙŠØ¯Ø§Ù† ÙˆØ³Ø¬Ù„ Ø­Ø§ÙÙ„ ÙŠØ´Ù…Ù„ Ø§Ù„Ø³ÙƒÙ†ÙŠ ÙˆØ§Ù„ØªØ¬Ø§Ø±ÙŠ ÙˆØ§Ù„Ù…Ø³Ø§Ø¬Ø¯ ÙˆÙ…Ø­Ø·Ø§Øª Ø§Ù„ÙˆÙ‚ÙˆØ¯ ÙˆØ§Ù„ÙˆØ§Ø¬Ù‡Ø§Øª Ø§Ù„Ø²Ø®Ø±ÙÙŠØ© Ø¨Ø§Ù„Ù€ GRC ÙÙŠ Ø£ÙƒØ«Ø± Ø£Ø­ÙŠØ§Ø¡ Ø¬Ø¯Ø© ØªØ·Ù„Ø¨Ø§Ù‹."
+    },
+    "vision_mission_values": {
+      "vision": "Ø£Ù† Ù†ÙƒÙˆÙ† Ø§Ù„Ù…Ù‚Ø§ÙˆÙ„ Ø§Ù„Ø°ÙŠ ÙŠØªØµÙ„ Ø¨Ù‡ Ø§Ù„Ù…Ø·ÙˆÙ‘Ø±ÙˆÙ† ÙÙŠ Ø¬Ø¯Ø© Ø£ÙˆÙ„Ø§Ù‹ â€” Ù„ÙŠØ³ Ù„Ø£Ù†Ù†Ø§ Ø§Ù„Ø£ÙƒØ¨Ø±ØŒ Ø¨Ù„ Ù„Ø£Ù†Ù†Ø§ Ø§Ù„Ø£ÙƒØ«Ø± Ù…ÙˆØ«ÙˆÙ‚ÙŠØ©.",
+      "mission": "Ø£Ù† Ù†ÙÙ†Ø¬Ø² ÙƒÙ„ Ù…Ø´Ø±ÙˆØ¹ Ø¨Ø§Ù„Ø¯Ù‚Ø© Ø§Ù„ØªÙŠ Ø¯ÙØ¹ Ù…Ù‚Ø§Ø¨Ù„Ù‡Ø§ Ø¹Ù…ÙŠÙ„Ù†Ø§ØŒ ÙˆØ§Ù„Ø³Ù„Ø§Ù…Ø© Ø§Ù„ØªÙŠ ÙŠØ³ØªØ­Ù‚Ù‡Ø§ Ø¹Ù…Ø§Ù„Ù†Ø§ØŒ ÙˆØ§Ù„Ø¬Ø¯ÙˆÙ„ Ø§Ù„Ø²Ù…Ù†ÙŠ Ø§Ù„Ø°ÙŠ Ø§Ù„ØªØ²Ù…Ù†Ø§ Ø¨Ù‡ â€” ÙÙŠ ÙƒÙ„ Ù…Ø±Ø© Ø¯ÙˆÙ† Ø§Ø³ØªØ«Ù†Ø§Ø¡.",
+      "values": [
+        {
+          "title": "Ø§Ù„Ø¯Ù‚Ø©",
+          "description": "ÙÙŠ Ø§Ù„Ù‚ÙŠØ§Ø³ ÙˆØ§Ù„ØªÙ†ÙÙŠØ° ÙˆØ§Ù„ÙÙˆØªØ±Ø©. Ù„Ø§ ØªÙ‚Ø±ÙŠØ¨ Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙˆÙ„Ø§ Ø®Ø§Ø±Ø¬Ù‡."
+        },
+        {
+          "title": "Ø§Ù„Ù…Ø³Ø§Ø¡Ù„Ø©",
+          "description": "ÙƒÙ„ Ù…Ø¯ÙŠØ± Ù…ÙˆÙ‚Ø¹ Ù…Ø³Ø¤ÙˆÙ„ Ø¹Ù† ÙƒÙ„ ØµØ¨Ù‘Ø© Ø®Ø±Ø³Ø§Ù†Ø© ÙˆÙƒÙ„ Ù„Ø­Ø§Ù… ÙˆÙƒÙ„ Ù…Ø¹Ø§ÙŠÙ†Ø© â€” Ù…ÙˆØ«ÙŽÙ‘Ù‚Ø§Ù‹ ÙˆÙ‚Ø§Ø¨Ù„Ø§Ù‹ Ù„Ù„ØªØªØ¨Ø¹."
+        },
+        {
+          "title": "Ø§Ù„Ø³Ù„Ø§Ù…Ø©",
+          "description": "Ù…ÙˆØ§Ù‚Ø¹ Ø¨Ù„Ø§ Ø­ÙˆØ§Ø¯Ø« Ø£Ù…Ø± ØºÙŠØ± Ù‚Ø§Ø¨Ù„ Ù„Ù„ØªÙØ§ÙˆØ¶. Ù†ÙˆÙ‚Ù Ø§Ù„Ø¹Ù…Ù„ Ù‚Ø¨Ù„ Ø£Ù† Ù†ØªÙ‡Ø§ÙˆÙ† ÙÙŠ Ø§Ù„ØªÙØ§ØµÙŠÙ„."
+        },
+        {
+          "title": "Ø§Ù„Ø´ÙØ§ÙÙŠØ©",
+          "description": "ÙŠØªÙ„Ù‚Ù‰ Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ ØªÙ‚Ø§Ø±ÙŠØ± ØªÙ‚Ø¯Ù… Ø£Ø³Ø¨ÙˆØ¹ÙŠØ© ÙˆØªØ­Ø¯ÙŠØ«Ø§Øª ØµØ§Ø¯Ù‚Ø© Ù„Ù„ØªÙƒØ§Ù„ÙŠÙ ÙˆØ¬Ø¯Ø§ÙˆÙ„ Ø²Ù…Ù†ÙŠØ© ÙˆØ§Ù‚Ø¹ÙŠØ© â€” Ù„Ø§ ØªÙ„Ùƒ Ø§Ù„ØªÙŠ ÙŠØ±ÙŠØ¯ÙˆÙ† Ø³Ù…Ø§Ø¹Ù‡Ø§."
+        },
+        {
+          "title": "Ø§Ù„Ø§Ø³ØªÙ…Ø±Ø§Ø±ÙŠØ©",
+          "description": "Ù†Ø¨Ù†ÙŠ Ù„Ù„Ø£Ù…Ø¯ Ø§Ù„Ø¨Ø¹ÙŠØ¯ â€” Ø¹Ù„Ø§Ù‚Ø§Øª ØªÙ…ØªØ¯ Ù…Ø§ Ø¨Ø¹Ø¯ Ø§Ù„ØªØ³Ù„ÙŠÙ…ØŒ ÙˆÙ…Ø¨Ø§Ù†Ù ØªØ¹Ù…Ù‘Ø± Ø£Ø·ÙˆÙ„ Ù…Ù† Ø£ØµØ­Ø§Ø¨Ù‡Ø§ Ø§Ù„Ø£ÙˆØ§Ø¦Ù„."
+        }
+      ]
+    },
+    "services": [
+      {
+        "slug": "civil-structural",
+        "title": "Ø§Ù„Ø£Ø¹Ù…Ø§Ù„ Ø§Ù„Ù…Ø¯Ù†ÙŠØ© ÙˆØ§Ù„Ø¥Ù†Ø´Ø§Ø¦ÙŠØ©",
+        "description": "Ù‡ÙŠØ§ÙƒÙ„ Ø®Ø±Ø³Ø§Ù†ÙŠØ© Ù…Ø³Ù„Ø­Ø© ÙˆØ¬Ø¯Ø±Ø§Ù† Ø­Ø§Ù…Ù„Ø© ÙˆØ£Ø³Ø§Ø³Ø§Øª Ø·ÙˆØ§ÙØ© ÙˆÙ‡ÙŠØ§ÙƒÙ„ Ø¯Ø¹Ù… â€” Ù†ÙÙ†Ø¬Ø² Ø§Ù„Ù‡ÙŠÙƒÙ„ Ø§Ù„Ø°ÙŠ ØªÙ‚ÙˆÙ… Ø¹Ù„ÙŠÙ‡ Ø¨Ù‚ÙŠØ© Ø§Ù„ØªØ®ØµØµØ§Øª. ØªØ¹Ù…Ù„ ÙØ±Ù‚Ù†Ø§ Ù…Ù† Ø±Ø³ÙˆÙ…Ø§Øª Ù‡Ù†Ø¯Ø³ÙŠØ© Ù…Ø¹ØªÙ…Ø¯Ø© ÙˆÙ„Ø§ ØªÙ†ØªÙ‚Ù„ Ù…Ø±Ø­Ù„Ø© Ø¯ÙˆÙ† Ø§Ø¬ØªÙŠØ§Ø² Ø§Ù„ÙƒØ´Ù. Ù…Ù† Ø§Ù„ÙŠÙˆÙ… Ø§Ù„Ø£ÙˆÙ„ Ù„Ù„Ø­ÙØ± Ø­ØªÙ‰ Ø¥ØªÙ…Ø§Ù… Ø§Ù„Ø¨Ù†Ø§Ø¡ØŒ Ù…Ø±Ø­Ù„Ø© Ø§Ù„Ù‡ÙŠÙƒÙ„ ØªØ­ÙƒÙ… Ø§Ù„Ø¬Ø¯ÙˆÙ„ Ø§Ù„Ø²Ù…Ù†ÙŠ ÙƒÙ„Ù‡ â€” ÙˆÙ†Ø­Ù† Ù†ØµÙˆÙ† Ø°Ù„Ùƒ Ø§Ù„Ø¬Ø¯ÙˆÙ„."
+      },
+      {
+        "slug": "mechanical",
+        "title": "Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…ÙŠÙƒØ§Ù†ÙŠÙƒÙŠØ©",
+        "description": "Ø´Ø¨ÙƒØ§Øª Ø§Ù„Ø³Ø¨Ø§ÙƒØ© ÙˆØ§Ù„Ø¥Ø·ÙØ§Ø¡ ÙˆØ£Ù†Ø¸Ù…Ø© Ø§Ù„ØªÙƒÙŠÙŠÙ ÙˆØ§Ù„ØªØ±ÙƒÙŠØ¨Ø§Øª Ø§Ù„Ù…ÙŠÙƒØ§Ù†ÙŠÙƒÙŠØ© â€” Ù…ÙØµÙ…ÙŽÙ‘Ù…Ø© ÙˆÙÙ‚ Ù…ØªØ·Ù„Ø¨Ø§Øª Ø§Ù„ÙƒÙˆØ¯ Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠ ÙˆÙ…ÙˆØ«ÙˆÙ‚ÙŠØ© Ø§Ù„Ø®Ø¯Ù…Ø© Ø§Ù„Ø·ÙˆÙŠÙ„Ø©. ØªØ¹Ù…Ù„ ÙØ±Ù‚Ù†Ø§ Ø¨Ø§Ù„ØªÙ†Ø³ÙŠÙ‚ Ù…Ø¹ Ø§Ù„Ø¥Ù†Ø´Ø§Ø¦ÙŠ ÙˆØ§Ù„ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠ ÙÙŠ Ø¢Ù†Ù ÙˆØ§Ø­Ø¯ Ù„ØªÙØ§Ø¯ÙŠ Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ø£Ø¹Ù…Ø§Ù„ Ø§Ù„Ù…ÙƒÙ„ÙØ©. Ù†Ø®ØªØ¨Ø± ÙˆÙ†ÙØ´ØºÙÙ‘Ù„ ÙˆÙ†ÙØ³Ù„ÙÙ‘Ù… Ø¨ØªÙˆØ«ÙŠÙ‚ ÙƒØ§Ù…Ù„ Ù„Ù…Ø§ Ù†ÙÙÙÙ‘Ø° ÙØ¹Ù„Ø§Ù‹."
+      },
+      {
+        "slug": "electrical",
+        "title": "Ø§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ©",
+        "description": "Ù…Ù† Ù„ÙˆØ­Ø§Øª Ø§Ù„ØªÙˆØ²ÙŠØ¹ Ù…Ù†Ø®ÙØ¶Ø© Ø§Ù„Ø¬Ù‡Ø¯ Ø¥Ù„Ù‰ Ù…Ø¹Ø¯Ø§Øª Ø§Ù„ØªØ­ÙˆÙŠÙ„ Ù…ØªÙˆØ³Ø·Ø© Ø§Ù„Ø¬Ù‡Ø¯ ÙˆØªØµÙ…ÙŠÙ… Ø§Ù„Ø¥Ø¶Ø§Ø¡Ø© ÙˆØªÙ…Ø¯ÙŠØ¯Ø§Øª Ø£Ù†Ø¸Ù…Ø© Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ø¨Ø§Ù†ÙŠ â€” ÙØ±Ù‚Ù†Ø§ Ø§Ù„Ù…Ø±Ø®ØµØ© ØªÙÙ†Ø¬Ø² Ø¹Ù…Ù„Ù‡Ø§ Ù…Ù† Ù…Ø±Ø­Ù„Ø© Ø§Ù„Ù…ÙˆØ§Ø³ÙŠØ± Ø­ØªÙ‰ Ø§Ù„ØªØ´ØºÙŠÙ„. Ù„Ø§ Ù†ÙØ³Ù†ÙØ¯ Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„Ø­Ø±Ø¬ Ù„Ù…Ù‚Ø§ÙˆÙ„ÙŠ Ø§Ù„Ø¨Ø§Ø·Ù†. ØªØµØ§Ù…ÙŠÙ… Ø¬Ø§Ù‡Ø²Ø© Ù„Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø´Ù…Ø³ÙŠØ© Ù…ØªØ§Ø­Ø© Ø¹Ù†Ø¯ Ø§Ù„Ø·Ù„Ø¨ Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ Ø±Ø¤ÙŠØ© Ù¢Ù Ù£Ù ."
+      },
+      {
+        "slug": "infrastructure",
+        "title": "ØªØ·ÙˆÙŠØ± Ø§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ©",
+        "description": "ØªØ£Ù‡ÙŠÙ„ Ø§Ù„Ø·Ø±Ù‚ ÙˆØ±ØµÙÙ‡Ø§ ÙˆØ´Ø¨ÙƒØ§Øª ØªØµØ±ÙŠÙ Ø§Ù„Ø£Ù…Ø·Ø§Ø± ÙˆØ§Ù„ØµØ±Ù Ø§Ù„ØµØ­ÙŠ ÙˆÙ…Ù…Ø±Ø§Øª Ø§Ù„Ù…Ø±Ø§ÙÙ‚ Ø§Ù„Ø¬ÙˆÙÙŠØ© ÙˆØªØ³ÙˆÙŠØ© Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹ Ø¹Ù„Ù‰ Ù†Ø·Ø§Ù‚ ÙˆØ§Ø³Ø¹ â€” Ø¨Ø£Ø³Ø·ÙˆÙ„Ù†Ø§ Ø§Ù„Ù…Ù…Ù„ÙˆÙƒ Ù…Ù† Ø§Ù„Ø¬Ø±Ø§ÙØ§Øª ÙˆØ§Ù„Ù„ÙˆØ§Ø¯Ø± ÙˆØ§Ù„Ø­ÙØ§Ø±Ø§Øª. Ù†ØªØ¹Ø¨Ù‘Ø£ Ø¨Ø³Ø±Ø¹Ø© ÙˆÙ†Ù†ÙØ° Ø£Ø¹Ù…Ø§Ù„ Ø§Ù„Ø­ÙØ±ÙŠØ§Øª Ø¨Ø¯Ù‚Ø© ÙˆÙ†ÙØºÙ„Ù‚ Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹ Ù†Ø¸ÙŠÙØ©. Ø£Ø¹Ù…Ø§Ù„ Ø§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ© Ù„ÙŠØ³Øª Ù„Ø§ÙØªØ© Ù„Ù„Ù†Ø¸Ø± â€” Ù„ÙƒÙ†Ù†Ø§ Ù†Ù†Ø¬Ø²Ù‡Ø§ Ø¹Ù„Ù‰ Ø§Ù„ÙˆØ¬Ù‡ Ø§Ù„ØµØ­ÙŠØ­."
+      },
+      {
+        "slug": "maintenance",
+        "title": "ØµÙŠØ§Ù†Ø© Ø§Ù„Ù…Ø¨Ø§Ù†ÙŠ",
+        "description": "Ø¹Ù‚ÙˆØ¯ Ø§Ù„ØµÙŠØ§Ù†Ø© Ø§Ù„ÙˆÙ‚Ø§Ø¦ÙŠØ© ÙˆØ§Ù„Ø¥ØµÙ„Ø§Ø­Ø§Øª Ø§Ù„ØªØµØ­ÙŠØ­ÙŠØ© ÙˆØ§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø© Ø§Ù„Ø·Ø§Ø±Ø¦Ø© Ù„Ù„Ù…Ø¨Ø§Ù†ÙŠ Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ© ÙˆØ§Ù„Ø³ÙƒÙ†ÙŠØ© ÙÙŠ Ø¬Ø¯Ø©. Ù…Ø³Ø­ Ø´Ù‚ÙˆÙ‚ Ø§Ù„Ù‡ÙŠØ§ÙƒÙ„ ÙˆØ¹Ù„Ø§Ø¬ Ø§Ù„Ø¹Ø²Ù„ Ø§Ù„Ù…Ø§Ø¦ÙŠ ÙˆØ¥ØµÙ„Ø§Ø­ Ù…Ù†Ø¸ÙˆÙ…Ø§Øª Ø§Ù„ÙƒÙ‡Ø±ÙˆÙ…ÙŠÙƒØ§Ù†ÙŠÙƒ â€” Ø¬Ø¯ÙˆÙ„ÙŠØ§Ù‹ ÙˆÙÙˆØ±ÙŠØ§Ù‹. Ø·ÙˆØ§Ù‚Ù… Ø§Ù„ØµÙŠØ§Ù†Ø© ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ø³ØªØ¹Ø¯Ø§Ø¯ Ø¯Ø§Ø¦Ù…. Ø§Ø³ØªØ¬Ø§Ø¨Ø© Ø®Ù„Ø§Ù„ Ø£Ø±Ø¨Ø¹ Ø³Ø§Ø¹Ø§Øª Ù…Ø¶Ù…ÙˆÙ†Ø© ÙÙŠ ÙƒÙ„ Ø¹Ù‚Ø¯."
+      },
+      {
+        "slug": "fitout",
+        "title": "Ø§Ù„ØªØ´Ø·ÙŠØ¨Ø§Øª Ø§Ù„Ø¯Ø§Ø®Ù„ÙŠØ© ÙˆØ§Ù„ØªØ¬Ø¯ÙŠØ¯",
+        "description": "ØªØ´Ø·ÙŠØ¨Ø§Øª Ø§Ù„Ù…ÙƒØ§ØªØ¨ Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ© ÙˆØ§Ù„Ù…Ø­Ù„Ø§Øª ÙˆØ§Ù„Ø³ÙƒÙ† Ø§Ù„ÙØ§Ø®Ø± ÙˆØ¹Ù†Ø§ØµØ± Ø§Ù„ÙˆØ§Ø¬Ù‡Ø§Øª Ø§Ù„Ø²Ø®Ø±ÙÙŠØ© Ø¨Ø§Ù„Ù€ GRC ÙˆØªØ±ÙƒÙŠØ¨ Ø§Ù„Ø¨ÙˆØ±Ø³Ù„Ø§Ù† ÙˆØ§Ù„Ø±Ø®Ø§Ù… ÙˆØ§Ù„Ø£Ø³Ù‚Ù Ø§Ù„Ù…Ø¹Ù„Ù‚Ø© ÙˆØ§Ù„Ø£Ø¹Ù…Ø§Ù„ Ø§Ù„Ø®Ø´Ø¨ÙŠØ© â€” ÙƒÙ„ Ø°Ù„Ùƒ ØªØ­Øª Ø¹Ù‚Ø¯ ÙˆØ§Ø­Ø¯. Ø£Ù†Ø¬Ø²Ù†Ø§ Ø£Ø¹Ù…Ø§Ù„ GRC Ø§Ù„Ø²Ø®Ø±ÙÙŠØ© ÙÙŠ Ù…Ù†Ø§Ø·Ù‚ ØªØ¬Ø§Ø±ÙŠØ© Ø¨Ø­ÙŠ Ø§Ù„Ø£Ù…ÙŠØ± ÙÙˆØ§Ø². Ø¹ÙŠÙ‘Ù†Ø§Øª ÙˆØ²ÙŠØ§Ø±Ø§Øª ÙˆØ±Ø´Ø© Ù…ØªØ§Ø­Ø© Ù‚Ø¨Ù„ ØªÙˆÙ‚ÙŠØ¹ Ø§Ù„Ø¹Ù‚Ø¯."
+      },
+      {
+        "slug": "equipment-rental",
+        "title": "ØªØ£Ø¬ÙŠØ± Ø§Ù„Ù…Ø¹Ø¯Ø§Øª ÙˆØ§Ù„Ø£Ø³Ø·ÙˆÙ„",
+        "description": "Ø¥ÙŠØ¬Ø§Ø± Ø¨Ø§Ù„ÙŠÙˆÙ… Ø£Ùˆ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ Ø£Ùˆ Ø§Ù„Ø´Ù‡Ø± â€” Ù…Ø¹ Ù…Ø´ØºÙÙ‘Ù„ Ø£Ùˆ Ø¯ÙˆÙ†Ù‡ØŒ Ø£Ùˆ Ø¹Ù„Ù‰ Ø£Ø³Ø§Ø³ Ø¥ÙŠØ¬Ø§Ø± Ø´Ø§Ù…Ù„ Ø¨Ø§Ù„ÙˆÙ‚ÙˆØ¯ ÙˆØ§Ù„ØµÙŠØ§Ù†Ø©. Ø£Ø±Ø¨Ø¹Ø© Ø·Ø±Ø§Ø²Ø§Øª Ù…Ù† Ø§Ù„Ø¬Ø±Ø§ÙØ§Øª ÙˆØ³ØªØ© Ù…Ù† Ø§Ù„Ù„ÙˆØ§Ø¯Ø± Ø§Ù„Ø¥Ø·Ø§Ø±ÙŠØ© ÙˆØ­ÙØ§Ø±Ø© CAT 320 ÙˆÙ„ÙˆØ¯Ø± Ø®Ù„ÙÙŠ JCB 3CX ÙˆØ´Ø§Ø­Ù†Ø© Ø±Ø§ÙØ¹Ø© ØªÙ„Ø³ÙƒÙˆØ¨ÙŠØ© ÙˆØ£Ø¨Ø±Ø§Ø¬ Ø¥Ø¶Ø§Ø¡Ø© ÙˆÙ…ÙˆÙ„Ø¯Ø§Øª Ù…Ù† Ù¢Ù¥ Ø¥Ù„Ù‰ Ù¦Ù Ù  ÙƒÙŠÙ„ÙˆÙˆØ§Ø·. Ù„Ø§ ÙˆØ³Ø·Ø§Ø¡. ØªØªØ¹Ø§Ù…Ù„ Ù…Ø¨Ø§Ø´Ø±Ø© Ù…Ø¹ Ø§Ù„Ù…Ø§Ù„Ùƒ."
+      }
+    ],
+    "equipment_categories": [
+      {
+        "slug": "bulldozers",
+        "description": "Ø£Ø±Ø¨Ø¹Ø© Ø·Ø±Ø§Ø²Ø§Øª â€” ÙƒÙˆÙ…Ø§ØªØ³Ùˆ D475 ÙˆCAT D9N ÙˆCAT D8K ÙˆÙƒÙˆÙ…Ø§ØªØ³Ùˆ D155 â€” ØªØºØ·ÙŠ Ø£Ø¹Ù…Ø§Ù„ Ø§Ù„Ø­ÙØ±ÙŠØ§Øª Ø§Ù„Ø¶Ø®Ù…Ø© ÙˆØªØ³ÙˆÙŠØ© Ø§Ù„Ø£Ø±Ø§Ø¶ÙŠ ÙˆØ§Ù„Ø¯Ù…Ùƒ Ù…Ù† Ù£Ù§ Ø¥Ù„Ù‰ Ù¡Ù Ù¨ Ø£Ø·Ù†Ø§Ù† Ù…Ù† ÙˆØ²Ù† Ø§Ù„ØªØ´ØºÙŠÙ„. Ù…ØªØ§Ø­Ø© Ù…Ø¹ Ù…Ø´ØºÙ„ÙŠÙ† Ù…Ø¹ØªÙ…Ø¯ÙŠÙ† Ø¨Ù€ ROPS Ø°ÙˆÙŠ Ø®Ø¨Ø±Ø© ÙÙŠ Ø¸Ø±ÙˆÙ Ø§Ù„ØªØ±Ø¨Ø© Ø§Ù„Ù…Ø®ØªÙ„Ø·Ø© ÙÙŠ Ø¬Ø¯Ø©."
+      },
+      {
+        "slug": "wheel-loaders",
+        "description": "Ø³ØªØ© Ø·Ø±Ø§Ø²Ø§Øª Ù…Ù† ÙƒØ§ØªØ±Ø¨ÙŠÙ„Ø± ÙˆØ§ÙƒØ³ Ø³ÙŠ Ø§Ù… Ø¬ÙŠ â€” Ù…Ù† Ø§Ù„Ù„ÙˆØ¯Ø± Ø§Ù„Ø®ÙÙŠÙ CAT 910 Ø¥Ù„Ù‰ Ø§Ù„Ù„ÙˆØ§Ø¯Ø± Ø¹Ø§Ù„ÙŠØ© Ø§Ù„Ø·Ø§Ù‚Ø© CAT 966E ÙˆXCMG 958 â€” ØªØºØ·ÙŠ Ø³Ø¹Ø§Øª Ø¯Ù„Ø§Ø¡ Ù…Ù† Ù¡Ù«Ù¢ Ø¥Ù„Ù‰ Ù£Ù«Ù¡ Ù…ØªØ± Ù…ÙƒØ¹Ø¨. Ù„Ù…Ù†Ø§ÙˆÙ„Ø© Ø§Ù„Ø±ÙƒØ§Ù… ÙˆØªÙ†Ø¸ÙŠÙ Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹ ÙˆØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù…ÙˆØ§Ø¯ ÙÙŠ Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„Ø³ÙƒÙ† ÙˆØ§Ù„ØªØ¬Ø§Ø±Ø©."
+      },
+      {
+        "slug": "excavators",
+        "description": "Ø­ÙØ§Ø±Ø© CAT 320 Ø§Ù„Ù‡ÙŠØ¯Ø±ÙˆÙ„ÙŠÙƒÙŠØ© Ø¨ÙˆØ²Ù† Ù¢Ù  Ø·Ù†Ø§Ù‹ â€” Ø§Ù„Ø£ÙƒØ«Ø± Ø§Ø³ØªØ®Ø¯Ø§Ù…Ø§Ù‹ ÙÙŠ ÙØ¦ØªÙ‡Ø§ ÙÙŠ Ø¬Ø¯Ø© â€” Ù„Ù„Ø­ÙØ± Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ ÙˆØªÙ…Ø¯ÙŠØ¯ Ø§Ù„Ù…Ø±Ø§ÙÙ‚ ÙˆØ¥Ø²Ø§Ù„Ø© Ø§Ù„Ø±ÙƒØ§Ù… ÙÙŠ Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹ Ø§Ù„Ø­Ø¶Ø±ÙŠØ© Ø§Ù„Ø¶ÙŠÙ‚Ø©. Ù…Ù„Ø­Ù‚Ø§Øª Ø¯Ù„Ùˆ ÙˆÙ…Ø´Ø· ÙˆØ·Ø±Ù‚ Ù‡ÙŠØ¯Ø±ÙˆÙ„ÙŠÙƒÙŠ Ù…ØªØ§Ø­Ø© Ø¹Ù†Ø¯ Ø§Ù„Ø·Ù„Ø¨."
+      },
+      {
+        "slug": "backhoe-loaders",
+        "description": "Ù„ÙˆØ¯Ø± JCB 3CX Ø§Ù„Ø®Ù„ÙÙŠ â€” Ù§Ù¤ ÙƒÙŠÙ„ÙˆÙˆØ§Ø·ØŒ Ù¨Ù«Ù¤Ù¦ Ø£Ø·Ù†Ø§Ù†ØŒ ÙˆØ¹Ù…Ù‚ Ø­ÙØ± ÙŠÙ‚Ø§Ø±Ø¨ Ø³ØªØ© Ø£Ù…ØªØ§Ø± â€” Ø³ÙƒÙŠÙ† Ø§Ù„Ø£Ø¯Ø§Ø© Ø§Ù„Ø´Ø§Ù…Ù„Ø© ÙÙŠ Ù…ÙˆØ§Ù‚Ø¹ Ø§Ù„Ø¨Ù†Ø§Ø¡. Ø­ÙØ± Ø®Ù†Ø§Ø¯Ù‚ ÙˆØ±Ø¯Ù… ÙˆØªØ­Ù…ÙŠÙ„ ÙˆØªØ³ÙˆÙŠØ© ÙÙŠ Ø£Ù…Ø§ÙƒÙ† Ø¶ÙŠÙ‚Ø©ØŒ ÙƒÙ„ Ø°Ù„Ùƒ ÙÙŠ Ø¢Ù„Ø© ÙˆØ§Ø­Ø¯Ø©."
+      },
+      {
+        "slug": "telehandlers",
+        "description": "ØªØµÙ„ Ø´Ø§Ø­Ù†Ø© Ø§Ù„Ø±Ø§ÙØ¹Ø© Ø§Ù„ØªÙ„Ø³ÙƒÙˆØ¨ÙŠØ© Ø¥Ù„Ù‰ Ø§Ø±ØªÙØ§Ø¹ Ù¡Ù¤ Ù…ØªØ±Ø§Ù‹ Ø¨Ø­Ù…ÙˆÙ„Ø© Ù£Ù«Ù¥ Ø·Ù† â€” Ù„Ø±ÙØ¹ Ø§Ù„Ù…ÙˆØ§Ø¯ Ø¥Ù„Ù‰ Ø§Ù„Ø£Ø¯ÙˆØ§Ø± Ø§Ù„Ø¹Ù„ÙŠØ§ Ø¯ÙˆÙ† ØªÙƒØ§Ù„ÙŠÙ Ø§Ù„Ø±Ø§ÙØ¹Ø© Ø§Ù„Ù…ØªÙ†Ù‚Ù„Ø©. ØªÙØ¹Ø¯Ù‘ Ù…Ø¹ÙŠØ§Ø±Ø§Ù‹ ÙÙŠ Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„ØªØ´Ø·ÙŠØ¨Ø§Øª Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ© ÙˆØ£Ø¹Ù…Ø§Ù„ Ø§Ù„ÙˆØ§Ø¬Ù‡Ø§Øª Ø­ÙŠØ« ØªØ¶ÙŠÙ‚ Ù…Ø³Ø§Ù„Ùƒ Ø§Ù„ÙˆØµÙˆÙ„."
+      },
+      {
+        "slug": "tower-lights",
+        "description": "Ø£Ø¨Ø±Ø§Ø¬ Ø¥Ø¶Ø§Ø¡Ø© Ù…ØªÙ†Ù‚Ù„Ø© Ø¨Ø§Ø±ØªÙØ§Ø¹ Ù¡Ù  Ø£Ù…ØªØ§Ø± Ù…Ø²ÙˆØ¯Ø© Ø¨Ø£Ø±Ø¨Ø¹Ø© Ù…ØµØ§Ø¨ÙŠØ­ Ù‡Ø§Ù„ÙˆØ¬ÙŠÙ† Ù…Ø¹Ø¯Ù†ÙŠ Ø¨Ù‚ÙˆØ© Ù¡Ù Ù Ù  ÙˆØ§Ø· Ù„ÙƒÙ„ Ù…Ù†Ù‡Ø§ â€” ØªØºØ·ÙŠ Ù…Ø§ ÙŠØµÙ„ Ø¥Ù„Ù‰ Ù¥Ù Ù Ù  Ù…ØªØ± Ù…Ø±Ø¨Ø¹ Ù„ÙƒÙ„ Ø¨Ø±Ø¬. Ù„ØµØ¨Ù‘Ø§Øª Ø§Ù„Ø®Ø±Ø³Ø§Ù†Ø© ÙÙŠ Ø§Ù„ÙˆØ±Ø¯ÙŠØ© Ø§Ù„Ù„ÙŠÙ„ÙŠØ© ÙˆØ¥Ø¶Ø§Ø¡Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙˆØ§Ù„Ø¹Ù…Ù„ Ø§Ù„Ù…ØªÙˆØ§ØµÙ„ Ø¹Ù„Ù‰ Ø§Ù„ØªØ±ÙƒÙŠØ¨Ø§Øª."
+      },
+      {
+        "slug": "power-generators",
+        "description": "Ù…ÙˆÙ„Ø¯Ø§Øª Ø¯ÙŠØ²Ù„ ÙƒØ§ØªØ±Ø¨ÙŠÙ„Ø± ÙˆØ¨ÙŠØ±ÙƒÙ†Ø² Ù…Ù† Ù¢Ù¥ Ø¥Ù„Ù‰ Ù¦Ù Ù  ÙƒÙŠÙ„ÙˆÙˆØ§Ø· â€” ÙÙŠ ØªØ´ÙƒÙŠÙ„Ø§Øª Ù…ÙØ¹Ø²ÙŽÙ‘Ø²Ø© ØµÙˆØªÙŠØ§Ù‹ ÙˆÙ…ÙØªÙˆØ­Ø©. Ù„Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ù…Ø¤Ù‚ØªØ© ÙÙŠ Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹ ÙˆØ§Ø­ØªÙŠØ§Ø·ÙŠ Ø§Ù„Ø§Ù†Ù‚Ø·Ø§Ø¹ Ø§Ù„Ù…Ø®Ø·Ø· ÙˆØ§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ù…Ø³ØªÙ…Ø±Ø© ÙÙŠ Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„Ø¨Ø¹ÙŠØ¯Ø© Ø¹Ù† Ø§Ù„Ø´Ø¨ÙƒØ©."
+      }
+    ],
+    "why_choose_us": [
+      {
+        "title": "Ø£Ø³Ø·ÙˆÙ„Ù†Ø§ Ù…Ù„ÙƒÙ†Ø§",
+        "description": "Ù„Ø§ Ù…ÙØ§Ø¬Ø¢Øª Ø¨Ù…Ø¹Ø¯Ø§Øª Ù…ÙØ³ØªØ£Ø¬Ø±Ø© Ù…Ù† Ø§Ù„Ø¨Ø§Ø·Ù†. ÙƒÙ„ Ø¬Ø±Ø§ÙØ© ÙˆÙ„ÙˆØ¯Ø± ÙˆØ­ÙØ§Ø±Ø© ÙˆÙ…ÙˆÙ„Ø¯ ÙˆØ¨Ø±Ø¬ Ø¥Ø¶Ø§Ø¡Ø© Ù…Ù…Ù„ÙˆÙƒ Ù„Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… ÙˆÙ…ØµØ§Ù† Ø¨Ø£ÙŠØ¯ÙŠÙ†Ø§. ØªØ¹Ø±Ù Ù…Ø§ Ø³ÙŠØµÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ù‚Ø¨Ù„ Ø£Ù† ÙŠØµÙ„."
+      },
+      {
+        "title": "Ø®Ù…Ø³Ø© ÙˆØ¹Ø´Ø±ÙˆÙ† Ø¹Ø§Ù…Ø§Ù‹ ÙÙŠ Ø³ÙˆÙ‚ Ø¬Ø¯Ø©",
+        "description": "Ø±Ø£ÙŠÙ†Ø§ Ø·Ø¨ÙŠØ¹Ø© Ø§Ù„ØªØ±Ø¨Ø© ÙˆØ¯ÙˆØ±Ø§Øª Ø§Ù„ØªØµØ§Ø±ÙŠØ­ Ø§Ù„Ø¨Ù„Ø¯ÙŠØ© ÙˆØ³Ù„Ø§Ø³Ù„ Ø§Ù„Ù…ÙˆØ±Ø¯ÙŠÙ† ÙˆØ£Ù†Ø¸Ù…Ø© Ø§Ù„ÙƒØ´Ù. Ù‡Ø°Ù‡ Ø§Ù„Ø°Ø§ÙƒØ±Ø© Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠØ© ØªÙˆÙØ± Ø£Ø³Ø§Ø¨ÙŠØ¹ Ù…Ù† Ø§Ù„Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø²Ù…Ù†ÙŠØ©."
+      },
+      {
+        "title": "ØªÙ†ÙÙŠØ° Ù…ØªØ²Ø§Ù…Ù† Ù„ØªØ®ØµØµØ§Øª Ù…ØªØ¹Ø¯Ø¯Ø©",
+        "description": "ÙØ±Ù‚ Ø§Ù„Ù…Ø¯Ù†ÙŠ ÙˆØ§Ù„Ù…ÙŠÙƒØ§Ù†ÙŠÙƒ ÙˆØ§Ù„ÙƒÙ‡Ø±Ø¨Ø§Ø¡ ØªØ¹Ù…Ù„ ØªØ­Øª Ø¥Ø¯Ø§Ø±Ø© Ù…Ø´Ø±ÙˆØ¹ ÙˆØ§Ø­Ø¯Ø© â€” Ù„Ø§ Ø«Ù„Ø§Ø«Ø© Ù…Ù‚Ø§ÙˆÙ„ÙŠ Ø¨Ø§Ø·Ù† ÙŠØªÙØ§ÙˆØ¶ÙˆÙ† ÙÙŠÙ…Ø§ Ø¨ÙŠÙ†Ù‡Ù… Ø¹Ù„Ù‰ Ø£ÙˆÙ„ÙˆÙŠØ© Ø§Ù„Ø¬Ø¯ÙˆÙ„."
+      },
+      {
+        "title": "Ø¥Ø¯Ø§Ø±Ø© Ù…ÙˆÙ‚Ø¹ Ù…ÙˆØ«ÙŽÙ‘Ù‚Ø©",
+        "description": "ØªÙ‚Ø§Ø±ÙŠØ± ÙŠÙˆÙ…ÙŠØ© Ù„Ù„Ù…ÙˆÙ‚Ø¹. Ø³Ø¬Ù„Ø§Øª ØªÙ‚Ø¯Ù… ÙÙˆØªÙˆØºØ±Ø§ÙÙŠØ© Ø£Ø³Ø¨ÙˆØ¹ÙŠØ©. ÙÙˆØªØ±Ø© Ù…Ø±ØªØ¨Ø·Ø© Ø¨Ø§Ù„Ù…Ø¹Ø§Ù„Ù… Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©. Ù„Ø§ Ø´ÙŠØ¡ ÙÙŠ Ù…Ø´Ø±ÙˆØ¹Ùƒ ÙŠØ¨Ù‚Ù‰ ÙÙŠ Ø§Ù„Ø¸Ù„Ø§Ù…."
+      },
+      {
+        "title": "Ù„Ø§ Ø¥Ø´Ø±Ø§Ù ÙˆÙ‡Ù…ÙŠ",
+        "description": "Ø§Ù„Ù…Ù‡Ù†Ø¯Ø³ Ø§Ù„Ø°ÙŠ ÙŠÙˆÙ‚Ø¹ Ø¹Ù‚Ø¯Ùƒ ÙŠÙØ±Ø§Ø¬Ø¹ Ù…ÙˆÙ‚Ø¹Ùƒ Ø¨Ù†ÙØ³Ù‡. Ù„Ø§ Ù…Ø´Ø±Ù Ù…ÙŠØ¯Ø§Ù†ÙŠ ØµØºÙŠØ± ÙŠØ­Ù…Ù„ Ù‡Ø§ØªÙØ§Ù‹ ÙˆØµÙ„Ø§Ø­ÙŠØ§Øª Ù„Ø§ ÙŠÙ…Ù„ÙƒÙ‡Ø§ ÙØ¹Ù„Ø§Ù‹."
+      },
+      {
+        "title": "Ø§Ù„Ù…Ø³Ø§Ø¡Ù„Ø© Ù…Ø§ Ø¨Ø¹Ø¯ Ø§Ù„ØªØ³Ù„ÙŠÙ…",
+        "description": "Ù†ÙØ¯Ø±ÙØ¬ ÙÙŠ ÙƒÙ„ Ø¹Ù‚Ø¯ ÙØªØ±Ø© Ø¶Ù…Ø§Ù† Ø¹ÙŠÙˆØ¨. Ø¥Ù† Ø£Ø®ÙÙ‚ Ø´ÙŠØ¡ Ø®Ù„Ø§Ù„ ÙØªØ±Ø© Ø§Ù„Ø¶Ù…Ø§Ù†ØŒ Ø£ØµÙ„Ø­Ù†Ø§Ù‡ Ø¹Ù„Ù‰ Ø­Ø³Ø§Ø¨Ù†Ø§ â€” Ù„Ø§ Ø¹Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ."
+      }
+    ],
+    "projects_intro": "ØªÙ…ØªØ¯ Ù…Ø­ÙØ¸Ø© Ø£Ø¹Ù…Ø§Ù„ Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„ØªØ´Ù…Ù„ Ù…Ù†Ø§Ø·Ù‚ Ø³ÙƒÙ†ÙŠØ© Ù…Ù† Ø§Ù„ØµÙ‚Ø± Ø¥Ù„Ù‰ Ø§Ù„Ø¬ÙˆÙ‡Ø±Ø© Ø§Ù„Ù…Ø­Ù…Ø¯ÙŠØ©ØŒ ÙˆÙ…ÙƒØ§ØªØ¨ ØªØ¬Ø§Ø±ÙŠØ© ÙÙŠ Ø´Ø§Ø±Ø¹ ÙƒØªØ¨ÙŠØŒ ÙˆÙ…Ø­Ø·Ø© ÙˆÙ‚ÙˆØ¯ ÙÙŠ Ø§Ù„Ù†Ù‡Ø¶Ø© Ù„Ù…Ø¬Ù…ÙˆØ¹Ø© Ù‚Ø§Ø¨Ø¶Ø©ØŒ ÙˆÙ…Ø³Ø¬Ø¯Ø§Ù‹ ÙÙŠ Ø§Ù„Ø±ÙˆØ¶Ø©ØŒ ÙˆÙ…Ø±ÙƒØ²Ø§Ù‹ ØªØ¬Ø§Ø±ÙŠØ§Ù‹ ÙÙŠ Ø´Ø§Ø±Ø¹ Ø§Ù„ØªØ­Ù„ÙŠØ©ØŒ ÙˆØ£Ø¹Ù…Ø§Ù„Ø§Ù‹ Ø²Ø®Ø±ÙÙŠØ© Ø¨Ø§Ù„Ù€ GRC ÙÙŠ Ø­ÙŠ Ø§Ù„Ø£Ù…ÙŠØ± ÙÙˆØ§Ø². ØªÙ†ÙˆØ¹ ÙÙŠ Ø§Ù„Ø£Ù†ÙˆØ§Ø¹ØŒ ÙˆÙˆØ­Ø¯Ø© ÙÙŠ Ù…Ø¹ÙŠØ§Ø± Ø§Ù„ØªÙ†ÙÙŠØ°.",
+    "brands_intro": "Ù†Ø­Ù† Ù„Ø§ Ù†ÙˆØµÙŠ Ø¨Ù…Ø§Ø±ÙƒØ© Ù„Ù… Ù†ÙØ´ØºÙÙ‘Ù„Ù‡Ø§ Ø¨Ø£ÙŠØ¯ÙŠÙ†Ø§. Ù…Ø§Ø±ÙƒØ§Øª Ù…Ø¹Ø¯Ø§ØªÙ†Ø§ â€” ÙƒØ§ØªØ±Ø¨ÙŠÙ„Ø± ÙˆÙƒÙˆÙ…Ø§ØªØ³Ùˆ ÙˆJCB ÙˆØ§ÙƒØ³ Ø³ÙŠ Ø§Ù… Ø¬ÙŠ ÙˆÙƒØ§Ù…Ù†Ø² ÙˆØ¨ÙŠØ±ÙƒÙ†Ø² ÙˆØ§Ø«Ù†ØªØ§ Ø¹Ø´Ø±Ø© Ø£Ø®Ø±Ù‰ â€” Ø§Ø®ØªÙÙŠØ±Øª Ø¹Ø¨Ø± Ø³Ù†ÙˆØ§Øª Ù…Ù† Ø§Ù„Ø£Ø¯Ø§Ø¡ Ø§Ù„Ù…ÙŠØ¯Ø§Ù†ÙŠ ÙÙŠ Ø¸Ø±ÙˆÙ Ø¬Ø¯Ø©: Ø­Ø±Ø§Ø±Ø© Ø§Ù„ØµÙŠÙ ÙˆØ±Ø·ÙˆØ¨Ø© Ø§Ù„Ø³Ø§Ø­Ù„ ÙˆÙ‚ÙŠÙˆØ¯ Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹ Ø§Ù„Ø­Ø¶Ø±ÙŠØ©. ØªÙˆØµÙŠØªÙ†Ø§ ØªØ£ØªÙŠ Ù…Ù† Ø³Ø§Ø¹Ø§Øª ØªØ´ØºÙŠÙ„ ÙØ¹Ù„ÙŠØ© â€” Ù„Ø§ Ù…Ù† ÙƒØªÙŠÙ‘Ø¨ Ù…ÙˆØ²ÙŽÙ‘Ø¹.",
+    "quote_cta": [
+      {
+        "title": "Ø£Ø®Ø¨Ø±Ù†Ø§ Ø¹Ù† Ù…Ø´Ø±ÙˆØ¹Ùƒ.",
+        "subtitle": "Ø³Ù†ØªØµÙ„ Ø¨Ùƒ Ø®Ù„Ø§Ù„ Ø³Ø§Ø¹ØªÙŠÙ† Ø¨ØªÙ‚ÙŠÙŠÙ… Ø£ÙˆÙ„ÙŠ â€” Ø¯ÙˆÙ† Ø£ÙŠ Ø§Ù„ØªØ²Ø§Ù… Ù…Ø³Ø¨Ù‚.",
+        "button": "Ø£Ø±Ø³Ù„ ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹"
+      },
+      {
+        "title": "Ù…Ø¹Ø¸Ù… Ø¹Ø±ÙˆØ¶ Ø§Ù„Ø£Ø³Ø¹Ø§Ø± ØªØ£Ø®Ø° Ù¤Ù¨ Ø³Ø§Ø¹Ø©. Ø¹Ø±ÙˆØ¶Ù†Ø§ Ø£Ù‚Ù„.",
+        "subtitle": "Ø£Ø¯Ø®ÙÙ„ Ø§Ù„Ù†Ù…ÙˆØ°Ø¬ Ù…Ø±Ø© ÙˆØ§Ø­Ø¯Ø©. ÙØ±ÙŠÙ‚ Ø§Ù„ØªÙƒÙ„ÙØ© Ù„Ø¯ÙŠÙ†Ø§ ÙŠÙØ¹ÙØ¯ ØªØ­Ù„ÙŠÙ„Ø§Ù‹ ØªÙØµÙŠÙ„ÙŠØ§Ù‹ Ù…Ù† Ù…Ø¯Ø®Ù„Ø§ØªÙƒ â€” Ø¯ÙˆÙ† Ù…ÙƒØ§Ù„Ù…Ø§Øª Ù…ØªØ§Ø¨Ø¹Ø© ØªØ³Ø£Ù„ Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø°Ø§ØªÙ‡Ø§ Ù…Ø¬Ø¯Ø¯Ø§Ù‹.",
+        "button": "Ø§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ø¹Ø±Ø¶ Ø³Ø¹Ø±Ùƒ"
+      },
+      {
+        "title": "Ø¬Ø§Ù‡Ø²ÙˆÙ† Ù…ØªÙ‰ ÙƒÙ†Øª Ø¬Ø§Ù‡Ø²Ø§Ù‹.",
+        "subtitle": "ØªØ£Ø¬ÙŠØ± Ù…Ø¹Ø¯Ø§Øª Ø£Ùˆ Ù…Ù‚Ø§ÙˆÙ„Ø© ÙƒØ§Ù…Ù„Ø© Ø£Ùˆ Ø¹Ù‚Ø¯ ØµÙŠØ§Ù†Ø© â€” ØµÙÙ Ø§Ù„Ù†Ø·Ø§Ù‚ ÙˆØ³Ù†Ø¶Ø¹ Ù„Ù‡ Ø£Ø±Ù‚Ø§Ù…Ø§Ù‹ Ù‚Ø¨Ù„ Ù†Ù‡Ø§ÙŠØ© Ø§Ù„ÙŠÙˆÙ….",
+        "button": "Ø·Ù„Ø¨ Ø¹Ø±Ø¶ Ø³Ø¹Ø±"
+      }
+    ],
+    "contact_intro": "Ù…ÙƒØªØ¨Ù†Ø§ Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠ ÙÙŠ Ø­Ø¯ÙŠÙ‚Ø© Ø§Ù„Ø£Ù‚ØµÙ‰ Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ©ØŒ Ø¬Ø¯Ø©. Ø§Ù„Ù‡Ø§ØªÙ ÙˆÙˆØ§ØªØ³Ø§Ø¨ ÙŠÙØ±Ø¯Ù‘ Ø¹Ù„ÙŠÙ‡Ù…Ø§ Ù…Ù† Ø§Ù„Ø³Ø¨Øª Ø¥Ù„Ù‰ Ø§Ù„Ø®Ù…ÙŠØ³ØŒ Ù…Ù† Ø§Ù„Ø³Ø§Ø¹Ø© Ø§Ù„Ø«Ø§Ù…Ù†Ø© ØµØ¨Ø§Ø­Ø§Ù‹ Ø­ØªÙ‰ Ø§Ù„Ø³Ø§Ø¯Ø³Ø© Ù…Ø³Ø§Ø¡Ù‹ Ø¨ØªÙˆÙ‚ÙŠØª Ø§Ù„Ù…Ù…Ù„ÙƒØ©. Ù„Ø·ÙˆØ§Ø±Ø¦ Ø¹Ù‚ÙˆØ¯ Ø§Ù„ØµÙŠØ§Ù†Ø© Ø§Ù„Ù†Ø´Ø·Ø© Ø®Ø§Ø±Ø¬ Ø£ÙˆÙ‚Ø§Øª Ø§Ù„Ø¹Ù…Ù„ØŒ Ø§Ø³ØªØ®Ø¯Ù… Ø®Ø· Ø§Ù„Ø·ÙˆØ§Ø±Ø¦ Ø§Ù„Ù…ÙØ¯Ø±ÙŽØ¬ ÙÙŠ ØºÙ„Ø§Ù Ø¹Ù‚Ø¯Ùƒ. Ù„Ø§ Ù†ÙˆØ¬Ù‘Ù‡ Ø§Ù„Ù…ÙƒØ§Ù„Ù…Ø§Øª Ø¹Ø¨Ø± Ù…Ø±Ø§ÙƒØ² Ø§ØªØµØ§Ù„.",
+    "footer_tagline": "Ù†Ø¨Ù†ÙŠ Ø¬Ø¯Ø© Ù…Ù†Ø° Ø¹Ø§Ù… Ù¡Ù©Ù©Ù©.",
+    "page_404": {
+      "headline": "Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø°Ù‡Ø¨Øª Ø¥Ù„Ù‰ Ù…ÙƒØ§Ù† Ù„Ù… Ù†Ø¨Ù†Ù‡.",
+      "subheadline": "Ø§Ù„Ø±Ø§Ø¨Ø· Ø§Ù„Ø°ÙŠ Ø§ØªØ¨Ø¹ØªÙ‡ ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯ â€” Ù„ÙƒÙ† Ù…Ø´Ø§Ø±ÙŠØ¹Ù†Ø§ Ù…ÙˆØ¬ÙˆØ¯Ø©. Ø¹ÙØ¯ Ø¥Ù„Ù‰ Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ø£Ùˆ Ø§Ù†ØªÙ‚Ù„ Ù…Ø¨Ø§Ø´Ø±Ø© Ø¥Ù„Ù‰ Ù…Ø§ ØªØ­ØªØ§Ø¬Ù‡.",
+      "cta": "Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©"
+    },
+    "email_confirmation": {
+      "subject": "ÙˆØµÙ„ Ø·Ù„Ø¨Ùƒ â€” Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø©",
+      "body": "Ø´ÙƒØ±Ø§Ù‹ Ù„Ø¥Ø±Ø³Ø§Ù„ ØªÙØ§ØµÙŠÙ„ Ù…Ø´Ø±ÙˆØ¹Ùƒ. Ø§Ø³ØªÙ„Ù… ÙØ±ÙŠÙ‚ Ø§Ù„ØªÙƒÙ„ÙØ© Ù„Ø¯ÙŠÙ†Ø§ Ø·Ù„Ø¨Ùƒ ÙˆØ³ÙŠÙØ¹ÙØ¯ ØªÙ‚ÙŠÙŠÙ…Ø§Ù‹ Ø£ÙˆÙ„ÙŠØ§Ù‹ Ø®Ù„Ø§Ù„ Ù¢Ù¤ Ø³Ø§Ø¹Ø©. Ø¥Ù† ÙƒØ§Ù† Ù…Ø´Ø±ÙˆØ¹Ùƒ Ø°Ø§ Ø£ÙˆÙ„ÙˆÙŠØ© Ø²Ù…Ù†ÙŠØ©ØŒ Ø§ØªØµÙ„ Ø¨Ù†Ø§ Ù…Ø¨Ø§Ø´Ø±Ø© Ø¹Ù„Ù‰ â€Ž+966 59 981 0888 ÙˆØ£Ø´ÙØ± Ø¥Ù„Ù‰ Ù‡Ø°Ø§ Ø§Ù„Ø·Ù„Ø¨. Ù„Ø§ Ù†Ø±Ø³Ù„ Ù…ØªØ§Ø¨Ø¹Ø§Øª Ø¢Ù„ÙŠØ©. Ø´Ø®Øµ Ø­Ù‚ÙŠÙ‚ÙŠ Ø³ÙŠØªÙˆØ§ØµÙ„ Ù…Ø¹Ùƒ."
+    },
+    "whatsapp_greeting": "Ø§Ù„Ø³Ù„Ø§Ù… Ø¹Ù„ÙŠÙƒÙ…ØŒ Ù‡Ø°Ù‡ Ø´Ø±ÙƒØ© Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø© â€” Ø¬Ø¯Ø©. ÙˆØµÙ„ØªÙ†Ø§ Ù…Ø¨Ø§Ø´Ø±Ø©. ÙƒÙŠÙ ÙŠÙ…ÙƒÙ†Ù†Ø§ Ù…Ø³Ø§Ø¹Ø¯ØªÙƒ ÙÙŠ Ù…Ø´Ø±ÙˆØ¹Ùƒ Ø§Ù„ÙŠÙˆÙ…ØŸ ÙŠØ±Ø¬Ù‰ Ù…Ø´Ø§Ø±ÙƒØ© Ù†ÙˆØ¹ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹ ÙˆØ§Ù„Ù…ÙˆÙ‚Ø¹ ÙˆØ§Ù„Ø¬Ø¯ÙˆÙ„ Ø§Ù„Ø²Ù…Ù†ÙŠ ÙˆØ³Ù†Ø±Ø¯Ù‘ Ø¨Ø§Ù„ÙØ±ÙŠÙ‚ Ø§Ù„Ù…Ù†Ø§Ø³Ø¨.",
+    "seo": {
+      "home": {
+        "title": "Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø© | Ø¬Ø¯Ø© Ù…Ù†Ø° Ù¡Ù©Ù©Ù©",
+        "description": "Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ù…Ø¯Ù†ÙŠØ© ÙˆÙ…ÙŠÙƒØ§Ù†ÙŠÙƒÙŠØ© ÙˆÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© ÙˆØ¨Ù†ÙŠØ© ØªØ­ØªÙŠØ© ÙÙŠ Ø¬Ø¯Ø©. Ø£Ø³Ø·ÙˆÙ„ Ø«Ù‚ÙŠÙ„ Ù…Ù…Ù„ÙˆÙƒ ÙŠØ´Ù…Ù„ ÙƒØ§ØªØ±Ø¨ÙŠÙ„Ø± ÙˆÙƒÙˆÙ…Ø§ØªØ³Ùˆ ÙˆJCB. Ø®Ù…Ø³Ø© ÙˆØ¹Ø´Ø±ÙˆÙ† Ø¹Ø§Ù…Ø§Ù‹ Ù…Ù† Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„Ù…ÙØ³Ù„ÙŽÙ‘Ù…Ø© ÙÙŠ Ø§Ù„Ù…Ù…Ù„ÙƒØ©."
+      },
+      "about": {
+        "title": "Ù…Ù† Ù†Ø­Ù† | Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù…ØŒ ØªØ£Ø³ÙŠØ³ Ù…Ø­Ù…Ø¯ Ø­Ø³ÙŠÙ† Ø¨Ø§Ø±ÙˆÙ…",
+        "description": "Ù‚ØµØ© ÙˆÙÙ„Ø³ÙØ© ÙˆØ³Ø¬Ù„ Ø£Ø¯Ø§Ø¡ Ø´Ø±ÙƒØ© Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø© â€” Ù…Ù‚Ø§ÙˆÙ„ Ø¬Ø¯Ø© Ø¨Ø®Ù…Ø³Ø© ÙˆØ¹Ø´Ø±ÙŠÙ† Ø¹Ø§Ù…Ø§Ù‹ Ù…Ù† Ø§Ù„ØªØ³Ù„ÙŠÙ… Ø§Ù„Ù…ÙˆØ«ÙŽÙ‘Ù‚ ÙÙŠ Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„Ø³ÙƒÙ†ÙŠØ© ÙˆØ§Ù„ØªØ¬Ø§Ø±ÙŠØ© ÙˆØ§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ©."
+      },
+      "equipment": {
+        "title": "Ø£Ø³Ø·ÙˆÙ„ Ø§Ù„Ù…Ø¹Ø¯Ø§Øª Ø§Ù„Ø«Ù‚ÙŠÙ„Ø© | Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø©",
+        "description": "ØªØµÙØ­ Ø£Ø³Ø·ÙˆÙ„Ù†Ø§ Ø§Ù„Ù…Ù…Ù„ÙˆÙƒ: Ø¬Ø±Ø§ÙØ§Øª ÙˆÙ„ÙˆØ§Ø¯Ø± Ø¥Ø·Ø§Ø±ÙŠØ© ÙˆØ­ÙØ§Ø±Ø§Øª ÙˆÙ„ÙˆØ§Ø¯Ø± Ø®Ù„ÙÙŠØ© ÙˆØ±Ø§ÙØ¹Ø§Øª ØªÙ„Ø³ÙƒÙˆØ¨ÙŠØ© ÙˆØ£Ø¨Ø±Ø§Ø¬ Ø¥Ø¶Ø§Ø¡Ø© ÙˆÙ…ÙˆÙ„Ø¯Ø§Øª Ù…Ù† Ù¢Ù¥ Ø¥Ù„Ù‰ Ù¦Ù Ù  ÙƒÙŠÙ„ÙˆÙˆØ§Ø·. Ù„Ù„Ø¥ÙŠØ¬Ø§Ø± Ø£Ùˆ Ù„Ù„Ù†Ø´Ø± ÙÙŠ Ù…Ø´Ø§Ø±ÙŠØ¹Ù†Ø§."
+      },
+      "services": {
+        "title": "Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª ÙÙŠ Ø¬Ø¯Ø© | Ù…Ø¯Ù†ÙŠ ÙˆÙ…ÙŠÙƒØ§Ù†ÙŠÙƒ ÙˆÙƒÙ‡Ø±Ø¨Ø§Ø¡ ÙˆØ¨Ù†ÙŠØ© ØªØ­ØªÙŠØ©",
+        "description": "Ø³Ø¨Ø¹ Ø®Ø¯Ù…Ø§Øª Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø£Ø³Ø§Ø³ÙŠØ©: Ù…Ø¯Ù†ÙŠ ÙˆØ¥Ù†Ø´Ø§Ø¦ÙŠØŒ ÙˆÙ…ÙŠÙƒØ§Ù†ÙŠÙƒØŒ ÙˆÙƒÙ‡Ø±Ø¨Ø§Ø¡ØŒ ÙˆØ¨Ù†ÙŠØ© ØªØ­ØªÙŠØ©ØŒ ÙˆØµÙŠØ§Ù†Ø© Ù…Ø¨Ø§Ù†ÙŠØŒ ÙˆØªØ´Ø·ÙŠØ¨Ø§Øª Ø¯Ø§Ø®Ù„ÙŠØ©ØŒ ÙˆØªØ£Ø¬ÙŠØ± Ù…Ø¹Ø¯Ø§Øª. Ù…Ù‚Ø§ÙˆÙ„ ÙˆØ§Ø­Ø¯ØŒ Ù†Ø·Ø§Ù‚ Ù…ØªÙƒØ§Ù…Ù„."
+      },
+      "projects": {
+        "title": "Ù…Ø­ÙØ¸Ø© Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ | Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø© Ø¬Ø¯Ø©",
+        "description": "Ù…Ø¬Ù…Ø¹Ø§Øª Ø³ÙƒÙ†ÙŠØ© ÙˆÙ…ÙƒØ§ØªØ¨ ØªØ¬Ø§Ø±ÙŠØ© ÙˆÙ…Ø³Ø§Ø¬Ø¯ ÙˆÙ…Ø­Ø·Ø§Øª ÙˆÙ‚ÙˆØ¯ ÙˆÙˆØ§Ø¬Ù‡Ø§Øª GRC Ø²Ø®Ø±ÙÙŠØ© ÙˆÙ…Ø±Ø§ÙƒØ² ØªØ¬Ø§Ø±ÙŠØ© ÙÙŠ Ø£Ø¨Ø±Ø² Ø£Ø­ÙŠØ§Ø¡ Ø¬Ø¯Ø©."
+      },
+      "brands": {
+        "title": "Ù…Ø§Ø±ÙƒØ§Øª Ø§Ù„Ù…Ø¹Ø¯Ø§Øª ÙˆØ§Ù„Ø´Ø±ÙƒØ§Ø¡ | Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ø¬Ø¯Ø©",
+        "description": "Ù†ÙØ´ØºÙÙ‘Ù„ ÙƒØ§ØªØ±Ø¨ÙŠÙ„Ø± ÙˆÙƒÙˆÙ…Ø§ØªØ³Ùˆ ÙˆJCB ÙˆØ§ÙƒØ³ Ø³ÙŠ Ø§Ù… Ø¬ÙŠ ÙˆÙƒØ§Ù…Ù†Ø² ÙˆØ¨ÙŠØ±ÙƒÙ†Ø² ÙˆÙÙˆÙ„ÙÙˆ CE ÙˆÙ„ÙŠØ¨Ù‡ÙŠØ± ÙˆØ³Ø¨Ø¹ Ù…Ø§Ø±ÙƒØ§Øª Ø¹Ø§Ù„Ù…ÙŠØ© Ø£Ø®Ø±Ù‰ â€” Ù…ÙØ®ØªØ§Ø±Ø© Ø¹Ø¨Ø± Ø³Ù†ÙˆØ§Øª Ù…Ù† Ø§Ù„Ø£Ø¯Ø§Ø¡ Ø§Ù„Ù…ÙŠØ¯Ø§Ù†ÙŠ ÙÙŠ Ø¬Ø¯Ø©."
+      },
+      "quote": {
+        "title": "Ø·Ù„Ø¨ Ø¹Ø±Ø¶ Ø³Ø¹Ø± | Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø©",
+        "description": "Ø£Ø±Ø³Ù„ ØªÙØ§ØµÙŠÙ„ Ù…Ø´Ø±ÙˆØ¹Ùƒ Ù„Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ ØªÙ‚ÙŠÙŠÙ… Ø£ÙˆÙ„ÙŠ Ø®Ù„Ø§Ù„ Ù¢Ù¤ Ø³Ø§Ø¹Ø©. Ø£Ø¹Ù…Ø§Ù„ Ù…Ø¯Ù†ÙŠØ© Ø£Ùˆ ØªØ£Ø¬ÙŠØ± Ù…Ø¹Ø¯Ø§Øª Ø£Ùˆ Ø¹Ù‚ÙˆØ¯ ØµÙŠØ§Ù†Ø© Ø£Ùˆ Ù…Ù‚Ø§ÙˆÙ„Ø© Ù…ØªÙƒØ§Ù…Ù„Ø© ÙÙŠ Ø¬Ø¯Ø©."
+      },
+      "contact": {
+        "title": "ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… | Ø¬Ø¯Ø©ØŒ Ø­Ø¯ÙŠÙ‚Ø© Ø§Ù„Ø£Ù‚ØµÙ‰ Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ©",
+        "description": "ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ù†Ø¸Ø±Ø© Ø§Ù„Ø¹Ø§Ù„Ù… Ù„Ù„Ù…Ù‚Ø§ÙˆÙ„Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø© Ø¨Ø§Ù„Ù‡Ø§ØªÙ Ø£Ùˆ ÙˆØ§ØªØ³Ø§Ø¨ Ø£Ùˆ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ. Ø§Ù„Ù…ÙƒØªØ¨ ÙÙŠ Ø­Ø¯ÙŠÙ‚Ø© Ø§Ù„Ø£Ù‚ØµÙ‰ Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ©ØŒ Ø¬Ø¯Ø©. Ù…ÙØªÙˆØ­ Ø§Ù„Ø³Ø¨Øªâ€“Ø§Ù„Ø®Ù…ÙŠØ³ØŒ Ù¨ Øµâ€“Ù¦ Ù…."
+      }
+    }
+  }
+}
