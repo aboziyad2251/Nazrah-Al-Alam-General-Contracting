@@ -17,6 +17,7 @@ import AnalyticsPage from '@/pages/analytics/AnalyticsDashboard';
 import CmsPage from '@/pages/cms/ContentCMS';
 import SettingsPage from '@/pages/settings/AdminSettings';
 import OverviewPage from '@/pages/Overview';
+import InvoicesListPage from '@/pages/invoices/InvoicesList';
 import UsersListPage from '@/pages/users/UsersList';
 import AuditLogPage from '@/pages/users/AuditLog';
 
@@ -50,6 +51,9 @@ export default function App() {
         {/* Quotes */}
         <Route path="/quotes" element={<QuotesListPage />} />
         <Route path="/quotes/:id" element={<QuoteEditorPage />} />
+
+        {/* Invoices */}
+        <Route path="/invoices" element={<InvoicesListPage />} />
 
         {/* HR */}
         <Route path="/hr/roster" element={<OperatorRosterPage />} />

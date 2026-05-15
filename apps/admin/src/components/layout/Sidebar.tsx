@@ -19,6 +19,7 @@ import {
   Building2,
   ShieldCheck,
   ClipboardList,
+  Receipt,
 } from 'lucide-react';
 
 interface NavItem {
@@ -47,6 +48,7 @@ const NAV: { group: string; items: NavItem[] }[] = [
       { label: 'Clients', to: '/crm/clients', icon: Building2 },
       { label: 'Leads', to: '/crm/leads', icon: GitBranch },
       { label: 'Quotes', to: '/quotes', icon: FileText },
+      { label: 'Invoices', to: '/invoices', icon: Receipt },
     ],
   },
   {
