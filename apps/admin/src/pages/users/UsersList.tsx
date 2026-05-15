@@ -2,7 +2,16 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/lib/supabase';
 import { toast } from 'sonner';
-import { Shield, Crown, User, Search, Loader2 } from 'lucide-react';
+import { Shield, Crown, User, Search, Loader2, Bell, CheckCircle, XCircle } from 'lucide-react';
+
+interface UpgradeRequest {
+  id: number;
+  profile_id: string;
+  message: string | null;
+  status: string;
+  created_at: string;
+  profiles: { full_name: string | null; email?: string } | null;
+}
 
 type UserRole = 'client' | 'premium_client' | 'operator' | 'dispatcher' | 'admin' | 'super_admin';
 
@@ -45,6 +54,51 @@ export default function UsersListPage() {
   const [search, setSearch] = useState('');
   const [changingId, setChangingId] = useState<string | null>(null);
   const [reasonMap, setReasonMap] = useState<Record<string, string>>({});
+
+  const { data: upgradeRequests = [] } = useQuery<UpgradeRequest[]>({
+    queryKey: ['upgrade-requests'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('upgrade_requests')
+        .select('*, profiles(full_name)')
+        .eq('status', 'pending')
+        .order('created_at', { ascending: true });
+      if (error) throw error;
+      return (data ?? []) as UpgradeRequest[];
+    },
+  });
+
+  const resolveRequest = useMutation({
+    mutationFn: async ({
+      requestId,
+      profileId,
+      approve,
+    }: {
+      requestId: number;
+      profileId: string;
+      approve: boolean;
+    }) => {
+      if (approve) {
+        const { error: roleErr } = await supabase.rpc('admin_change_role', {
+          target_id: profileId,
+          new_role: 'premium_client',
+          reason: 'Upgrade request approved',
+        });
+        if (roleErr) throw roleErr;
+      }
+      const { error } = await supabase
+        .from('upgrade_requests')
+        .update({ status: approve ? 'approved' : 'rejected', reviewed_at: new Date().toISOString() })
+        .eq('id', requestId);
+      if (error) throw error;
+    },
+    onSuccess: (_, { approve }) => {
+      toast.success(approve ? 'Approved — user upgraded to Premium' : 'Request rejected');
+      qc.invalidateQueries({ queryKey: ['upgrade-requests'] });
+      qc.invalidateQueries({ queryKey: ['admin-users'] });
+    },
+    onError: (e: Error) => toast.error(e.message),
+  });
 
   const { data: users = [], isLoading } = useQuery<UserRow[]>({
     queryKey: ['admin-users'],
@@ -97,6 +151,71 @@ export default function UsersListPage() {
           />
         </div>
       </div>
+
+      {/* Upgrade requests */}
+      {upgradeRequests.length > 0 && (
+        <div className="mb-6 rounded-2xl border border-[#E8B339]/40 bg-[#FFFBF0] p-5">
+          <div className="mb-3 flex items-center gap-2">
+            <Bell size={15} className="text-amber-600" />
+            <p className="font-semibold text-ink-900">
+              Premium Upgrade Requests
+            </p>
+            <span className="rounded-full bg-[#E8B339] px-2 py-0.5 text-xs font-bold text-[#0E1F3A]">
+              {upgradeRequests.length}
+            </span>
+          </div>
+          <div className="space-y-3">
+            {upgradeRequests.map((req) => (
+              <div
+                key={req.id}
+                className="flex flex-wrap items-start justify-between gap-4 rounded-xl border border-[#E8B339]/20 bg-white p-4"
+              >
+                <div className="min-w-0">
+                  <p className="font-medium text-ink-900">
+                    {req.profiles?.full_name ?? req.profile_id.slice(0, 8) + '…'}
+                  </p>
+                  {req.message && (
+                    <p className="mt-1 text-sm text-ink-500 italic">"{req.message}"</p>
+                  )}
+                  <p className="mt-1 text-xs text-ink-400">
+                    {new Date(req.created_at).toLocaleDateString()}
+                  </p>
+                </div>
+                <div className="flex shrink-0 gap-2">
+                  <button
+                    type="button"
+                    disabled={resolveRequest.isPending}
+                    onClick={() =>
+                      resolveRequest.mutate({
+                        requestId: req.id,
+                        profileId: req.profile_id,
+                        approve: true,
+                      })
+                    }
+                    className="flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-emerald-700 disabled:opacity-50"
+                  >
+                    <CheckCircle size={13} /> Approve
+                  </button>
+                  <button
+                    type="button"
+                    disabled={resolveRequest.isPending}
+                    onClick={() =>
+                      resolveRequest.mutate({
+                        requestId: req.id,
+                        profileId: req.profile_id,
+                        approve: false,
+                      })
+                    }
+                    className="flex items-center gap-1.5 rounded-lg border border-red-200 px-3 py-1.5 text-xs font-semibold text-red-600 transition-colors hover:bg-red-50 disabled:opacity-50"
+                  >
+                    <XCircle size={13} /> Reject
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {isLoading ? (
         <div className="flex h-48 items-center justify-center">
