@@ -25,29 +25,43 @@ export default function OnboardingPage() {
   const patch = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
   const finish = async () => {
-    if (!user) return;
+    // Resolve session directly from Supabase in case the store hasn't hydrated yet
+    const resolvedUser = user ?? (await supabase.auth.getSession()).data.session?.user ?? null;
+    if (!resolvedUser) {
+      toast.error('Session expired — please log in again.');
+      navigate('/login');
+      return;
+    }
     setLoading(true);
-    const { error: pErr } = await supabase.from('profiles').upsert({
-      id: user.id,
-      full_name: form.full_name,
-      full_name_ar: form.full_name_ar,
-      phone: form.phone,
-      company: form.company,
-      locale: form.locale,
-    });
-    if (!pErr) {
-      await supabase.from('clients').upsert({
-        profile_id: user.id,
-        vat_number: form.vat_number,
-        billing_address: form.billing_address,
+    try {
+      const { error: pErr } = await supabase.from('profiles').upsert({
+        id: resolvedUser.id,
+        full_name: form.full_name,
+        full_name_ar: form.full_name_ar,
+        phone: form.phone,
+        company: form.company,
+        locale: form.locale,
       });
-      await fetchProfile(user.id);
+      if (pErr) throw new Error(`Profile: ${pErr.message}`);
+
+      const { error: cErr } = await supabase.from('clients').upsert(
+        {
+          profile_id: resolvedUser.id,
+          vat_number: form.vat_number || null,
+          billing_address: form.billing_address || null,
+        },
+        { onConflict: 'profile_id' }
+      );
+      if (cErr) throw new Error(`Client record: ${cErr.message}`);
+
+      await fetchProfile(resolvedUser.id);
       toast.success('Profile saved!');
       navigate('/dashboard');
-    } else {
-      toast.error(pErr.message);
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : 'Setup failed — please try again.');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -151,6 +165,7 @@ export default function OnboardingPage() {
         <div className="mt-8 flex gap-3">
           {step > 0 && (
             <button
+              type="button"
               onClick={() => setStep(step - 1)}
               className="flex-1 rounded-xl border border-[#E8EAED] py-3 text-sm font-medium text-[#5A6573] transition-colors hover:bg-[#D9DCE0]"
             >
@@ -158,6 +173,7 @@ export default function OnboardingPage() {
             </button>
           )}
           <button
+            type="button"
             onClick={step < 2 ? () => setStep(step + 1) : finish}
             disabled={loading}
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#0E1F3A] py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0A1628] disabled:opacity-50"
