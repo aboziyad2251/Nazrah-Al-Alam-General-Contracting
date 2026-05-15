@@ -1,13 +1,36 @@
 import { NextResponse } from 'next/server';
+import { supabaseAdmin } from '@/lib/supabase';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    // Log to console (wire up to Resend / Supabase in production)
-    console.log('[Quote Request]', JSON.stringify(body, null, 2));
+    const { name, email, phone, company, projectType, location, equipment, duration, message } =
+      body;
 
-    // TODO: Send email via Resend
-    // await resend.emails.send({ from: 'quotes@nazrahalalam.com', to: 'Nazaralalam@gmail.com', subject: `New Quote: ${body.projectType}`, text: JSON.stringify(body) });
+    const notes = [
+      projectType && `Project type: ${projectType}`,
+      location && `Location: ${location}`,
+      equipment && `Equipment: ${equipment}`,
+      duration && `Duration: ${duration}`,
+      message && `Message: ${message}`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const { error } = await supabaseAdmin.from('leads').insert({
+      company_name: company || name,
+      contact_name: name,
+      email: email || null,
+      phone: phone || null,
+      stage: 'new',
+      source: 'web_quote_form',
+      notes: notes || null,
+    });
+
+    if (error) {
+      console.error('[Quote → Lead insert]', error.message);
+      // Return ok anyway — don't break UX on DB error
+    }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
