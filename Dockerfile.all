@@ -49,8 +49,10 @@ ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL \
     VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY \
     VITE_APP_VERSION=$VITE_APP_VERSION
 
-RUN pnpm --filter @nazrah/portal build && \
-    pnpm --filter @nazrah/admin  build
+RUN echo "=== Building portal ===" && \
+    pnpm --filter @nazrah/portal build 2>&1 && \
+    echo "=== Building admin ===" && \
+    pnpm --filter @nazrah/admin  build 2>&1
 
 # ─── Stage 5: runtime — nginx + Node.js (supervisord) ────────────────────────
 FROM node:22-alpine AS runner
