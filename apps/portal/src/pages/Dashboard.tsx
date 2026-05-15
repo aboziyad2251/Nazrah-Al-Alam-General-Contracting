@@ -2,8 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/lib/supabase';
 import { useAuthStore } from '@/stores/authStore';
 import { useUIStore } from '@/stores/uiStore';
-import { KpiCard, Skeleton, PageHeader, StatusBadge, EmptyState } from '@/components/ui';
-import { Package, FileText, Receipt, DollarSign, Bot, ArrowRight } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
+import { KpiCard, Skeleton, PageHeader, StatusBadge, EmptyState, PremiumGate } from '@/components/ui';
+import { Package, FileText, Receipt, DollarSign, Bot, ArrowRight, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns';
 
@@ -26,6 +27,7 @@ function useClientId() {
 export default function DashboardPage() {
   const { profile } = useAuthStore();
   const { locale } = useUIStore();
+  const { isPremium } = useAuth();
   const { data: clientId } = useClientId();
 
   const { data: kpi, isLoading } = useQuery({
@@ -53,6 +55,26 @@ export default function DashboardPage() {
       return { activeRentals: bookings.count ?? 0, openQuotes: quotes.count ?? 0, outstanding };
     },
     staleTime: 30_000,
+  });
+
+  const { data: premiumKpi, isLoading: premiumLoading } = useQuery({
+    queryKey: ['premium-kpi', clientId],
+    enabled: !!clientId && isPremium,
+    queryFn: async () => {
+      const yearStart = new Date(new Date().getFullYear(), 0, 1).toISOString();
+      const { data } = await supabase
+        .from('invoices')
+        .select('total_sar, created_at')
+        .eq('client_id', clientId!)
+        .eq('status', 'paid')
+        .gte('created_at', yearStart)
+        .order('created_at', { ascending: false });
+      const ytdSpend = data?.reduce((s, i) => s + Number(i.total_sar), 0) ?? 0;
+      const paidCount = data?.length ?? 0;
+      const avgInvoice = paidCount > 0 ? ytdSpend / paidCount : 0;
+      return { ytdSpend, paidCount, avgInvoice };
+    },
+    staleTime: 60_000,
   });
 
   const { data: recentQuotes } = useQuery({
@@ -116,12 +138,18 @@ export default function DashboardPage() {
               icon={<Receipt size={20} />}
               color="bg-orange-500"
             />
-            <KpiCard
-              label={locale === 'ar' ? 'إجمالي الإنفاق' : 'Total Spent YTD'}
-              value="SAR —"
-              icon={<DollarSign size={20} />}
-              color="bg-emerald-600"
-            />
+            <PremiumGate compact locale={locale}>
+              <KpiCard
+                label={locale === 'ar' ? 'إجمالي الإنفاق' : 'Total Spent YTD'}
+                value={
+                  premiumLoading
+                    ? '...'
+                    : `SAR ${(premiumKpi?.ytdSpend ?? 0).toLocaleString()}`
+                }
+                icon={<DollarSign size={20} />}
+                color="bg-emerald-600"
+              />
+            </PremiumGate>
           </>
         )}
       </div>
@@ -191,6 +219,53 @@ export default function DashboardPage() {
             {locale === 'ar' ? 'ابدأ المحادثة' : 'Start Chatting'}
           </Link>
         </div>
+      </div>
+
+      {/* Financial Insights — premium gated */}
+      <div className="mt-6">
+        <PremiumGate locale={locale}>
+          <div className="rounded-2xl border border-[#E8EAED] bg-white p-5">
+            <div className="mb-4 flex items-center gap-2">
+              <TrendingUp size={18} className="text-[#0E1F3A]" />
+              <h3 className="font-semibold text-[#0F1117]">
+                {locale === 'ar' ? 'ملخص مالي' : 'Financial Summary'}
+              </h3>
+              <span className="rounded-full bg-[#E8B339]/20 px-2 py-0.5 text-xs font-semibold text-[#B8860B]">
+                {locale === 'ar' ? 'مميز' : 'Premium'}
+              </span>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="rounded-xl bg-[#F8F9FA] p-4">
+                <p className="text-xs font-medium text-[#5A6573]">
+                  {locale === 'ar' ? 'إجمالي الإنفاق هذا العام' : 'Total Spent YTD'}
+                </p>
+                <p className="mt-1 text-2xl font-bold text-[#0F1117]">
+                  {premiumLoading
+                    ? '...'
+                    : `SAR ${(premiumKpi?.ytdSpend ?? 0).toLocaleString()}`}
+                </p>
+              </div>
+              <div className="rounded-xl bg-[#F8F9FA] p-4">
+                <p className="text-xs font-medium text-[#5A6573]">
+                  {locale === 'ar' ? 'الفواتير المدفوعة' : 'Paid Invoices'}
+                </p>
+                <p className="mt-1 text-2xl font-bold text-[#0F1117]">
+                  {premiumLoading ? '...' : premiumKpi?.paidCount ?? 0}
+                </p>
+              </div>
+              <div className="rounded-xl bg-[#F8F9FA] p-4">
+                <p className="text-xs font-medium text-[#5A6573]">
+                  {locale === 'ar' ? 'متوسط قيمة الفاتورة' : 'Avg Invoice Value'}
+                </p>
+                <p className="mt-1 text-2xl font-bold text-[#0F1117]">
+                  {premiumLoading
+                    ? '...'
+                    : `SAR ${(premiumKpi?.avgInvoice ?? 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
+                </p>
+              </div>
+            </div>
+          </div>
+        </PremiumGate>
       </div>
     </div>
   );

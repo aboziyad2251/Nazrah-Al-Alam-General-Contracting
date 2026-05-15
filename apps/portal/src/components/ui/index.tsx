@@ -79,6 +79,9 @@ export function EmptyState({
   );
 }
 
+// Premium Gate
+export { PremiumGate } from './PremiumGate';
+
 // Page header
 export function PageHeader({
   title,
