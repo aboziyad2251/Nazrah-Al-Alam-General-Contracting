@@ -17,6 +17,10 @@ export const PRICING: Record<string, ModelPrice> = {
   // Google Gemini
   'gemini-2.5-pro': { input: 1.25, output: 10.0 },
   'gemini-2.5-flash': { input: 0.075, output: 0.3 },
+
+  // DeepSeek (USD per 1M tokens, cache-miss rates)
+  'deepseek-chat':     { input: 0.27, output: 1.10 },
+  'deepseek-reasoner': { input: 0.55, output: 2.19 },
 };
 
 /**

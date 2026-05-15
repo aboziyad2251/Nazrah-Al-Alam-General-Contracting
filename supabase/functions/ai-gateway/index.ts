@@ -13,6 +13,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { callAnthropic, streamAnthropic } from './lib/anthropic.ts';
 import { callGemini, streamGemini } from './lib/gemini.ts';
+import { callDeepSeek, streamDeepSeek } from './lib/deepseek.ts';
 import { buildSystemPrompt, buildUserMessage, type Task } from './prompts/system.ts';
 import { checkRateLimit } from './lib/rateLimit.ts';
 import { calculateCost } from './lib/pricing.ts';
@@ -37,7 +38,7 @@ interface GatewayRequest {
 // ---------------------------------------------------------------------------
 
 interface RouteConfig {
-  provider: 'anthropic' | 'gemini';
+  provider: 'anthropic' | 'gemini' | 'deepseek';
   model: string;
   streaming: boolean;
   /** null = fail loud on primary error (no fallback) */
@@ -45,60 +46,60 @@ interface RouteConfig {
 }
 
 const ROUTES: Record<Task, RouteConfig> = {
-  // chat: Gemini Flash first (fast, cheap) → Claude Sonnet if Flash fails
+  // chat: DeepSeek V3 (fast, very cheap) → Claude Sonnet fallback
   chat: {
-    provider: 'gemini',
-    model: 'gemini-2.5-flash',
+    provider: 'deepseek',
+    model: 'deepseek-chat',
     streaming: true,
     fallbackModel: 'claude-sonnet-4-6',
   },
 
-  // quote_summary: Opus for maximum accuracy → Sonnet fallback
+  // quote_summary: DeepSeek R1 (chain-of-thought) → Sonnet fallback
   quote_summary: {
+    provider: 'deepseek',
+    model: 'deepseek-reasoner',
+    streaming: true,
+    fallbackModel: 'claude-sonnet-4-6',
+  },
+
+  // contract_draft: Claude Opus (legal accuracy) → DeepSeek R1 fallback
+  contract_draft: {
     provider: 'anthropic',
     model: 'claude-opus-4-7',
-    streaming: true,
-    fallbackModel: 'claude-sonnet-4-6',
+    streaming: false,
+    fallbackModel: 'deepseek-reasoner',
   },
 
-  // contract_draft: Opus only — legal accuracy required, no fallback
-  contract_draft: {
+  // site_photo_analysis: Claude Opus (vision) — DeepSeek has no vision API
+  site_photo_analysis: {
     provider: 'anthropic',
     model: 'claude-opus-4-7',
     streaming: false,
     fallbackModel: null,
   },
 
-  // site_photo_analysis: Gemini Pro for multimodal → Opus fallback
-  site_photo_analysis: {
-    provider: 'gemini',
-    model: 'gemini-2.5-pro',
-    streaming: false,
-    fallbackModel: 'claude-opus-4-7',
-  },
-
-  // classify_lead: Flash for speed/cost → Sonnet fallback
+  // classify_lead: DeepSeek V3 (fast/cheap) → Sonnet fallback
   classify_lead: {
-    provider: 'gemini',
-    model: 'gemini-2.5-flash',
+    provider: 'deepseek',
+    model: 'deepseek-chat',
     streaming: false,
     fallbackModel: 'claude-sonnet-4-6',
   },
 
-  // translate: Flash for speed → Sonnet fallback
+  // translate: DeepSeek V3 → Sonnet fallback
   translate: {
-    provider: 'gemini',
-    model: 'gemini-2.5-flash',
+    provider: 'deepseek',
+    model: 'deepseek-chat',
     streaming: false,
     fallbackModel: 'claude-sonnet-4-6',
   },
 
-  // recommend_equipment: Sonnet for reasoning → Gemini Pro fallback
+  // recommend_equipment: DeepSeek V3 for reasoning → Sonnet fallback
   recommend_equipment: {
-    provider: 'anthropic',
-    model: 'claude-sonnet-4-6',
+    provider: 'deepseek',
+    model: 'deepseek-chat',
     streaming: false,
-    fallbackModel: 'gemini-2.5-pro',
+    fallbackModel: 'claude-sonnet-4-6',
   },
 };
 
@@ -172,8 +173,10 @@ function sanitizePayload(payload: Record<string, unknown>): Record<string, unkno
 // Helpers
 // ---------------------------------------------------------------------------
 
-function providerFor(model: string): 'anthropic' | 'gemini' {
-  return model.startsWith('claude') ? 'anthropic' : 'gemini';
+function providerFor(model: string): 'anthropic' | 'gemini' | 'deepseek' {
+  if (model.startsWith('claude')) return 'anthropic';
+  if (model.startsWith('gemini')) return 'gemini';
+  return 'deepseek';
 }
 
 type Db = ReturnType<typeof createClient>;
@@ -249,6 +252,9 @@ async function callWithFallback(
     if (route.provider === 'anthropic') {
       return callAnthropic(route.model, systemPrompt, [{ role: 'user', content: userText }]);
     }
+    if (route.provider === 'deepseek') {
+      return callDeepSeek(route.model, systemPrompt, [{ role: 'user', content: userText }]);
+    }
     return callGemini(route.model, systemPrompt, userText, images as any);
   };
 
@@ -266,6 +272,11 @@ async function callWithFallback(
     const fbProvider = providerFor(route.fallbackModel);
     if (fbProvider === 'anthropic') {
       const result = await callAnthropic(route.fallbackModel, systemPrompt, [
+        { role: 'user', content: userText },
+      ]);
+      return { ...result, model: route.fallbackModel, usedFallback: true };
+    } else if (fbProvider === 'deepseek') {
+      const result = await callDeepSeek(route.fallbackModel, systemPrompt, [
         { role: 'user', content: userText },
       ]);
       return { ...result, model: route.fallbackModel, usedFallback: true };
@@ -306,10 +317,12 @@ function buildStreamResponse(
       let usedFallback = false;
       let fullText = '';
 
-      const tryStream = async (useModel: string, useProvider: 'anthropic' | 'gemini') => {
+      const tryStream = async (useModel: string, useProvider: 'anthropic' | 'gemini' | 'deepseek') => {
         const gen =
           useProvider === 'anthropic'
             ? streamAnthropic(useModel, systemPrompt, [{ role: 'user', content: userText }])
+            : useProvider === 'deepseek'
+            ? streamDeepSeek(useModel, systemPrompt, [{ role: 'user', content: userText }])
             : streamGemini(useModel, systemPrompt, userText);
 
         for await (const chunk of gen) {
