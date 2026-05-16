@@ -2,9 +2,56 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/lib/supabase';
 import { KpiCard, Card, Skeleton } from '@/components/ui/index';
 import { PageHeader } from '@/components/ui/index';
-import { Truck, FileText, DollarSign, Users, AlertTriangle } from 'lucide-react';
+import {
+  Truck,
+  FileText,
+  DollarSign,
+  Users,
+  AlertTriangle,
+  Clock,
+  UserPlus,
+  Receipt,
+  Star,
+  ArrowRight,
+} from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
+
+function ActionItem({
+  icon,
+  label,
+  count,
+  to,
+  color = 'text-yellow-600',
+  bg = 'bg-yellow-50',
+}: {
+  icon: React.ReactNode;
+  label: string;
+  count: number;
+  to: string;
+  color?: string;
+  bg?: string;
+}) {
+  if (!count) return null;
+  return (
+    <Link
+      to={to}
+      className="flex items-center justify-between rounded-xl border border-stone bg-white px-4 py-3 transition-colors hover:bg-cloud"
+    >
+      <div className="flex items-center gap-3">
+        <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${bg} ${color}`}>
+          {icon}
+        </div>
+        <span className="text-sm font-medium text-ink-900">{label}</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${bg} ${color}`}>{count}</span>
+        <ArrowRight size={14} className="text-ink-400" />
+      </div>
+    </Link>
+  );
+}
 
 export default function OverviewPage() {
   const { data: kpis, isLoading } = useQuery({
@@ -42,15 +89,54 @@ export default function OverviewPage() {
     },
   });
 
+  // Pending actions counts
+  const { data: actions } = useQuery({
+    queryKey: ['admin-actions'],
+    queryFn: async () => {
+      const [pendingBookings, sentQuotes, overdueInvoices, newLeads, upgradeRequests] =
+        await Promise.all([
+          supabase
+            .from('bookings')
+            .select('id', { count: 'exact', head: true })
+            .eq('status', 'pending'),
+          supabase.from('quotes').select('id', { count: 'exact', head: true }).eq('status', 'sent'),
+          supabase
+            .from('invoices')
+            .select('id', { count: 'exact', head: true })
+            .eq('status', 'overdue'),
+          supabase.from('leads').select('id', { count: 'exact', head: true }).eq('stage', 'new'),
+          supabase
+            .from('upgrade_requests')
+            .select('id', { count: 'exact', head: true })
+            .eq('status', 'pending'),
+        ]);
+      return {
+        pendingBookings: pendingBookings.count ?? 0,
+        sentQuotes: sentQuotes.count ?? 0,
+        overdueInvoices: overdueInvoices.count ?? 0,
+        newLeads: newLeads.count ?? 0,
+        upgradeRequests: upgradeRequests.count ?? 0,
+      };
+    },
+    refetchInterval: 60_000,
+  });
+
   const rented = kpis?.fleet.filter((e: any) => e.status === 'rented').length ?? 0;
   const available = kpis?.fleet.filter((e: any) => e.status === 'available').length ?? 0;
   const totalRevenue =
-    kpis?.revenue.reduce((s: number, r: any) => s + Number(r.total_revenue ?? 0), 0) ?? 0;
+    kpis?.revenue.reduce((s: number, r: any) => s + Number(r.total_sar ?? 0), 0) ?? 0;
 
   const chartData = [...(kpis?.revenue ?? [])].reverse().map((r: any) => ({
     month: format(new Date(r.month), 'MMM'),
-    revenue: Number(r.total_revenue ?? 0),
+    revenue: Number(r.total_sar ?? 0),
   }));
+
+  const totalActions =
+    (actions?.pendingBookings ?? 0) +
+    (actions?.sentQuotes ?? 0) +
+    (actions?.overdueInvoices ?? 0) +
+    (actions?.newLeads ?? 0) +
+    (actions?.upgradeRequests ?? 0);
 
   return (
     <div>
@@ -93,7 +179,7 @@ export default function OverviewPage() {
         )}
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="mb-6 grid grid-cols-3 gap-6">
         {/* Revenue chart */}
         <Card className="col-span-2 p-5">
           <div className="mb-4 flex items-center justify-between">
@@ -111,7 +197,7 @@ export default function OverviewPage() {
           </ResponsiveContainer>
         </Card>
 
-        {/* Alerts */}
+        {/* Service alerts */}
         <Card className="p-5">
           <div className="mb-4 flex items-center gap-2">
             <AlertTriangle size={16} className="text-yellow-500" />
@@ -137,6 +223,63 @@ export default function OverviewPage() {
           )}
         </Card>
       </div>
+
+      {/* Pending actions */}
+      {totalActions > 0 && (
+        <Card className="p-5">
+          <div className="mb-4 flex items-center gap-2">
+            <Clock size={16} className="text-red-500" />
+            <p className="font-semibold text-ink-900">
+              Needs Attention
+              <span className="ml-2 rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-600">
+                {totalActions}
+              </span>
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            <ActionItem
+              icon={<Clock size={14} />}
+              label="Bookings awaiting confirmation"
+              count={actions?.pendingBookings ?? 0}
+              to="/bookings"
+              color="text-blue-600"
+              bg="bg-blue-50"
+            />
+            <ActionItem
+              icon={<FileText size={14} />}
+              label="Quotes sent — awaiting response"
+              count={actions?.sentQuotes ?? 0}
+              to="/quotes"
+              color="text-purple-600"
+              bg="bg-purple-50"
+            />
+            <ActionItem
+              icon={<Receipt size={14} />}
+              label="Overdue invoices"
+              count={actions?.overdueInvoices ?? 0}
+              to="/invoices"
+              color="text-red-600"
+              bg="bg-red-50"
+            />
+            <ActionItem
+              icon={<UserPlus size={14} />}
+              label="New leads from web"
+              count={actions?.newLeads ?? 0}
+              to="/crm/leads"
+              color="text-green-600"
+              bg="bg-green-50"
+            />
+            <ActionItem
+              icon={<Star size={14} />}
+              label="Premium upgrade requests"
+              count={actions?.upgradeRequests ?? 0}
+              to="/users"
+              color="text-yellow-600"
+              bg="bg-yellow-50"
+            />
+          </div>
+        </Card>
+      )}
     </div>
   );
 }

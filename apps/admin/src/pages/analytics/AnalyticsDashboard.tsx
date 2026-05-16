@@ -33,8 +33,8 @@ export default function AnalyticsDashboard() {
       const { data } = await supabase.from('v_revenue_by_month').select('*').order('month');
       return (data ?? []).map((r: any) => ({
         month: format(new Date(r.month), 'MMM yy'),
-        revenue: Number(r.total_revenue ?? 0),
-        count: Number(r.invoice_count ?? 0),
+        revenue: Number(r.total_sar ?? 0),
+        count: Number(r.invoices_paid ?? 0),
       }));
     },
   });
