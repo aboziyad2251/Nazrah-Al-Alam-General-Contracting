@@ -13,13 +13,14 @@ import {
   ChevronLeft,
   ChevronRight,
   ShoppingCart,
+  ClipboardList,
 } from 'lucide-react';
 import { useUIStore } from '@/stores/uiStore';
 import { useAuthStore } from '@/stores/authStore';
 import { useCartStore } from '@/stores/cartStore';
 import { cn } from '@/lib/cn';
 
-const nav = [
+const clientNav = [
   { to: '/dashboard', icon: LayoutDashboard, en: 'Dashboard', ar: 'لوحة التحكم' },
   { to: '/catalog', icon: Package, en: 'Catalog', ar: 'المعدات' },
   { to: '/quote-builder', icon: ShoppingCart, en: 'Quote Builder', ar: 'طلب عرض' },
@@ -31,11 +32,19 @@ const nav = [
   { to: '/settings', icon: Settings, en: 'Settings', ar: 'الإعدادات' },
 ];
 
+const operatorNav = [
+  { to: '/my-assignments', icon: ClipboardList, en: 'My Assignments', ar: 'مهامي' },
+  { to: '/settings', icon: Settings, en: 'Settings', ar: 'الإعدادات' },
+];
+
 export function Sidebar() {
   const { sidebarOpen, toggleSidebar, locale } = useUIStore();
-  const { signOut } = useAuthStore();
+  const { signOut, profile } = useAuthStore();
   const cartItems = useCartStore((s) => s.items);
   const navigate = useNavigate();
+
+  const isOperator = profile?.role === 'operator';
+  const nav = isOperator ? operatorNav : clientNav;
 
   return (
     <motion.aside
@@ -56,7 +65,9 @@ export function Sidebar() {
               exit={{ opacity: 0, x: -10 }}
             >
               <p className="text-sm font-semibold leading-tight">Nazrah Al Alam</p>
-              <p className="text-xs text-white/50">Client Portal</p>
+              <p className="text-xs text-white/50">
+                {isOperator ? 'Operator App' : 'Client Portal'}
+              </p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -103,6 +114,7 @@ export function Sidebar() {
       {/* Sign out */}
       <div className="border-t border-white/10 p-2">
         <button
+          type="button"
           onClick={() => {
             signOut();
             navigate('/login');
@@ -122,6 +134,7 @@ export function Sidebar() {
 
       {/* Toggle btn */}
       <button
+        type="button"
         onClick={toggleSidebar}
         className="absolute -right-3 top-1/2 z-10 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gold text-navy shadow-md"
       >

@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthGuard } from '@/components/auth/AuthGuard';
 import { AppLayout } from '@/components/layout/AppLayout';
+import { useAuthStore } from '@/stores/authStore';
 import LoginPage from '@/pages/Login';
 import OnboardingPage from '@/pages/Onboarding';
 import DashboardPage from '@/pages/Dashboard';
@@ -12,6 +13,13 @@ import InvoicesPage from '@/pages/Invoices';
 import AssistantPage from '@/pages/Assistant';
 import SurveyPage from '@/pages/Survey';
 import SettingsPage from '@/pages/Settings';
+import OperatorAssignments from '@/pages/OperatorAssignments';
+
+function RootRedirect() {
+  const { profile } = useAuthStore();
+  if (profile?.role === 'operator') return <Navigate to="/my-assignments" replace />;
+  return <Navigate to="/dashboard" replace />;
+}
 
 export default function App() {
   return (
@@ -28,7 +36,7 @@ export default function App() {
           </AuthGuard>
         }
       >
-        <Route index element={<Navigate to="/dashboard" replace />} />
+        <Route index element={<RootRedirect />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/quote-builder" element={<QuoteBuilderPage />} />
@@ -38,9 +46,10 @@ export default function App() {
         <Route path="/assistant" element={<AssistantPage />} />
         <Route path="/survey" element={<SurveyPage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/my-assignments" element={<OperatorAssignments />} />
       </Route>
 
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<RootRedirect />} />
     </Routes>
   );
 }
