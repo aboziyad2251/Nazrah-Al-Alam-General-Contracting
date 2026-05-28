@@ -39,7 +39,7 @@ services:
 
   # ── All apps — single container (nginx + Node.js via supervisord) ─────────────
   # nginx routes internally:
-  #   nazrah-main.algarni.online   → Node.js :3000 (Next.js)
+  #   nazrah-mainx.algarni.online  → Node.js :3000 (Next.js)
   #   nazrah-client.algarni.online → /var/www/portal  (static)
   #   nazrah-app.algarni.online    → /var/www/admin   (static)
   nazrah-all:
@@ -63,7 +63,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=nazrahalalam_proxy"
-      - "traefik.http.routers.web.rule=Host(`${WEB_HOST:-nazrah-main.algarni.online}`)"
+      - "traefik.http.routers.web.rule=Host(`${WEB_HOST:-nazrah-mainx.algarni.online}`)"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.http.routers.web.tls.certresolver=letsencrypt"
       - "traefik.http.routers.web.middlewares=compress@file,security-headers@file,rate-limit@file"

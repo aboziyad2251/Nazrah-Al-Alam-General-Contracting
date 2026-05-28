@@ -54,6 +54,6 @@ EOF
 
 echo ""
 echo "Done. App running at:"
-echo "  https://nazrah-main.algarni.online"
+echo "  https://nazrah-mainx.algarni.online"
 echo "  https://nazrah-client.algarni.online"
 echo "  https://nazrah-app.algarni.online"
