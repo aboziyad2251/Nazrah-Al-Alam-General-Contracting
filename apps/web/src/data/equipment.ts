@@ -163,7 +163,7 @@ export const EQUIPMENT_CATEGORIES: EquipmentCategory[] = [
         image: 'https://placehold.co/600x400/0E1F3A/E8B339?text=XCMG+958',
         specs: [
           { labelEn: 'Operating Weight', labelAr: 'وزن التشغيل', value: '17,000 kg' },
-          { labelEn: 'Bucket Capacity', labelAر: 'سعة الدلو', value: '3.0 m³' },
+          { labelEn: 'Bucket Capacity', labelAr: 'سعة الدلو', value: '3.0 m³' },
           { labelEn: 'Engine Power', labelAr: 'قوة المحرك', value: '147 kW' },
         ],
       },
