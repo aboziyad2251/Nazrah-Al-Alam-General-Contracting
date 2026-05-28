@@ -10,6 +10,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ locale }: HeroSectionProps) {
   const t = useTranslations('home.hero');
+  const tStats = useTranslations('home.stats');
 
   return (
     <section
@@ -132,7 +133,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
             >
               <p className="font-poppins text-4xl font-extrabold text-gold">{value}</p>
               <p className="mt-1.5 font-poppins text-sm text-cloud/70">
-                {useTranslations('home.stats')(labelKey as never)}
+                {tStats(labelKey as never)}
               </p>
             </div>
           ))}
