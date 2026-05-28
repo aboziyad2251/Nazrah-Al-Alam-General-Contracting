@@ -63,7 +63,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=nazrahalalam_proxy"
-      - "traefik.http.routers.web.rule=Host(`${WEB_HOST:-nazrah-mainx.algarni.online}`)"
+      - "traefik.http.routers.web.rule=Host(`nazrah-mainx.algarni.online`)"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.http.routers.web.tls.certresolver=letsencrypt"
       - "traefik.http.routers.web.middlewares=compress@file,security-headers@file,rate-limit@file"
